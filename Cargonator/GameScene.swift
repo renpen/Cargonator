@@ -14,6 +14,6 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     override func sceneDidLoad() {
-        
+        var packageArea = self.childNode(withName: "packageArea")
     }
 }
