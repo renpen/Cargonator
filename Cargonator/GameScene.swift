@@ -14,6 +14,7 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     override func sceneDidLoad() {
+      
         
     }
 }
