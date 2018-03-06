@@ -21,7 +21,6 @@ class GameScene: SKScene {
                     endAngle: CGFloat.pi * 2,
                     clockwise: true)
         let ball = SKShapeNode(path: path)
-        ball.lineWidth = 1
         ball.fillColor = .blue
         ball.strokeColor = .white
         ball.glowWidth = 0.5
