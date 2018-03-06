@@ -14,7 +14,20 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     override func sceneDidLoad() {
-      
+        let path = CGMutablePath()
+        path.addArc(center: CGPoint.zero,
+                    radius: 15,
+                    startAngle: 0,
+                    endAngle: CGFloat.pi * 2,
+                    clockwise: true)
+        let ball = SKShapeNode(path: path)
+        ball.lineWidth = 1
+        ball.fillColor = .blue
+        ball.strokeColor = .white
+        ball.glowWidth = 0.5
+        ball.zPosition = 0.1
+        var packageArea = self.childNode(withName: "PackageArea")
+        packageArea?.addChild(ball)
         
     }
 }
