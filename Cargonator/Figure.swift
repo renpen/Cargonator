@@ -13,4 +13,11 @@ enum Figure {
     case triangle
     case circle
     case trapeze
+    static func randomFigure() -> Figure
+    {
+        var figures = [Figure.circle,Figure.square, Figure.trapeze, Figure.triangle]
+        index = arc4random_uniform(UIInt32(figures.count))
+        return figures[index]
+    }
 }
+#
