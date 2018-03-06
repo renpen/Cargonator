@@ -34,12 +34,16 @@ class GameScene: SKScene {
         
         //triangle
         var points = [CGPoint(x:0.0,y:0.0),
-                      CGPoint(x:100.0,y:0.0),
-                      CGPoint(x:100.0,y:100.0)
+                      CGPoint(x:5.0,y:5.0),
+                      CGPoint(x:10.0,y:0.0),
+                      CGPoint(x:0.0,y:0.0)
                       ]
         var triangle = SKShapeNode(points: &points, count: points.count)
-        triangle.lineWidth = 10.0
+        triangle.lineWidth = 0.1
         triangle.strokeColor = UIColor.green
+        triangle.fillColor = UIColor.green
+        triangle.zPosition = 0.1
         packageArea?.addChild(triangle)
+        triangle.position = CGPoint(x:10, y:-15)
     }
 }
