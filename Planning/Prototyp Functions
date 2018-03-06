@@ -1,0 +1,32 @@
+Prototyp Functions:
+
+- Header, Footer, Hintergrund 
+- Grundsätzliche Spielelemente erzeugen
+  - LKW´s 
+    - LKW können rausgeschoben werden
+    - LKW´s werden wieder gespawnt nach rausschieben
+  - Pakete
+    - Pakete kommen rein ins Feld mit Physics#
+  - ​
+- Pakete verschwinden über LKW.
+  - Nur die passenden Pakete verschwinden über einem LKW, ansonsten wird Spiel beendet. 
+
+
+
+Arbeitspakete:
+
+- Header, Footer, Hintergrund in App bauen
+  - Header Spiel starten enthalten.
+  - Footer Platzhalter
+- Pakete kommen ins Spielfeld
+  - Physics
+  - Spielfeld für die Pakete definieren
+  - Rohr
+- Verhalten der Pakete im Spielfeld
+  - Bewegen sich
+  - stoßen sich gegenseitig ab
+- Rausschieben von LKW´s
+  - Respawn von LKW´s — mit Animation
+- Pakete verschieben können 
+  - Pakete verschwinden über dem richtigen LKW
+- Zufallsgenerator für Formen
