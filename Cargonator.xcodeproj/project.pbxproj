@@ -16,6 +16,7 @@
 		8311BA3A20401E7A00E34FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3920401E7A00E34FDE /* Assets.xcassets */; };
 		8311BA3D20401E7A00E34FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */; };
 		8311BA4820401E7A00E34FDE /* CargonatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA4720401E7A00E34FDE /* CargonatorTests.swift */; };
+		A726F06B204EF4C100ACEF76 /* RadomFigureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726F06A204EF4C100ACEF76 /* RadomFigureGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		8311BA4320401E7A00E34FDE /* CargonatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CargonatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8311BA4720401E7A00E34FDE /* CargonatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CargonatorTests.swift; sourceTree = "<group>"; };
 		8311BA4920401E7A00E34FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A726F06A204EF4C100ACEF76 /* RadomFigureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadomFigureGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				8311BA3920401E7A00E34FDE /* Assets.xcassets */,
 				8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */,
 				8311BA3E20401E7A00E34FDE /* Info.plist */,
+				A726F06A204EF4C100ACEF76 /* RadomFigureGenerator.swift */,
 			);
 			path = Cargonator;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8311BA3320401E7A00E34FDE /* GameScene.swift in Sources */,
+				A726F06B204EF4C100ACEF76 /* RadomFigureGenerator.swift in Sources */,
 				8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */,
 				8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */,
 			);
