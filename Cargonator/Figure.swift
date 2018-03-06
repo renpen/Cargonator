@@ -16,8 +16,8 @@ enum Figure {
     static func randomFigure() -> Figure
     {
         var figures = [Figure.circle,Figure.square, Figure.trapeze, Figure.triangle]
-        index = arc4random_uniform(UIInt32(figures.count))
+        let index = Int(arc4random_uniform(UInt32(figures.count)))
         return figures[index]
     }
 }
-#
+
