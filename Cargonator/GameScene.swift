@@ -39,11 +39,28 @@ class GameScene: SKScene {
                       CGPoint(x:0.0,y:0.0)
                       ]
         var triangle = SKShapeNode(points: &points, count: points.count)
-        triangle.lineWidth = 0.1
+        triangle.lineWidth = 1
         triangle.strokeColor = UIColor.green
         triangle.fillColor = UIColor.green
         triangle.zPosition = 0.1
+        triangle.setScale(2)
         packageArea?.addChild(triangle)
         triangle.position = CGPoint(x:10, y:-15)
+        
+        // trapeze
+        var pointsT = [CGPoint(x:0.0,y:0.0),
+                      CGPoint(x:2.5,y:2.5),
+                      CGPoint(x:7.5,y:2.5),
+                      CGPoint(x:10.0,y:0.0),
+                      CGPoint(x:0.0,y:0.0)
+        ]
+        var trapeze = SKShapeNode(points: &pointsT, count: points.count)
+        trapeze.lineWidth = 1
+        trapeze.strokeColor = UIColor.blue
+        trapeze.fillColor = UIColor.blue
+        trapeze.zPosition = 0.1
+        packageArea?.addChild(trapeze)
+        trapeze.setScale(2)
+        trapeze.position = CGPoint(x:-20, y:-15)
     }
 }
