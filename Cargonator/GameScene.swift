@@ -17,6 +17,7 @@ class GameScene: SKScene {
     var trucks = [Truck]()
     let packageBitMask: UInt32 = 0x1 << 0
     
+    
     override func sceneDidLoad() {
        initPlayArea()
         initTrucks()
@@ -32,6 +33,16 @@ class GameScene: SKScene {
         let truckRightBottom = self.childNode(withName: "TruckRightBottom") as! Truck
         let truckLeftTop = self.childNode(withName: "TruckLeftTop") as! Truck
         let truckLeftBottom = self.childNode(withName: "TruckLeftBottom") as! Truck
+        
+        var texture = PackageFactory.sharedInstance.getSpecificPackage(fig: Figure.circle)
+        texture.setScale(300)
+        truckLeftTop.addChild(texture)
+        texture.position = CGPoint(x: 10000, y: 7000)
+        
+        var texture1 = PackageFactory.sharedInstance.getSpecificPackage(fig: Figure.triangle)
+        texture1.setScale(200)
+        truckRightTop.addChild(texture1)
+        texture1.position = CGPoint(x: -20000, y: 1000)
         
         truckRightTop.driveDirection = "right"
         trucks.append(truckRightTop)
@@ -120,7 +131,7 @@ class GameScene: SKScene {
         let packageAreaW = (packageArea?.frame.width)!
         // let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
         for _ in 1...10 {
-            let package = PackageFactory.sharedInstance.getNewPackage()
+            let package = PackageFactory.sharedInstance.getRandomPackage()
             package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
             package.xScale = scaleFactor
             package.physicsBody?.categoryBitMask = packageBitMask
