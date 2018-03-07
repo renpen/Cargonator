@@ -21,6 +21,12 @@ class Truck: SKSpriteNode {
     private var initialTouch: CGPoint = CGPoint.zero
     private var initialPosition: CGPoint = CGPoint.zero
     
+    var acceptance = ""
+    
+    func checkAcceptance () -> Bool {
+        return true
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let touch = touches.first as UITouch! {

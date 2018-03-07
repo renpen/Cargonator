@@ -20,7 +20,7 @@ class GameScene: SKScene {
         let packageArea = self.childNode(withName: "PackageArea")
         let packageAreaH = (packageArea?.frame.height)! / 1000
         let packageAreaW = (packageArea?.frame.width)! / 1000
-        var CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 10/packageAreaW, height: 10/packageAreaH))
+        let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 10/packageAreaW, height: 10/packageAreaH))
         CGsquare.zPosition = 0.3
         self.addChild(CGsquare)
         CGsquare.position = CGPoint(x: 10.0, y: 0.0)
@@ -46,7 +46,7 @@ class GameScene: SKScene {
                       CGPoint(x:100.0,y:0.0),
                       CGPoint(x:0.0,y:0.0)
                       ]
-        var triangle = SKShapeNode(points: &points, count: points.count)
+        let triangle = SKShapeNode(points: &points, count: points.count)
         triangle.lineWidth = 1
         triangle.strokeColor = UIColor.green
         triangle.fillColor = UIColor.green
@@ -80,6 +80,8 @@ class GameScene: SKScene {
         initTrucks()
     }
     
+    // MARK: - Trucks
+    
     func initTrucks () {
         
         self.trucks = [Truck]()
@@ -106,6 +108,8 @@ class GameScene: SKScene {
         }
     }
     
+    // MARK: - Drag and Drop
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
@@ -119,44 +123,51 @@ class GameScene: SKScene {
         }
     }
     
-    var packageAreaTop = CGFloat()
-    var packageAreaRight = CGFloat()
-    var packageAreaBottom = CGFloat()
-    var packageAreaLeft = CGFloat()
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, movableNode != nil {
             let touchLocation = touch.location(in: self)
-            if (touchLocation.y < packageAreaTop &&
-                touchLocation.y > packageAreaBottom &&
-                touchLocation.x > packageAreaLeft &&
-                touchLocation.x < packageAreaRight) {
-                
+            
+            if (self.childNode(withName: "PackageArea")?.contains(touchLocation))! {
+                print("in")
                 movableNode!.position = touch.location(in: self)
             } else {
-                movableNode!.position = touch.location(in: self)
+                for truck in self.trucks {
+                    if (truck.contains(touchLocation)) { // truck contains package
+                        movableNode!.position = touch.location(in: self)
+                    }
+                }
             }
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, movableNode != nil {
-            movableNode!.position = touch.location(in: self)
-            
-            // check if one of the 4 trucks contains the package
-            for truck in self.trucks {
-                if (truck.contains(movableNode!.position)) { // truck contains package
-                    print("package placed on ", truck.name)
-                    // further checks here
+            let touchLocation = touch.location(in: self)
+
+            if (self.childNode(withName: "PackageArea")?.contains(touchLocation))! {
+                movableNode!.position = touch.location(in: self)
+            } else {
+                for truck in self.trucks {
+                    if (truck.contains(touchLocation)) { // truck contains package
+                        print("package placed on ", truck.name!)
+                        movableNode!.position = touch.location(in: self)
+                        // destroy package here
+                        
+                        if (truck.checkAcceptance()) { // handover package information from movableNode
+                            movableNode?.removeFromParent()
+                            print("package ", movableNode!, " delivered")
+                        } else {
+                            // game lost
+                        }
+                    }
                 }
             }
-            
             movableNode = nil
-            
         }
     }
+    
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
+        if touches.first != nil {
             movableNode = nil
         }
     }
