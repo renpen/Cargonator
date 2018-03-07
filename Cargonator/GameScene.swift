@@ -18,34 +18,7 @@ class GameScene: SKScene {
     let packageBitMask: UInt32 = 0x1 << 0
     
     override func sceneDidLoad() {
-        let packageArea = self.childNode(withName: "PackageArea")
-        let scaleFactor = CGFloat(1.5)
-        let packageAreaH = (packageArea?.frame.height)!
-        let packageAreaW = (packageArea?.frame.width)!
-        // let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
-        for _ in 1...10 {
-            let package = PackageFactory.sharedInstance.getNewPackage()
-            package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
-            package.xScale = scaleFactor
-            package.physicsBody?.categoryBitMask = packageBitMask
-            packages.append(package)
-            var randomPositionX = Int(arc4random_uniform(300))
-            var randomPositionY = Int(arc4random_uniform(300))
-            let randomPositionX_Adding = Int(arc4random_uniform(1))
-            let randomPositionY_Adding = Int(arc4random_uniform(1))
-            if randomPositionX_Adding == 0
-            {
-                randomPositionX *= -1
-            }
-            if randomPositionY_Adding == 0
-            {
-                randomPositionY *= -1
-            }
-            let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
-            package.position = randomPos
-            self.addChild(package)
-        }
-        
+       initPlayArea()
         initTrucks()
     }
     
@@ -138,6 +111,35 @@ class GameScene: SKScene {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if touches.first != nil {
             movableNode = nil
+        }
+    }
+    func initPlayArea() {
+        let packageArea = self.childNode(withName: "PackageArea")
+        let scaleFactor = CGFloat(1.5)
+        let packageAreaH = (packageArea?.frame.height)!
+        let packageAreaW = (packageArea?.frame.width)!
+        // let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
+        for _ in 1...10 {
+            let package = PackageFactory.sharedInstance.getNewPackage()
+            package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
+            package.xScale = scaleFactor
+            package.physicsBody?.categoryBitMask = packageBitMask
+            packages.append(package)
+            var randomPositionX = Int(arc4random_uniform(300))
+            var randomPositionY = Int(arc4random_uniform(300))
+            let randomPositionX_Adding = Int(arc4random_uniform(1))
+            let randomPositionY_Adding = Int(arc4random_uniform(1))
+            if randomPositionX_Adding == 0
+            {
+                randomPositionX *= -1
+            }
+            if randomPositionY_Adding == 0
+            {
+                randomPositionY *= -1
+            }
+            let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
+            package.position = randomPos
+            self.addChild(package)
         }
     }
 }
