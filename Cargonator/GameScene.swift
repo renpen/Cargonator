@@ -23,12 +23,28 @@ class GameScene: SKScene {
         let packageAreaH = (packageArea?.frame.height)!
         let packageAreaW = (packageArea?.frame.width)!
         // let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
-        let package = PackageFactory.sharedInstance.getNewPackage()
-        package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
-        package.xScale = scaleFactor
-        package.physicsBody?.categoryBitMask = packageBitMask
-        packages.append(package)
-        self.addChild(package)
+        for _ in 1...10 {
+            let package = PackageFactory.sharedInstance.getNewPackage()
+            package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
+            package.xScale = scaleFactor
+            package.physicsBody?.categoryBitMask = packageBitMask
+            packages.append(package)
+            var randomPositionX = Int(arc4random_uniform(300))
+            var randomPositionY = Int(arc4random_uniform(300))
+            let randomPositionX_Adding = Int(arc4random_uniform(1))
+            let randomPositionY_Adding = Int(arc4random_uniform(1))
+            if randomPositionX_Adding == 0
+            {
+                randomPositionX *= -1
+            }
+            if randomPositionY_Adding == 0
+            {
+                randomPositionY *= -1
+            }
+            let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
+            package.position = randomPos
+            self.addChild(package)
+        }
         
         initTrucks()
     }
