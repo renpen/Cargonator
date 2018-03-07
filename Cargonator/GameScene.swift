@@ -56,7 +56,7 @@ class GameScene: SKScene {
                       CGPoint(x:100,y:0.0),
                       CGPoint(x:0.0,y:0.0)
         ]
-        var trapeze = SKShapeNode(points: &pointsT, count: points.count)
+        let trapeze = SKShapeNode(points: &pointsT, count: points.count)
         trapeze.lineWidth = 1
         trapeze.strokeColor = UIColor.blue
         trapeze.fillColor = UIColor.blue
@@ -64,5 +64,33 @@ class GameScene: SKScene {
         packageArea?.addChild(trapeze)
         trapeze.setScale(0.2)
         trapeze.position = CGPoint(x:-20, y:-15)
+        
+        initTrucks()
+    }
+    
+    func initTrucks () {
+        
+        var trucks = [Truck]()
+        
+        let truckRightTop = self.childNode(withName: "TruckRightTop") as! Truck
+        let truckRightBottom = self.childNode(withName: "TruckRightBottom") as! Truck
+        let truckLeftTop = self.childNode(withName: "TruckLeftTop") as! Truck
+        let truckLeftBottom = self.childNode(withName: "TruckLeftBottom") as! Truck
+        
+        truckRightTop.driveDirection = "right"
+        trucks.append(truckRightTop)
+        
+        truckRightBottom.driveDirection = "right"
+        trucks.append(truckRightBottom)
+        
+        truckLeftTop.driveDirection = "left"
+        trucks.append(truckLeftTop)
+        
+        truckLeftBottom.driveDirection = "left"
+        trucks.append(truckLeftBottom)
+        
+        for truck in trucks {
+            truck.isUserInteractionEnabled = true
+        }
     }
 }
