@@ -19,70 +19,16 @@ class GameScene: SKScene {
     
     override func sceneDidLoad() {
         let packageArea = self.childNode(withName: "PackageArea")
-        let packageAreaH = (packageArea?.frame.height)! / 1000
-        let packageAreaW = (packageArea?.frame.width)! / 1000
+        let scaleFactor = CGFloat(1.5)
+        let packageAreaH = (packageArea?.frame.height)!
+        let packageAreaW = (packageArea?.frame.width)!
         // let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
-        let CGsquare = SKSpriteNode(texture: SKTexture(imageNamed:"Paper_brown"), color: UIColor.white, size: CGSize(width: 70, height: 70))
-        CGsquare.zPosition = 0.3
-        
-        self.addChild(CGsquare)
-        CGsquare.position = CGPoint(x: 25.0, y: 0.0)
-        
-        packages.append(CGsquare)
-        
-        //circle
-        let CGcircle = SKShapeNode(circleOfRadius: 40)
-        CGcircle.lineWidth = 1
-        CGcircle.yScale = packageAreaW / packageAreaH
-        CGcircle.fillColor = SKColor.white
-        CGcircle.fillTexture = SKTexture(imageNamed:"Paper_white")
-        CGcircle.zPosition = 0.3
-        CGcircle.physicsBody?.categoryBitMask = packageBitMask
-        self.addChild(CGcircle)
-        CGcircle.position = CGPoint(x: -25.0,y:0.0)
-        
-        packages.append(CGcircle)
-        
-        //triangle
-        //points need to be that high to improve edges. combined with setScale
-        var points = [CGPoint(x:0.0,y:0.0),
-                      CGPoint(x:50.0,y:50.0),
-                      CGPoint(x:100.0,y:0.0),
-                      CGPoint(x:0.0,y:0.0)
-                      ]
-        let triangle = SKShapeNode(points: &points, count: points.count)
-        triangle.lineWidth = 1
-        triangle.fillColor = UIColor.white
-        triangle.fillTexture = SKTexture(imageNamed: "Paper_green")
-        triangle.zPosition = 0.3
-        triangle.setScale(0.7)
-        triangle.physicsBody?.categoryBitMask = packageBitMask
-        //packageArea?.addChild(triangle)
-        self.addChild(triangle)
-        triangle.position = CGPoint(x:25, y:-25)
-        
-        packages.append(triangle)
-        
-        // trapeze
-        //points need to be that high to improve edges. combined with setScale
-        var pointsT = [CGPoint(x:0.0,y:0.0),
-                      CGPoint(x:25,y:25),
-                      CGPoint(x:75,y:25),
-                      CGPoint(x:100,y:0.0),
-                      CGPoint(x:0.0,y:0.0)
-        ]
-        let trapeze = SKShapeNode(points: &pointsT, count: points.count)
-        trapeze.lineWidth = 1
-        trapeze.fillColor = UIColor.white
-        trapeze.fillTexture = SKTexture(imageNamed: "Paper_yellow")
-        trapeze.setScale(1)
-        trapeze.position = CGPoint(x:-25, y:-35)
-        trapeze.zPosition = 0.3
-        trapeze.physicsBody?.categoryBitMask = packageBitMask
-        self.addChild(trapeze)
-        
-        
-        packages.append(trapeze)
+        let package = PackageFactory.sharedInstance.getNewPackage()
+        package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
+        package.xScale = scaleFactor
+        package.physicsBody?.categoryBitMask = packageBitMask
+        packages.append(package)
+        self.addChild(package)
         
         initTrucks()
     }

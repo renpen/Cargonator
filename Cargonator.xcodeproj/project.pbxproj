@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271420A20506D40000FA8DA /* PackageFactory.swift */; };
 		8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA2C20401E7A00E34FDE /* AppDelegate.swift */; };
 		8311BA2F20401E7A00E34FDE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA2E20401E7A00E34FDE /* GameScene.sks */; };
 		8311BA3120401E7A00E34FDE /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3020401E7A00E34FDE /* Actions.sks */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1271420A20506D40000FA8DA /* PackageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageFactory.swift; sourceTree = "<group>"; };
 		8311BA2920401E7A00E34FDE /* Cargonator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cargonator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8311BA2C20401E7A00E34FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8311BA2E20401E7A00E34FDE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				8311BA3E20401E7A00E34FDE /* Info.plist */,
 				A726F06C204EF55A00ACEF76 /* Figure.swift */,
 				83F66592204FD28A00B90BAF /* Truck.swift */,
+				1271420A20506D40000FA8DA /* PackageFactory.swift */,
 			);
 			path = Cargonator;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8311BA3320401E7A00E34FDE /* GameScene.swift in Sources */,
+				1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */,
 				8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
 				A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */,
