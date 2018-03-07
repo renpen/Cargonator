@@ -12,15 +12,20 @@ import GameplayKit
 class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
+    var movableNode : SKNode?
+    var packages = [SKNode]()
+    var trucks = [Truck]()
+    
     override func sceneDidLoad() {
         let packageArea = self.childNode(withName: "PackageArea")
         let packageAreaH = (packageArea?.frame.height)! / 1000
         let packageAreaW = (packageArea?.frame.width)! / 1000
         var CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 10/packageAreaW, height: 10/packageAreaH))
-        CGsquare.zPosition = 0.1
-        packageArea?.addChild(CGsquare)
+        CGsquare.zPosition = 0.3
+        self.addChild(CGsquare)
         CGsquare.position = CGPoint(x: 10.0, y: 0.0)
         
+        packages.append(CGsquare)
         
         //circle
         let CGcircle = SKShapeNode(circleOfRadius: 5)
@@ -28,9 +33,11 @@ class GameScene: SKScene {
         CGcircle.strokeColor = UIColor.red
         CGcircle.yScale = packageAreaW / packageAreaH
         CGcircle.fillColor = SKColor.red
-        CGcircle.zPosition = 0.1
-        packageArea?.addChild(CGcircle)
+        CGcircle.zPosition = 0.3
+        self.addChild(CGcircle)
         CGcircle.position = CGPoint(x: -10.0,y:0.0)
+        
+        packages.append(CGcircle)
         
         //triangle
         //points need to be that high to improve edges. combined with setScale
@@ -43,10 +50,13 @@ class GameScene: SKScene {
         triangle.lineWidth = 1
         triangle.strokeColor = UIColor.green
         triangle.fillColor = UIColor.green
-        triangle.zPosition = 0.1
+        triangle.zPosition = 0.3
         triangle.setScale(0.2)
-        packageArea?.addChild(triangle)
+        //packageArea?.addChild(triangle)
+        self.addChild(triangle)
         triangle.position = CGPoint(x:10, y:-15)
+        
+        packages.append(triangle)
         
         // trapeze
         //points need to be that high to improve edges. combined with setScale
@@ -60,17 +70,19 @@ class GameScene: SKScene {
         trapeze.lineWidth = 1
         trapeze.strokeColor = UIColor.blue
         trapeze.fillColor = UIColor.blue
-        trapeze.zPosition = 0.1
-        packageArea?.addChild(trapeze)
+        trapeze.zPosition = 0.3
+        self.addChild(trapeze)
         trapeze.setScale(0.2)
         trapeze.position = CGPoint(x:-20, y:-15)
+        
+        packages.append(trapeze)
         
         initTrucks()
     }
     
     func initTrucks () {
         
-        var trucks = [Truck]()
+        self.trucks = [Truck]()
         
         let truckRightTop = self.childNode(withName: "TruckRightTop") as! Truck
         let truckRightBottom = self.childNode(withName: "TruckRightBottom") as! Truck
@@ -91,6 +103,61 @@ class GameScene: SKScene {
         
         for truck in trucks {
             truck.isUserInteractionEnabled = true
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            print(location)
+            for package in packages {
+                if package.contains(location) {
+                    movableNode = package
+                    movableNode!.position = location
+                }
+            }
+        }
+    }
+    
+    var packageAreaTop = CGFloat()
+    var packageAreaRight = CGFloat()
+    var packageAreaBottom = CGFloat()
+    var packageAreaLeft = CGFloat()
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, movableNode != nil {
+            let touchLocation = touch.location(in: self)
+            if (touchLocation.y < packageAreaTop &&
+                touchLocation.y > packageAreaBottom &&
+                touchLocation.x > packageAreaLeft &&
+                touchLocation.x < packageAreaRight) {
+                
+                movableNode!.position = touch.location(in: self)
+            } else {
+                movableNode!.position = touch.location(in: self)
+            }
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, movableNode != nil {
+            movableNode!.position = touch.location(in: self)
+            
+            // check if one of the 4 trucks contains the package
+            for truck in self.trucks {
+                if (truck.contains(movableNode!.position)) { // truck contains package
+                    print("package placed on ", truck.name)
+                    // further checks here
+                }
+            }
+            
+            movableNode = nil
+            
+        }
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            movableNode = nil
         }
     }
 }
