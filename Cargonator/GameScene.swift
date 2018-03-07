@@ -15,13 +15,16 @@ class GameScene: SKScene {
     var movableNode : SKNode?
     var packages = [SKNode]()
     var trucks = [Truck]()
+    let packageBitMask: UInt32 = 0x1 << 0
     
     override func sceneDidLoad() {
         let packageArea = self.childNode(withName: "PackageArea")
         let packageAreaH = (packageArea?.frame.height)! / 1000
         let packageAreaW = (packageArea?.frame.width)! / 1000
-        let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
+        // let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
+        let CGsquare = SKSpriteNode(texture: SKTexture(imageNamed:"Paper_brown"), color: UIColor.white, size: CGSize(width: 70, height: 70))
         CGsquare.zPosition = 0.3
+        
         self.addChild(CGsquare)
         CGsquare.position = CGPoint(x: 25.0, y: 0.0)
         
@@ -30,10 +33,11 @@ class GameScene: SKScene {
         //circle
         let CGcircle = SKShapeNode(circleOfRadius: 40)
         CGcircle.lineWidth = 1
-        CGcircle.strokeColor = UIColor.red
         CGcircle.yScale = packageAreaW / packageAreaH
-        CGcircle.fillColor = SKColor.red
+        CGcircle.fillColor = SKColor.white
+        CGcircle.fillTexture = SKTexture(imageNamed:"Paper_white")
         CGcircle.zPosition = 0.3
+        CGcircle.physicsBody?.categoryBitMask = packageBitMask
         self.addChild(CGcircle)
         CGcircle.position = CGPoint(x: -25.0,y:0.0)
         
@@ -48,10 +52,11 @@ class GameScene: SKScene {
                       ]
         let triangle = SKShapeNode(points: &points, count: points.count)
         triangle.lineWidth = 1
-        triangle.strokeColor = UIColor.green
-        triangle.fillColor = UIColor.green
+        triangle.fillColor = UIColor.white
+        triangle.fillTexture = SKTexture(imageNamed: "Paper_green")
         triangle.zPosition = 0.3
         triangle.setScale(0.7)
+        triangle.physicsBody?.categoryBitMask = packageBitMask
         //packageArea?.addChild(triangle)
         self.addChild(triangle)
         triangle.position = CGPoint(x:25, y:-25)
@@ -68,12 +73,14 @@ class GameScene: SKScene {
         ]
         let trapeze = SKShapeNode(points: &pointsT, count: points.count)
         trapeze.lineWidth = 1
-        trapeze.strokeColor = UIColor.blue
-        trapeze.fillColor = UIColor.blue
-        trapeze.zPosition = 0.3
-        self.addChild(trapeze)
+        trapeze.fillColor = UIColor.white
+        trapeze.fillTexture = SKTexture(imageNamed: "Paper_yellow")
         trapeze.setScale(1)
         trapeze.position = CGPoint(x:-25, y:-35)
+        trapeze.zPosition = 0.3
+        trapeze.physicsBody?.categoryBitMask = packageBitMask
+        self.addChild(trapeze)
+        
         
         packages.append(trapeze)
         

@@ -108,6 +108,8 @@ class Truck: SKSpriteNode {
         self.run(moveInAction)
         
         self.isUserInteractionEnabled = true
+        
+        // update truck acceptance here
     }
     
 }
