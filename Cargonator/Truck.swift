@@ -76,10 +76,6 @@ class Truck: SKSpriteNode {
         moveOut()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(self.driveOutSpeed)) {
-            var node = SKSpriteNode(color: UIColor.green, size: CGSize(width: 150, height: 150))
-            node.position = CGPoint(x: 0.0, y: 0.0)
-            node.zPosition = 0.4
-            self.addChild(node)
             self.moveBack()
         }
         

@@ -20,22 +20,22 @@ class GameScene: SKScene {
         let packageArea = self.childNode(withName: "PackageArea")
         let packageAreaH = (packageArea?.frame.height)! / 1000
         let packageAreaW = (packageArea?.frame.width)! / 1000
-        let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 10/packageAreaW, height: 10/packageAreaH))
+        let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
         CGsquare.zPosition = 0.3
         self.addChild(CGsquare)
-        CGsquare.position = CGPoint(x: 10.0, y: 0.0)
+        CGsquare.position = CGPoint(x: 25.0, y: 0.0)
         
         packages.append(CGsquare)
         
         //circle
-        let CGcircle = SKShapeNode(circleOfRadius: 5)
+        let CGcircle = SKShapeNode(circleOfRadius: 40)
         CGcircle.lineWidth = 1
         CGcircle.strokeColor = UIColor.red
         CGcircle.yScale = packageAreaW / packageAreaH
         CGcircle.fillColor = SKColor.red
         CGcircle.zPosition = 0.3
         self.addChild(CGcircle)
-        CGcircle.position = CGPoint(x: -10.0,y:0.0)
+        CGcircle.position = CGPoint(x: -25.0,y:0.0)
         
         packages.append(CGcircle)
         
@@ -51,10 +51,10 @@ class GameScene: SKScene {
         triangle.strokeColor = UIColor.green
         triangle.fillColor = UIColor.green
         triangle.zPosition = 0.3
-        triangle.setScale(0.2)
+        triangle.setScale(0.7)
         //packageArea?.addChild(triangle)
         self.addChild(triangle)
-        triangle.position = CGPoint(x:10, y:-15)
+        triangle.position = CGPoint(x:25, y:-25)
         
         packages.append(triangle)
         
@@ -72,8 +72,8 @@ class GameScene: SKScene {
         trapeze.fillColor = UIColor.blue
         trapeze.zPosition = 0.3
         self.addChild(trapeze)
-        trapeze.setScale(0.2)
-        trapeze.position = CGPoint(x:-20, y:-15)
+        trapeze.setScale(1)
+        trapeze.position = CGPoint(x:-25, y:-35)
         
         packages.append(trapeze)
         
