@@ -19,7 +19,7 @@ class GameScene: SKScene {
     
     
     override func sceneDidLoad() {
-       initPlayArea()
+        initPlayArea(number: 10)
         initTrucks()
     }
     
@@ -34,7 +34,7 @@ class GameScene: SKScene {
         let truckLeftTop = self.childNode(withName: "TruckLeftTop") as! Truck
         let truckLeftBottom = self.childNode(withName: "TruckLeftBottom") as! Truck
         
-        var texture = PackageFactory.sharedInstance.getSpecificPackage(fig: Figure.circle)
+        /*var texture = PackageFactory.sharedInstance.getSpecificPackage(fig: Figure.circle)
         texture.setScale(300)
         truckLeftTop.addChild(texture)
         texture.position = CGPoint(x: 10000, y: 7000)
@@ -42,7 +42,7 @@ class GameScene: SKScene {
         var texture1 = PackageFactory.sharedInstance.getSpecificPackage(fig: Figure.triangle)
         texture1.setScale(200)
         truckRightTop.addChild(texture1)
-        texture1.position = CGPoint(x: -20000, y: 1000)
+        texture1.position = CGPoint(x: -20000, y: 1000)*/
         
         truckRightTop.driveDirection = "right"
         trucks.append(truckRightTop)
@@ -112,6 +112,7 @@ class GameScene: SKScene {
                         } else {
                             // game lost
                         }
+                        initPlayArea(number: 1)
                     }
                 }
             }
@@ -124,13 +125,13 @@ class GameScene: SKScene {
             movableNode = nil
         }
     }
-    func initPlayArea() {
+    func initPlayArea(number: Int) {
         let packageArea = self.childNode(withName: "PackageArea")
         let scaleFactor = CGFloat(1.5)
         let packageAreaH = (packageArea?.frame.height)!
         let packageAreaW = (packageArea?.frame.width)!
         // let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
-        for _ in 1...10 {
+        for _ in 1...number {
             let package = PackageFactory.sharedInstance.getRandomPackage()
             package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
             package.xScale = scaleFactor
@@ -138,8 +139,8 @@ class GameScene: SKScene {
             packages.append(package)
             var randomPositionX = Int(arc4random_uniform(300))
             var randomPositionY = Int(arc4random_uniform(300))
-            let randomPositionX_Adding = Int(arc4random_uniform(1))
-            let randomPositionY_Adding = Int(arc4random_uniform(1))
+            let randomPositionX_Adding = Int(arc4random_uniform(2))
+            let randomPositionY_Adding = Int(arc4random_uniform(2))
             if randomPositionX_Adding == 0
             {
                 randomPositionX *= -1
@@ -148,6 +149,7 @@ class GameScene: SKScene {
             {
                 randomPositionY *= -1
             }
+            print("Position: ", randomPositionX)
             let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
             package.position = randomPos
             self.addChild(package)
