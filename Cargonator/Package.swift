@@ -13,6 +13,7 @@ class Package: SKShapeNode {
     
     var type = Figure.randomFigure()
     
+    /*
     // left, right, top and bottom represent the boarders of the package related to the position
     var left = CGFloat()
     var right = CGFloat()
@@ -47,5 +48,5 @@ class Package: SKShapeNode {
             top = (input[1] as! CGPoint).y
             break
         }
-    }
+    }*/
 }

@@ -29,6 +29,7 @@ class GameScene: SKScene {
     }
     
     func initArena () {
+        
         let footer = self.childNode(withName: "Footer") as! SKSpriteNode
         footer.physicsBody = SKPhysicsBody(rectangleOf: footer.size)
         footer.physicsBody?.categoryBitMask = worldBitMask
@@ -136,27 +137,24 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //if let touch = touches.first, movableNode != nil { ----> belongs too end of touchesEnded!
-        
-        for truck in self.trucks {
-            if (truck.contains((self.movableNode?.position)!)) { // truck contains package
+        for truck in self.trucks { // for every truck ...
+            if (truck.contains((self.movableNode?.position)!)) { // check if touched package is "above" the truck
                 print("package placed on ", truck.name!)
-                // movableNode!.position = touchLocation
                 
                 if (truck.checkAcceptance()) { // handover package information from movableNode
+                    // package is loaded into truck
                     movableNode?.removeFromParent()
                     print("package ", movableNode!, " delivered")
                 } else {
                     // game lost
                 }
+                // for prototype
                 initPlayArea(number: 1)
             }
         }
         // not released on truck
         self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask | truckBitMask
         movableNode = nil
-        
-        //}
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -164,12 +162,12 @@ class GameScene: SKScene {
             movableNode = nil
         }
     }
+    
     func initPlayArea(number: Int) {
         let packageArea = self.childNode(withName: "PackageArea")
         let scaleFactor = CGFloat(1.5)
         let packageAreaH = (packageArea?.frame.height)!
         let packageAreaW = (packageArea?.frame.width)!
-        // let CGsquare = SKSpriteNode(color: UIColor.red, size: CGSize(width: 70, height: 70))
         for _ in 1...number {
             let package = PackageFactory.sharedInstance.getRandomPackage()
             package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
@@ -198,7 +196,6 @@ class GameScene: SKScene {
             let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
             package.position = randomPos
             self.addChild(package)
-            package.physicsBody?.applyForce(CGVector(dx: 10.0, dy: 10.0))
         }
     }
 }
