@@ -16,6 +16,8 @@ class GameScene: SKScene {
     var packages = [SKNode]()
     var trucks = [Truck]()
     let packageBitMask: UInt32 = 0x1 << 0
+    var touchPosDifferenceX: CGFloat?
+    var touchPosDifferenceY: CGFloat?
     
     
     override func sceneDidLoad() {
@@ -69,8 +71,12 @@ class GameScene: SKScene {
             print(location)
             for package in packages {
                 if package.contains(location) {
-                    movableNode = package
-                    movableNode!.position = location
+                    self.movableNode = package
+                    if let node = self.movableNode {
+                        self.touchPosDifferenceX = location.x - node.position.x
+                        self.touchPosDifferenceY = location.y - node.position.y
+                    }
+                    //movableNode!.position = location
                 }
             }
         }
@@ -82,11 +88,11 @@ class GameScene: SKScene {
             
             if (self.childNode(withName: "PackageArea")?.contains(touchLocation))! {
                 print("in")
-                movableNode!.position = touch.location(in: self)
+                movableNode!.position = CGPoint(x: (touchLocation.x - touchPosDifferenceX!), y: (touchLocation.y - touchPosDifferenceY!))
             } else {
                 for truck in self.trucks {
                     if (truck.contains(touchLocation)) { // truck contains package
-                        movableNode!.position = touch.location(in: self)
+                        movableNode!.position = CGPoint(x: (touchLocation.x - touchPosDifferenceX!), y: (touchLocation.y - touchPosDifferenceY!))
                     }
                 }
             }
@@ -96,14 +102,13 @@ class GameScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, movableNode != nil {
             let touchLocation = touch.location(in: self)
-
             if (self.childNode(withName: "PackageArea")?.contains(touchLocation))! {
-                movableNode!.position = touch.location(in: self)
+                //movableNode!.position = touchLocation
             } else {
                 for truck in self.trucks {
-                    if (truck.contains(touchLocation)) { // truck contains package
+                    if (truck.contains((self.movableNode?.position)!)) { // truck contains package
                         print("package placed on ", truck.name!)
-                        movableNode!.position = touch.location(in: self)
+                        // movableNode!.position = touchLocation
                         // destroy package here
                         
                         if (truck.checkAcceptance()) { // handover package information from movableNode
