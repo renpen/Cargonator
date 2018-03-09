@@ -136,26 +136,27 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first, movableNode != nil {
-            let touchLocation = touch.location(in: self)
-            for truck in self.trucks {
-                if (truck.contains((self.movableNode?.position)!)) { // truck contains package
-                    print("package placed on ", truck.name!)
-                    // movableNode!.position = touchLocation
-                    
-                    if (truck.checkAcceptance()) { // handover package information from movableNode
-                        movableNode?.removeFromParent()
-                        print("package ", movableNode!, " delivered")
-                    } else {
-                        // game lost
-                    }
-                    initPlayArea(number: 1)
+        //if let touch = touches.first, movableNode != nil { ----> belongs too end of touchesEnded!
+        
+        for truck in self.trucks {
+            if (truck.contains((self.movableNode?.position)!)) { // truck contains package
+                print("package placed on ", truck.name!)
+                // movableNode!.position = touchLocation
+                
+                if (truck.checkAcceptance()) { // handover package information from movableNode
+                    movableNode?.removeFromParent()
+                    print("package ", movableNode!, " delivered")
+                } else {
+                    // game lost
                 }
+                initPlayArea(number: 1)
             }
-            // not release on truck
-            self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask | truckBitMask
-            movableNode = nil
         }
+        // not released on truck
+        self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask | truckBitMask
+        movableNode = nil
+        
+        //}
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

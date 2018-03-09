@@ -39,23 +39,16 @@ class PackageFactory {
         return circle
     }
     private func generateSquare() -> Package {
-        var sideLength = 50
-        var points = [CGPoint(x:0.0,y:0.0),
-                      CGPoint(x:50.0,y:0.0),
-                      CGPoint(x:50.0,y:50.0),
-                      CGPoint(x:0.0,y:50.0),
-                      CGPoint(x:0.0,y:0.0)
-        ]
-        
-        var path = CGMutablePath()
+        let path = CGMutablePath()
         
         path.move(to: CGPoint(x: 0.0, y: 0.0))
         path.addLine(to: CGPoint(x: 50.0, y: 0.0))
         path.addLine(to: CGPoint(x: 50.0, y: 50.0))
         path.addLine(to: CGPoint(x: 0.0, y: 50.0))
         path.addLine(to: CGPoint(x: 0.0, y: 0.0))
-
-        let square = Package(points: &points, count: points.count)
+        
+        let square = Package(path: path)
+        
         square.lineWidth = 1
         square.fillColor = UIColor.white
         square.fillTexture = SKTexture(imageNamed: "Paper_brown")
@@ -69,20 +62,13 @@ class PackageFactory {
     }
     private func generateTriangle() -> Package {
         
-        var path = CGMutablePath()
+        let path = CGMutablePath()
         path.move(to: CGPoint(x:0.0,y:0.0))
         path.addLine(to: CGPoint(x: 50.0, y: 50.0))
         path.addLine(to: CGPoint(x: 100.0, y: 0.0))
         path.addLine(to: CGPoint(x: 0.0, y: 0.0))
 
-        /*var points = [CGPoint(x:0.0,y:0.0),
-                      CGPoint(x:50.0,y:50.0),
-                      CGPoint(x:100.0,y:0.0),
-                      CGPoint(x:0.0,y:0.0)
-        ]*/
-        
         let triangle = Package(path: path)
-        //let triangle = Package(points: &points, count: points.count)
         triangle.lineWidth = 1
         triangle.fillColor = UIColor.white
         triangle.fillTexture = SKTexture(imageNamed: "Paper_green")
@@ -93,21 +79,14 @@ class PackageFactory {
 
     }
     private func generateTrapaze() -> Package {
-        var pointsT = [CGPoint(x:0.0,y:0.0),
-                       CGPoint(x:25,y:50),
-                       CGPoint(x:75,y:50),
-                       CGPoint(x:100,y:0.0),
-                       CGPoint(x:0.0,y:0.0)
-        ]
-        
-        var path = CGMutablePath()
+
+        let path = CGMutablePath()
         path.move(to: CGPoint(x: 0.0, y: 0.0))
         path.addLine(to: CGPoint(x: 25.0, y: 50.0))
         path.addLine(to: CGPoint(x: 75.0, y: 50.0))
         path.addLine(to: CGPoint(x: 100.0, y: 0.0))
         path.addLine(to: CGPoint(x: 5.0, y: 0.0))
         
-        //let trapeze = Package(points: &pointsT, count: pointsT.count)
         let trapeze = Package(path: path)
         trapeze.lineWidth = 1
         trapeze.fillColor = UIColor.white
