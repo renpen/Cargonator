@@ -15,14 +15,55 @@ class GameScene: SKScene {
     var movableNode : SKNode?
     var packages = [SKNode]()
     var trucks = [Truck]()
-    let packageBitMask: UInt32 = 0x1 << 0
+    let packageBitMask: UInt32 = 1 << 0
+    let truckBitMask: UInt32 = 1 << 1
+    let worldBitMask: UInt32 = 1 << 2
     var touchPosDifferenceX: CGFloat?
     var touchPosDifferenceY: CGFloat?
     
     
     override func sceneDidLoad() {
         initPlayArea(number: 10)
+        initArena()
         initTrucks()
+    }
+    
+    func initArena () {
+        let footer = self.childNode(withName: "Footer") as! SKSpriteNode
+        footer.physicsBody = SKPhysicsBody(rectangleOf: footer.size)
+        footer.physicsBody?.categoryBitMask = worldBitMask
+        footer.physicsBody?.affectedByGravity = false
+        footer.physicsBody?.isDynamic = false
+        
+        let header = self.childNode(withName: "Header") as! SKSpriteNode
+        header.physicsBody = SKPhysicsBody(rectangleOf: header.size)
+        header.physicsBody?.categoryBitMask = worldBitMask
+        header.physicsBody?.affectedByGravity = false
+        header.physicsBody?.isDynamic = false
+        
+        let cargoZoneTop = self.childNode(withName: "CargoZoneTop") as! SKSpriteNode
+        cargoZoneTop.physicsBody = SKPhysicsBody(rectangleOf: cargoZoneTop.size)
+        cargoZoneTop.physicsBody?.categoryBitMask = worldBitMask
+        cargoZoneTop.physicsBody?.affectedByGravity = false
+        cargoZoneTop.physicsBody?.isDynamic = false
+        
+        let cargoZoneBottom = self.childNode(withName: "CargoZoneBottom") as! SKSpriteNode
+        cargoZoneBottom.physicsBody = SKPhysicsBody(rectangleOf: cargoZoneBottom.size)
+        cargoZoneBottom.physicsBody?.categoryBitMask = worldBitMask
+        cargoZoneBottom.physicsBody?.affectedByGravity = false
+        cargoZoneBottom.physicsBody?.isDynamic = false
+        
+        let rightBorder = self.childNode(withName: "RightBorder") as! SKSpriteNode
+        rightBorder.physicsBody = SKPhysicsBody(rectangleOf: rightBorder.size)
+        rightBorder.physicsBody?.categoryBitMask = worldBitMask
+        rightBorder.physicsBody?.affectedByGravity = false
+        rightBorder.physicsBody?.isDynamic = false
+        
+        let leftBorder = self.childNode(withName: "LeftBorder") as! SKSpriteNode
+        leftBorder.physicsBody = SKPhysicsBody(rectangleOf: leftBorder.size)
+        leftBorder.physicsBody?.categoryBitMask = worldBitMask
+        leftBorder.physicsBody?.affectedByGravity = false
+        leftBorder.physicsBody?.isDynamic = false
     }
     
     // MARK: - Trucks
@@ -60,6 +101,10 @@ class GameScene: SKScene {
         
         for truck in trucks {
             truck.isUserInteractionEnabled = true
+            truck.physicsBody = SKPhysicsBody(rectangleOf: truck.size)
+            truck.physicsBody?.categoryBitMask = truckBitMask
+            truck.physicsBody?.isDynamic = false
+            truck.physicsBody?.affectedByGravity = false
         }
     }
     
@@ -79,48 +124,36 @@ class GameScene: SKScene {
                     //movableNode!.position = location
                 }
             }
+            self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, movableNode != nil {
             let touchLocation = touch.location(in: self)
-            
-            if (self.childNode(withName: "PackageArea")?.contains(touchLocation))! {
-                print("in")
-                movableNode!.position = CGPoint(x: (touchLocation.x - touchPosDifferenceX!), y: (touchLocation.y - touchPosDifferenceY!))
-            } else {
-                for truck in self.trucks {
-                    if (truck.contains(touchLocation)) { // truck contains package
-                        movableNode!.position = CGPoint(x: (touchLocation.x - touchPosDifferenceX!), y: (touchLocation.y - touchPosDifferenceY!))
-                    }
-                }
-            }
+            movableNode!.position = CGPoint(x: (touchLocation.x - touchPosDifferenceX!), y: (touchLocation.y - touchPosDifferenceY!))
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, movableNode != nil {
             let touchLocation = touch.location(in: self)
-            if (self.childNode(withName: "PackageArea")?.contains(touchLocation))! {
-                //movableNode!.position = touchLocation
-            } else {
-                for truck in self.trucks {
-                    if (truck.contains((self.movableNode?.position)!)) { // truck contains package
-                        print("package placed on ", truck.name!)
-                        // movableNode!.position = touchLocation
-                        // destroy package here
-                        
-                        if (truck.checkAcceptance()) { // handover package information from movableNode
-                            movableNode?.removeFromParent()
-                            print("package ", movableNode!, " delivered")
-                        } else {
-                            // game lost
-                        }
-                        initPlayArea(number: 1)
+            for truck in self.trucks {
+                if (truck.contains((self.movableNode?.position)!)) { // truck contains package
+                    print("package placed on ", truck.name!)
+                    // movableNode!.position = touchLocation
+                    
+                    if (truck.checkAcceptance()) { // handover package information from movableNode
+                        movableNode?.removeFromParent()
+                        print("package ", movableNode!, " delivered")
+                    } else {
+                        // game lost
                     }
+                    initPlayArea(number: 1)
                 }
             }
+            // not release on truck
+            self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask | truckBitMask
             movableNode = nil
         }
     }
@@ -141,12 +174,12 @@ class GameScene: SKScene {
             package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
             package.xScale = scaleFactor
             package.physicsBody?.categoryBitMask = packageBitMask
-            package.physicsBody?.collisionBitMask = packageBitMask
+            package.physicsBody?.collisionBitMask = packageBitMask | truckBitMask | worldBitMask
             package.physicsBody?.isDynamic = true
             package.physicsBody?.affectedByGravity = false
-            package.physicsBody?.allowsRotation = true
             package.physicsBody?.restitution = 1
             package.physicsBody?.angularDamping = 0.6
+            package.physicsBody?.allowsRotation = false
             packages.append(package)
             var randomPositionX = Int(arc4random_uniform(300))
             var randomPositionY = Int(arc4random_uniform(300))
@@ -164,6 +197,7 @@ class GameScene: SKScene {
             let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
             package.position = randomPos
             self.addChild(package)
+            package.physicsBody?.applyForce(CGVector(dx: 10.0, dy: 10.0))
         }
     }
 }
