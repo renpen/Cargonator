@@ -2,7 +2,7 @@
 //  Package.swift
 //  Cargonator
 //
-//  Created by Bosshammer, Benedikt on 07.03.18.
+//  Created by Bosshammer, Benedikt on 09.03.18.
 //  Copyright © 2018 Cargonator Inc. All rights reserved.
 //
 
@@ -10,33 +10,42 @@ import UIKit
 import SpriteKit
 
 class Package: SKShapeNode {
-    var movableNode : SKNode?
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let location = touch.location(in: self)
-            if self.contains(location) {
-                movableNode = self
-                movableNode!.position = location
-            }
-        }
-    }
+    var type = Figure.randomFigure()
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first, movableNode != nil {
-            movableNode!.position = touch.location(in: self)
-        }
-    }
+    // left, right, top and bottom represent the boarders of the package related to the position
+    var left = CGFloat()
+    var right = CGFloat()
+    var top = CGFloat()
+    var bottom = CGFloat()
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first, movableNode != nil {
-            movableNode!.position = touch.location(in: self)
-            movableNode = nil
-        }
-    }
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            movableNode = nil
+    func calcBoarders(input: [Any]) {
+        switch type {
+        case .circle:
+            let radius = input[0] as! CGFloat
+            left = -radius
+            right = radius
+            top = radius
+            bottom = -radius
+            break
+        case .square:
+            left = 0
+            bottom = 0
+            right = (input[2] as! CGPoint).x
+            top = (input[2] as! CGPoint).y
+            break
+        case .triangle:
+            left = 0
+            bottom = 0
+            right = (input[2] as! CGPoint).x
+            top = (input[1] as! CGPoint).y
+            break
+        case .trapeze:
+            left = 0
+            bottom = 0
+            right = (input[3] as! CGPoint).x
+            top = (input[1] as! CGPoint).y
+            break
         }
     }
 }

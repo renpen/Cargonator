@@ -11,11 +11,11 @@ import SpriteKit
 
 class PackageFactory {
     static let sharedInstance = PackageFactory()
-    func getRandomPackage() -> SKShapeNode {
+    func getRandomPackage() -> Package {
         let figure = Figure.randomFigure()
         return getSpecificPackage(fig: figure)
     }
-    func getSpecificPackage(fig : Figure) -> SKShapeNode {
+    func getSpecificPackage(fig : Figure) -> Package {
         switch fig {
         case Figure.circle:
             return generateCircle()
@@ -27,59 +27,65 @@ class PackageFactory {
             return generateTrapaze()
         }
     }
-    private func generateCircle() -> SKShapeNode {
-        let circle = SKShapeNode(circleOfRadius: 40)
+    private func generateCircle() -> Package {
+        let circle = Package(circleOfRadius: 40)
         circle.lineWidth = 1
         circle.fillColor = SKColor.white
         circle.fillTexture = SKTexture(imageNamed:"Paper_white")
         circle.zPosition = 2
+        
         return circle
     }
-    private func generateSquare() -> SKShapeNode {
+    private func generateSquare() -> Package {
+        var sideLength = 50
         var points = [CGPoint(x:0.0,y:0.0),
                       CGPoint(x:50.0,y:0.0),
                       CGPoint(x:50.0,y:50.0),
                       CGPoint(x:0.0,y:50.0),
                       CGPoint(x:0.0,y:0.0)
         ]
-        let square = SKShapeNode(points: &points, count: points.count)
+        let square = Package(points: &points, count: points.count)
         square.lineWidth = 1
         square.fillColor = UIColor.white
         square.fillTexture = SKTexture(imageNamed: "Paper_brown")
         square.zPosition = 2
+
+        
         return square
         
 
     }
-    private func generateTriangle() -> SKShapeNode {
+    private func generateTriangle() -> Package {
         var points = [CGPoint(x:0.0,y:0.0),
                       CGPoint(x:50.0,y:50.0),
                       CGPoint(x:100.0,y:0.0),
                       CGPoint(x:0.0,y:0.0)
         ]
-        let triangle = SKShapeNode(points: &points, count: points.count)
+        let triangle = Package(points: &points, count: points.count)
         triangle.lineWidth = 1
         triangle.fillColor = UIColor.white
         triangle.fillTexture = SKTexture(imageNamed: "Paper_green")
         triangle.zPosition = 2
+        
+        // mid calculation
+        
         return triangle
 
     }
-    private func generateTrapaze() -> SKShapeNode {
+    private func generateTrapaze() -> Package {
         var pointsT = [CGPoint(x:0.0,y:0.0),
                        CGPoint(x:25,y:50),
                        CGPoint(x:75,y:50),
                        CGPoint(x:100,y:0.0),
                        CGPoint(x:0.0,y:0.0)
         ]
-        let trapeze = SKShapeNode(points: &pointsT, count: pointsT.count)
+        let trapeze = Package(points: &pointsT, count: pointsT.count)
         trapeze.lineWidth = 1
         trapeze.fillColor = UIColor.white
         trapeze.fillTexture = SKTexture(imageNamed: "Paper_yellow")
         trapeze.zPosition = 2
-        return trapeze
         
-
+        return trapeze
     }
 }
 
