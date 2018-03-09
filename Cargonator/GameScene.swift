@@ -141,6 +141,12 @@ class GameScene: SKScene {
             package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
             package.xScale = scaleFactor
             package.physicsBody?.categoryBitMask = packageBitMask
+            package.physicsBody?.collisionBitMask = packageBitMask
+            package.physicsBody?.isDynamic = true
+            package.physicsBody?.affectedByGravity = false
+            package.physicsBody?.allowsRotation = true
+            package.physicsBody?.restitution = 1
+            package.physicsBody?.angularDamping = 0.6
             packages.append(package)
             var randomPositionX = Int(arc4random_uniform(300))
             var randomPositionY = Int(arc4random_uniform(300))
