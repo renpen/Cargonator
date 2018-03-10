@@ -137,19 +137,21 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for truck in self.trucks { // for every truck ...
-            if (truck.contains((self.movableNode?.position)!)) { // check if touched package is "above" the truck
-                print("package placed on ", truck.name!)
-                
-                if (truck.checkAcceptance()) { // handover package information from movableNode
-                    // package is loaded into truck
-                    movableNode?.removeFromParent()
-                    print("package ", movableNode!, " delivered")
-                } else {
-                    // game lost
+        if let touch = touches.first, movableNode != nil {
+            for truck in self.trucks { // for every truck ...
+                if (truck.contains((self.movableNode?.position)!)) { // check if touched package is "above" the truck
+                    print("package placed on ", truck.name!)
+                    
+                    if (truck.checkAcceptance()) { // handover package information from movableNode
+                        // package is loaded into truck
+                        movableNode?.removeFromParent()
+                        print("package ", movableNode!, " delivered")
+                    } else {
+                        // game lost
+                    }
+                    // for prototype
+                    initPlayArea(number: 1)
                 }
-                // for prototype
-                initPlayArea(number: 1)
             }
         }
         // not released on truck
