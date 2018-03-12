@@ -23,7 +23,7 @@ class GameScene: SKScene {
     
     
     override func sceneDidLoad() {
-        initPlayArea(number: 10)
+        initPlayArea(number: 10, withForce: false)
         initArena()
         initTrucks()
     }
@@ -150,7 +150,7 @@ class GameScene: SKScene {
                         // game lost
                     }
                     // for prototype
-                    initPlayArea(number: 1)
+                    initPlayArea(number: 1, withForce: true)
                 }
             }
         }
@@ -165,7 +165,7 @@ class GameScene: SKScene {
         }
     }
     
-    func initPlayArea(number: Int) {
+    func initPlayArea(number: Int, withForce: Bool) {
         let packageArea = self.childNode(withName: "PackageArea")
         let scaleFactor = CGFloat(1.5)
         let packageAreaH = (packageArea?.frame.height)!
@@ -181,6 +181,8 @@ class GameScene: SKScene {
             package.physicsBody?.restitution = 1
             package.physicsBody?.angularDamping = 0.6
             package.physicsBody?.allowsRotation = false
+            package.physicsBody?.friction = 0.0
+            package.physicsBody?.mass = 0.1
             packages.append(package)
             var randomPositionX = Int(arc4random_uniform(300))
             var randomPositionY = Int(arc4random_uniform(300))
@@ -198,6 +200,10 @@ class GameScene: SKScene {
             let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
             package.position = randomPos
             self.addChild(package)
+            
+            if (withForce) {
+                package.physicsBody?.applyImpulse(CGVector(dx: 20.0, dy: 50.0))
+            }
         }
     }
 }
