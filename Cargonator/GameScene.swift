@@ -181,7 +181,7 @@ class GameScene: SKScene {
             package.physicsBody?.restitution = 1
             package.physicsBody?.angularDamping = 0.6
             package.physicsBody?.allowsRotation = false
-            package.physicsBody?.friction = 0.0
+            package.physicsBody?.friction = 0.05
             package.physicsBody?.mass = 0.1
             packages.append(package)
             var randomPositionX = Int(arc4random_uniform(300))

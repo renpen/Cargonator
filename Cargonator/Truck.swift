@@ -14,8 +14,8 @@ class Truck: SKSpriteNode {
     
     var driveDirection: String?
     
-    // variables for detecting slide
-    private let minimum_detect_distance: CGFloat = 100
+    // variables for detecting swipe
+    private let minimum_detect_distance: CGFloat = 5
     private var moveAmtX: CGFloat = 0
     private var moveAmtY: CGFloat = 0
     private var initialTouch: CGPoint = CGPoint.zero
@@ -27,14 +27,22 @@ class Truck: SKSpriteNode {
         return true
     }
     
+    // - MARK: Swipe Detection
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let touch = touches.first as UITouch! {
             
-            initialTouch = touch.location(in: self.scene!.view)
-            moveAmtY = 0
-            moveAmtX = 0
-            initialPosition = self.position
+            if (touch.tapCount > 1) {
+                print("Double Tap")
+            } else { // swipe
+                
+                initialTouch = touch.location(in: self.scene!.view)
+                moveAmtY = 0
+                moveAmtX = 0
+                initialPosition = self.position
+                
+            }
         }
     }
     
@@ -45,39 +53,49 @@ class Truck: SKSpriteNode {
             let movingPoint: CGPoint = touch.location(in: self.scene!.view)
             
             moveAmtX = movingPoint.x - initialTouch.x
-            moveAmtY = movingPoint.y - initialTouch.y
+            //moveAmtY = movingPoint.y - initialTouch.y
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        var direction = ""
-        if fabs(moveAmtX) > minimum_detect_distance {
+        var swipeDirection = ""
+        if (moveAmtX != 0){
+            if fabs(moveAmtX) > minimum_detect_distance {
+                
+                //must be moving side to side
+                if moveAmtX < 0 {
+                    swipeDirection = "left"
+                }
+                else {
+                    swipeDirection = "right"
+                }
+            }
+            /*else if fabs(moveAmtY) > minimum_detect_distance {
+                
+                //must be moving up and down
+                if moveAmtY < 0 {
+                    swipeDirection = "up"
+                }
+                else {
+                    swipeDirection = "down"
+                }
+            }*/
             
-            //must be moving side to side
-            if moveAmtX < 0 {
-                direction = "left"
+            if (swipeDirection == driveDirection) {
+                moveOut()
             }
-            else {
-                direction = "right"
-            }
-        }
-        else if fabs(moveAmtY) > minimum_detect_distance {
             
-            //must be moving up and down
-            if moveAmtY < 0 {
-                direction = "up"
+            DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(self.driveOutSpeed)) {
+                self.moveBack()
             }
-            else {
-                direction = "down"
-            }
+            
+            //moveAmtY = 0
+            moveAmtX = 0
+        } else {
+            // double tap
         }
         
-        moveOut()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(self.driveOutSpeed)) {
-            self.moveBack()
-        }
         
     }
     
