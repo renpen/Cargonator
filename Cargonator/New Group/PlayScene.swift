@@ -9,7 +9,11 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+protocol PlaySceneDelegate {
+    func gameOver()
+}
+
+class PlayScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     var movableNode : SKNode?
@@ -21,6 +25,8 @@ class GameScene: SKScene {
     var touchPosDifferenceX: CGFloat?
     var touchPosDifferenceY: CGFloat?
     
+    var playSceneDelegate: PlaySceneDelegate?
+
     
     override func sceneDidLoad() {
         initPlayArea(number: 10, withForce: false)

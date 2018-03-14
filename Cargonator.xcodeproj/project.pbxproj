@@ -9,15 +9,17 @@
 /* Begin PBXBuildFile section */
 		1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271420A20506D40000FA8DA /* PackageFactory.swift */; };
 		8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA2C20401E7A00E34FDE /* AppDelegate.swift */; };
-		8311BA2F20401E7A00E34FDE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA2E20401E7A00E34FDE /* GameScene.sks */; };
 		8311BA3120401E7A00E34FDE /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3020401E7A00E34FDE /* Actions.sks */; };
-		8311BA3320401E7A00E34FDE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA3220401E7A00E34FDE /* GameScene.swift */; };
 		8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA3420401E7A00E34FDE /* GameViewController.swift */; };
 		8311BA3820401E7A00E34FDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3620401E7A00E34FDE /* Main.storyboard */; };
 		8311BA3A20401E7A00E34FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3920401E7A00E34FDE /* Assets.xcassets */; };
 		8311BA3D20401E7A00E34FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */; };
 		8311BA4820401E7A00E34FDE /* CargonatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA4720401E7A00E34FDE /* CargonatorTests.swift */; };
 		83503EC22052901B002F896A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83503EC12052901B002F896A /* Package.swift */; };
+		8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378AA00205959E5008A6EDC /* MenuScene.swift */; };
+		8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA02205959F0008A6EDC /* MenuScene.sks */; };
+		8378AA0D20595B40008A6EDC /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378AA0B20595B40008A6EDC /* PlayScene.swift */; };
+		8378AA0E20595B40008A6EDC /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA0C20595B40008A6EDC /* PlayScene.sks */; };
 		83F66593204FD28A00B90BAF /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F66592204FD28A00B90BAF /* Truck.swift */; };
 		A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726F06C204EF55A00ACEF76 /* Figure.swift */; };
 /* End PBXBuildFile section */
@@ -36,9 +38,7 @@
 		1271420A20506D40000FA8DA /* PackageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageFactory.swift; sourceTree = "<group>"; };
 		8311BA2920401E7A00E34FDE /* Cargonator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cargonator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8311BA2C20401E7A00E34FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8311BA2E20401E7A00E34FDE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		8311BA3020401E7A00E34FDE /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		8311BA3220401E7A00E34FDE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8311BA3420401E7A00E34FDE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8311BA3720401E7A00E34FDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8311BA3920401E7A00E34FDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +48,10 @@
 		8311BA4720401E7A00E34FDE /* CargonatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CargonatorTests.swift; sourceTree = "<group>"; };
 		8311BA4920401E7A00E34FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83503EC12052901B002F896A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		8378AA00205959E5008A6EDC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		8378AA0B20595B40008A6EDC /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
+		8378AA0C20595B40008A6EDC /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
 		83F66592204FD28A00B90BAF /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
 		A726F06C204EF55A00ACEF76 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,10 +95,10 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
+				8378AA0420595A8F008A6EDC /* Play */,
+				8378A9FF20595975008A6EDC /* Menu */,
 				8311BA2C20401E7A00E34FDE /* AppDelegate.swift */,
-				8311BA2E20401E7A00E34FDE /* GameScene.sks */,
 				8311BA3020401E7A00E34FDE /* Actions.sks */,
-				8311BA3220401E7A00E34FDE /* GameScene.swift */,
 				8311BA3420401E7A00E34FDE /* GameViewController.swift */,
 				8311BA3620401E7A00E34FDE /* Main.storyboard */,
 				8311BA3920401E7A00E34FDE /* Assets.xcassets */,
@@ -115,6 +119,25 @@
 				8311BA4920401E7A00E34FDE /* Info.plist */,
 			);
 			path = CargonatorTests;
+			sourceTree = "<group>";
+		};
+		8378A9FF20595975008A6EDC /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				8378AA02205959F0008A6EDC /* MenuScene.sks */,
+				8378AA00205959E5008A6EDC /* MenuScene.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		8378AA0420595A8F008A6EDC /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				8378AA0C20595B40008A6EDC /* PlayScene.sks */,
+				8378AA0B20595B40008A6EDC /* PlayScene.swift */,
+			);
+			name = Play;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,8 +223,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8378AA0E20595B40008A6EDC /* PlayScene.sks in Resources */,
 				8311BA3820401E7A00E34FDE /* Main.storyboard in Resources */,
-				8311BA2F20401E7A00E34FDE /* GameScene.sks in Resources */,
+				8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */,
 				8311BA3A20401E7A00E34FDE /* Assets.xcassets in Resources */,
 				8311BA3D20401E7A00E34FDE /* LaunchScreen.storyboard in Resources */,
 				8311BA3120401E7A00E34FDE /* Actions.sks in Resources */,
@@ -222,12 +246,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8311BA3320401E7A00E34FDE /* GameScene.swift in Sources */,
 				1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */,
 				8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */,
 				83503EC22052901B002F896A /* Package.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
+				8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */,
 				A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */,
+				8378AA0D20595B40008A6EDC /* PlayScene.swift in Sources */,
 				8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
