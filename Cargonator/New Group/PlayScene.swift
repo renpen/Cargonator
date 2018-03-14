@@ -11,6 +11,7 @@ import GameplayKit
 
 protocol PlaySceneDelegate {
     func gameOver()
+    func gameEnded()
 }
 
 class PlayScene: SKScene {
@@ -119,19 +120,27 @@ class PlayScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
+            
             let location = touch.location(in: self)
             print(location)
-            for package in packages {
-                if package.contains(location) {
-                    self.movableNode = package
-                    if let node = self.movableNode {
-                        self.touchPosDifferenceX = location.x - node.position.x
-                        self.touchPosDifferenceY = location.y - node.position.y
+            
+            let touchedNode = self.atPoint(location)
+            
+            if touchedNode.name == "MenuLabel" {
+                playSceneDelegate?.gameEnded()
+            } else {
+                for package in packages {
+                    if package.contains(location) {
+                        self.movableNode = package
+                        if let node = self.movableNode {
+                            self.touchPosDifferenceX = location.x - node.position.x
+                            self.touchPosDifferenceY = location.y - node.position.y
+                        }
+                        //movableNode!.position = location
                     }
-                    //movableNode!.position = location
                 }
+                self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask
             }
-            self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask
         }
     }
     
@@ -144,6 +153,8 @@ class PlayScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, movableNode != nil {
+            
+
             for truck in self.trucks { // for every truck ...
                 if (truck.contains((self.movableNode?.position)!)) { // check if touched package is "above" the truck
                     print("package placed on ", truck.name!)
@@ -159,6 +170,8 @@ class PlayScene: SKScene {
                     initPlayArea(number: 1, withForce: true)
                 }
             }
+            
+
         }
         // not released on truck
         self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask | truckBitMask

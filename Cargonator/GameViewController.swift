@@ -16,6 +16,10 @@ class GameViewController: UIViewController, PlaySceneDelegate, MenuSceneDelegate
         initMenuScene()
     }
     
+    func gameEnded() {
+        initMenuScene()
+    }
+    
     func startGame() {
         initPlayScene()
     }
@@ -52,7 +56,10 @@ class GameViewController: UIViewController, PlaySceneDelegate, MenuSceneDelegate
         scene?.menuSceneDelegate = self
         
         if let view = self.view as! SKView? {
-            view.presentScene(scene)
+            let transition = SKTransition.fade(withDuration: 1)
+            transition.pausesOutgoingScene = false
+            
+            view.presentScene(scene!, transition: transition)
             
             view.ignoresSiblingOrder = true
             
