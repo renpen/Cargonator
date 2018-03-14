@@ -9,11 +9,6 @@
 import SpriteKit
 import GameplayKit
 
-protocol PlaySceneDelegate {
-    func gameOver()
-    func gameEnded()
-}
-
 class PlayScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -26,7 +21,7 @@ class PlayScene: SKScene {
     var touchPosDifferenceX: CGFloat?
     var touchPosDifferenceY: CGFloat?
     
-    var playSceneDelegate: PlaySceneDelegate?
+    var playSceneDelegate: NavigationDelegate?
 
     
     override func sceneDidLoad() {

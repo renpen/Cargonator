@@ -9,13 +9,9 @@
 import UIKit
 import GameplayKit
 
-protocol MenuSceneDelegate {
-    func startGame()
-}
-
 class MenuScene: SKScene {
     
-    var menuSceneDelegate: MenuSceneDelegate?
+    var menuSceneDelegate: NavigationDelegate?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {

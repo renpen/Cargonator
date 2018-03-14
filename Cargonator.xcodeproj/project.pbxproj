@@ -20,6 +20,7 @@
 		8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA02205959F0008A6EDC /* MenuScene.sks */; };
 		8378AA0D20595B40008A6EDC /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378AA0B20595B40008A6EDC /* PlayScene.swift */; };
 		8378AA0E20595B40008A6EDC /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA0C20595B40008A6EDC /* PlayScene.sks */; };
+		83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */; };
 		83F66593204FD28A00B90BAF /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F66592204FD28A00B90BAF /* Truck.swift */; };
 		A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726F06C204EF55A00ACEF76 /* Figure.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		8378AA0B20595B40008A6EDC /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		8378AA0C20595B40008A6EDC /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
+		83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		83F66592204FD28A00B90BAF /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
 		A726F06C204EF55A00ACEF76 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				83F66592204FD28A00B90BAF /* Truck.swift */,
 				1271420A20506D40000FA8DA /* PackageFactory.swift */,
 				83503EC12052901B002F896A /* Package.swift */,
+				83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */,
 			);
 			path = Cargonator;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */,
 				83503EC22052901B002F896A /* Package.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
+				83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */,
 				8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */,
 				A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */,
 				8378AA0D20595B40008A6EDC /* PlayScene.swift in Sources */,

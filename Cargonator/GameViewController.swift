@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController, PlaySceneDelegate, MenuSceneDelegate {
+class GameViewController: UIViewController, NavigationDelegate {
 
     func gameOver() {
         initMenuScene()
