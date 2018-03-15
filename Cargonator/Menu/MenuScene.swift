@@ -27,15 +27,21 @@ class MenuScene: SKScene {
         let sceneSize = self.size
         let startGameTruck = self.childNode(withName: "StartGameTruck")
         let highScoreTruck = self.childNode(withName: "HighScoreTruck")
-        let gameTruckEndPoint = CGPoint(x: (startGameTruck?.position.x)! + sceneSize.width, y: (startGameTruck?.position.y)!)
-        let highScoreEndPoint = CGPoint(x: (highScoreTruck?.position.x)! + sceneSize.width, y: (highScoreTruck?.position.y)!)
+        let settingsTruck = self.childNode(withName: "SettingsTruck")
+        let gameTruckEndPoint = CGPoint(x: sceneSize.width, y: (startGameTruck?.position.y)!)
+        let highScoreEndPoint = CGPoint(x: sceneSize.width, y: (highScoreTruck?.position.y)!)
+        let settingsEndPoint = CGPoint(x: sceneSize.width, y: (settingsTruck?.position.y)!)
         
-        startGameTruck?.run(SKAction.move(to: gameTruckEndPoint, duration: 2))
+        startGameTruck?.run(SKAction.move(to: gameTruckEndPoint, duration: 1.5))
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            highScoreTruck?.run(SKAction.move(to: highScoreEndPoint, duration: 2))
+            highScoreTruck?.run(SKAction.move(to: highScoreEndPoint, duration: 1.5))
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            settingsTruck?.run(SKAction.move(to: settingsEndPoint, duration: 1.5))
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.menuSceneDelegate?.startGame()
         }
     }
