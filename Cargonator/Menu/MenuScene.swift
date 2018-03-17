@@ -13,17 +13,23 @@ class MenuScene: SKScene {
     
     var menuSceneDelegate: NavigationDelegate?
     
+    let driveOutAnimationDuration: TimeInterval = 2
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(positionInScene)
-            if touchedNode.name == "StartGameLabel" {
+            if touchedNode.name == "StartGameLabel" || touchedNode.name == "StartGameTruck" {
                 startGame()
+            } else if touchedNode.name == "HighScoreLabel" || touchedNode.name == "HighScoreTruck" {
+                // showHighScores
+            } else if touchedNode.name == "SettingsLabel" || touchedNode.name == "SettingsTruck"{
+                // showSettings
             }
         }
     }
     
-    func startGame () {
+    func driveOutTrucks() {
         let sceneSize = self.size
         let startGameTruck = self.childNode(withName: "StartGameTruck")
         let highScoreTruck = self.childNode(withName: "HighScoreTruck")
@@ -40,8 +46,12 @@ class MenuScene: SKScene {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             settingsTruck?.run(SKAction.move(to: settingsEndPoint, duration: 1.5))
         }
+    }
+    
+    func startGame() {
+        driveOutTrucks()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + driveOutAnimationDuration) {
             self.menuSceneDelegate?.startGame()
         }
     }
