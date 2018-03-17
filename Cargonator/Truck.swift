@@ -70,6 +70,7 @@ class Truck: SKSpriteNode {
                 else {
                     swipeDirection = "right"
                 }
+                print("swiped")
             }
             /*else if fabs(moveAmtY) > minimum_detect_distance {
                 
