@@ -15,4 +15,8 @@ class SettingService {
     func loadUserSettings() {
         
     }
+    
+    func setDifficulty(difficulty: Difficulty) {
+        self.difficulty = difficulty
+    }
 }

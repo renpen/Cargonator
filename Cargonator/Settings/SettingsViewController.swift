@@ -15,29 +15,106 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    var logInButton:TWTRLogInButton = TWTRLogInButton()
-    var logoutButton: UIButton = UIButton()
+    @IBOutlet weak var difficultyLabel: UILabel!
+    
+    @IBOutlet weak var difficultySlider: UISlider!
     
     @IBOutlet weak var twitterStatusLabel: UILabel!
     
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
+    var logInButton:TWTRLogInButton = TWTRLogInButton()
+    var logoutButton: UIButton = UIButton()
     
-    func printTwitterActivated(session: TWTRSession) {
-        self.twitterStatusLabel.text = "Logged in as " + session.userName
-    }
+    // - MARK: Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view
         
+        initDifficulty()
+        
         placeTwitterLoginButton()
         setLoginButtonConstraints()
         
         placeTwitterLogoutButton()
         setLogoutButtonConstraints()
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
+    
+    @IBAction func donePressed(_ sender: Any) {
+        self.navigationDelegate?.initMenuScene()
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // - MARK: Difficulty + Slider
+    
+    @IBAction func difficultySliderChanged(_ sender: Any) {
+        let fixed = roundf((sender as AnyObject).value / 2.5) * 2.5;
+        (sender as AnyObject).setValue(fixed, animated: true)
+        
+        setNewDifficulty()
+    }
+    
+    func setNewDifficulty() {
+        let value = difficultySlider.value
+        
+        switch value {
+        case 0:
+            SettingService.shared.setDifficulty(difficulty: Difficulty.easy)
+            difficultyLabel.text = "Easy"
+            break
+        case 2.5:
+            SettingService.shared.setDifficulty(difficulty: Difficulty.medium)
+            difficultyLabel.text = "Medium"
+            break
+        case 5:
+            SettingService.shared.setDifficulty(difficulty: Difficulty.hard)
+            difficultyLabel.text = "Hard"
+            break
+        case 7.5:
+            SettingService.shared.setDifficulty(difficulty: Difficulty.veryhard)
+            difficultyLabel.text = "Very Hard"
+            break
+        case 10:
+            SettingService.shared.setDifficulty(difficulty: Difficulty.extreme)
+            difficultyLabel.text = "Extreme"
+            break
+        default:
+            print("Something went from in the slider")
+        }
+    }
+    
+    func initDifficulty() {
+        switch SettingService.shared.difficulty {
+        case .easy:
+            difficultyLabel.text = "Easy"
+            difficultySlider.value = 0
+        case .medium:
+            difficultyLabel.text = "Medium"
+            difficultySlider.value = 2.5
+        case .hard:
+            difficultyLabel.text = "Hard"
+            difficultySlider.value = 5
+        case .veryhard:
+            difficultyLabel.text = "Very Hard"
+            difficultySlider.value = 7.5
+        case .extreme:
+            difficultyLabel.text = "Extreme"
+            difficultySlider.value = 10
+        }
+    }
+    
+    // - MARK: Twitter Settings
+    
+    func printTwitterActivated(session: TWTRSession) {
+        self.twitterStatusLabel.text = "Logged in as " + session.userName
     }
     
     func placeTwitterLoginButton () {
@@ -78,7 +155,6 @@ class SettingsViewController: UIViewController {
         logoutButton.titleLabel?.textColor = UIColor.black
         logoutButton.backgroundColor = logInButton.backgroundColor
         logoutButton.titleLabel?.isHidden = false
-        print(logoutButton.titleLabel)
         logoutButton.frame = logInButton.frame
         logoutButton.layer.cornerRadius = logInButton.layer.cornerRadius
         
@@ -86,7 +162,6 @@ class SettingsViewController: UIViewController {
         
         self.view.addSubview(logoutButton)
     }
-    
     
     @objc func twitterLogoutPress(sender: UIButton!) {
         if (TWTRTwitter.sharedInstance().sessionStore.session() != nil) {
@@ -107,16 +182,4 @@ class SettingsViewController: UIViewController {
         NSLayoutConstraint.activate([horizontalConstraint, widthConstraint, heightConstraint, pinTop])
         logoutButton.translatesAutoresizingMaskIntoConstraints = false;
     }
-    
-    @IBAction func donePressed(_ sender: Any) {
-        self.navigationDelegate?.initMenuScene()
-        self.dismiss(animated: false, completion: nil)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
