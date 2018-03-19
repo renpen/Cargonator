@@ -197,6 +197,10 @@ class PlayScene: SKScene, SpawnDelegate {
         let scaleFactor = CGFloat(1.5)
         let packageAreaH = (packageArea?.frame.height)!
         let packageAreaW = (packageArea?.frame.width)!
+        
+        var oldStrokeColor = UIColor()
+        var oldStrokeWidth = CGFloat()
+        
         for i in 1...number {
             let package = PackageFactory.sharedInstance.getRandomPackage()
             package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
@@ -229,6 +233,15 @@ class PlayScene: SKScene, SpawnDelegate {
             self.addPackageToPlayArea(package: package)
             
             if i == number {
+                oldStrokeColor = package.strokeColor
+                oldStrokeWidth = package.lineWidth
+                package.strokeColor = UIColor.red
+                package.lineWidth = 3
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(2)) {
+                    package.strokeColor = oldStrokeColor
+                    package.lineWidth = oldStrokeWidth
+                }
                 package.physicsBody?.applyImpulse(CGVector(dx: 20.0, dy: 50.0))
             }
         }
