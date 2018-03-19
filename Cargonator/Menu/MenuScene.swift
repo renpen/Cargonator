@@ -24,7 +24,7 @@ class MenuScene: SKScene {
             } else if touchedNode.name == "HighScoreLabel" || touchedNode.name == "HighScoreTruck" {
                 // showHighScores
             } else if touchedNode.name == "SettingsLabel" || touchedNode.name == "SettingsTruck"{
-                // showSettings
+                enterSettings()
             }
         }
     }
@@ -45,6 +45,14 @@ class MenuScene: SKScene {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             settingsTruck?.run(SKAction.move(to: settingsEndPoint, duration: 1.5))
+        }
+    }
+    
+    func enterSettings() {
+        driveOutTrucks()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + driveOutAnimationDuration) {
+            self.menuSceneDelegate?.enterSettings()
         }
     }
     

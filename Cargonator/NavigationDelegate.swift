@@ -12,4 +12,5 @@ protocol NavigationDelegate {
     func gameOver()
     func gameEnded()
     func startGame()
+    func enterSettings()
 }

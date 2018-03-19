@@ -20,6 +20,12 @@ class GameViewController: UIViewController, NavigationDelegate {
         initMenuScene()
     }
     
+    func enterSettings() {
+        let settingsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Settings") as! SettingsViewController
+        settingsViewController.navigationDelegate = self
+        self.present(settingsViewController, animated: false, completion: nil)
+    }
+    
     func startGame() {
         initPlayScene()
     }
