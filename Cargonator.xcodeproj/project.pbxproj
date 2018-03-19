@@ -18,6 +18,7 @@
 		83503EC22052901B002F896A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83503EC12052901B002F896A /* Package.swift */; };
 		8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378AA00205959E5008A6EDC /* MenuScene.swift */; };
 		8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA02205959F0008A6EDC /* MenuScene.sks */; };
+		837F1278205FC5A10003608D /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837F1277205FC5A10003608D /* GameState.swift */; };
 		83A7445B205FBB0500F7436F /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A74459205FBB0500F7436F /* PlayScene.swift */; };
 		83A7445C205FBB0500F7436F /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 83A7445A205FBB0500F7436F /* PlayScene.sks */; };
 		83A74465205FBD5D00F7436F /* EndScoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 83A74463205FBD5D00F7436F /* EndScoreScene.sks */; };
@@ -53,6 +54,7 @@
 		83503EC12052901B002F896A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		8378AA00205959E5008A6EDC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		837F1277205FC5A10003608D /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		83A74459205FBB0500F7436F /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		83A7445A205FBB0500F7436F /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
 		83A74463205FBD5D00F7436F /* EndScoreScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScoreScene.sks; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				1271420A20506D40000FA8DA /* PackageFactory.swift */,
 				83503EC12052901B002F896A /* Package.swift */,
 				83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */,
+				837F1277205FC5A10003608D /* GameState.swift */,
 			);
 			path = Cargonator;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */,
 				A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */,
 				8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */,
+				837F1278205FC5A10003608D /* GameState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

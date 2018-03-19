@@ -25,6 +25,7 @@ class PlayScene: SKScene {
 
     
     override func sceneDidLoad() {
+        GameState.sharedInstance.reset()
         initPlayArea(number: 10, withForce: false)
         initArena()
         initTrucks()
@@ -158,12 +159,12 @@ class PlayScene: SKScene {
                         // package is loaded into truck
                         movableNode?.removeFromParent()
                         print("package ", movableNode!, " delivered")
-                        playSceneDelegate?.gameOver()
+                        GameState.sharedInstance.packageDelivered()
                     } else {
                         // game lost
                     }
                     // for prototype
-                    initPlayArea(number: 1, withForce: true)
+                    //initPlayArea(number: 1, withForce: true)
                 }
             }
             
@@ -178,6 +179,11 @@ class PlayScene: SKScene {
         if touches.first != nil {
             movableNode = nil
         }
+    }
+    
+    func addPackageToPlayArea (package: Package) {
+        self.addChild(package)
+        GameState.sharedInstance.packageSpawned()
     }
     
     func initPlayArea(number: Int, withForce: Bool) {
@@ -214,7 +220,7 @@ class PlayScene: SKScene {
             print("Position: ", randomPositionX)
             let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
             package.position = randomPos
-            self.addChild(package)
+            self.addPackageToPlayArea(package: package)
             
             if (withForce) {
                 package.physicsBody?.applyImpulse(CGVector(dx: 20.0, dy: 50.0))

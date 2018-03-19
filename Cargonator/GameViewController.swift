@@ -30,6 +30,7 @@ class GameViewController: UIViewController, NavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GameState.sharedInstance.gameViewController = self
         initMenuScene()
     }
     
