@@ -19,6 +19,12 @@
 		8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378AA00205959E5008A6EDC /* MenuScene.swift */; };
 		8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA02205959F0008A6EDC /* MenuScene.sks */; };
 		837F1278205FC5A10003608D /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837F1277205FC5A10003608D /* GameState.swift */; };
+		837F127D205FCE010003608D /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837F1279205FCE010003608D /* TwitterKit.framework */; };
+		837F127E205FCE010003608D /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837F127A205FCE010003608D /* TwitterCore.framework */; };
+		837F127F205FCE010003608D /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 837F127B205FCE010003608D /* TwitterKitResources.bundle */; };
+		837F1280205FCE010003608D /* TwitterShareExtensionUIResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 837F127C205FCE010003608D /* TwitterShareExtensionUIResources.bundle */; };
+		837F1284205FCF250003608D /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837F1279205FCE010003608D /* TwitterKit.framework */; };
+		837F1285205FCF250003608D /* TwitterKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 837F1279205FCE010003608D /* TwitterKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		83A7445B205FBB0500F7436F /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A74459205FBB0500F7436F /* PlayScene.swift */; };
 		83A7445C205FBB0500F7436F /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 83A7445A205FBB0500F7436F /* PlayScene.sks */; };
 		83A74465205FBD5D00F7436F /* EndScoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 83A74463205FBD5D00F7436F /* EndScoreScene.sks */; };
@@ -38,6 +44,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		837F1286205FCF250003608D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				837F1285205FCF250003608D /* TwitterKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1271420A20506D40000FA8DA /* PackageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageFactory.swift; sourceTree = "<group>"; };
 		8311BA2920401E7A00E34FDE /* Cargonator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cargonator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +75,10 @@
 		8378AA00205959E5008A6EDC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		837F1277205FC5A10003608D /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		837F1279205FCE010003608D /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		837F127A205FCE010003608D /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		837F127B205FCE010003608D /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		837F127C205FCE010003608D /* TwitterShareExtensionUIResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterShareExtensionUIResources.bundle; sourceTree = "<group>"; };
 		83A74459205FBB0500F7436F /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		83A7445A205FBB0500F7436F /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
 		83A74463205FBD5D00F7436F /* EndScoreScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScoreScene.sks; sourceTree = "<group>"; };
@@ -69,6 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837F127D205FCE010003608D /* TwitterKit.framework in Frameworks */,
+				837F127E205FCE010003608D /* TwitterCore.framework in Frameworks */,
+				837F1284205FCF250003608D /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +112,10 @@
 		8311BA2020401E7A00E34FDE = {
 			isa = PBXGroup;
 			children = (
+				837F127A205FCE010003608D /* TwitterCore.framework */,
+				837F1279205FCE010003608D /* TwitterKit.framework */,
+				837F127B205FCE010003608D /* TwitterKitResources.bundle */,
+				837F127C205FCE010003608D /* TwitterShareExtensionUIResources.bundle */,
 				8311BA2B20401E7A00E34FDE /* Cargonator */,
 				8311BA4620401E7A00E34FDE /* CargonatorTests */,
 				8311BA2A20401E7A00E34FDE /* Products */,
@@ -169,6 +200,7 @@
 				8311BA2520401E7A00E34FDE /* Sources */,
 				8311BA2620401E7A00E34FDE /* Frameworks */,
 				8311BA2720401E7A00E34FDE /* Resources */,
+				837F1286205FCF250003608D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,7 +274,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837F127F205FCE010003608D /* TwitterKitResources.bundle in Resources */,
 				83A7445C205FBB0500F7436F /* PlayScene.sks in Resources */,
+				837F1280205FCE010003608D /* TwitterShareExtensionUIResources.bundle in Resources */,
 				8311BA3820401E7A00E34FDE /* Main.storyboard in Resources */,
 				83A74465205FBD5D00F7436F /* EndScoreScene.sks in Resources */,
 				8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */,
@@ -431,6 +465,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTL5L96WQ5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Cargonator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -447,6 +485,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTL5L96WQ5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Cargonator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         UIApplication.shared.isStatusBarHidden = true
-
+        TWTRTwitter.sharedInstance().start(withConsumerKey:"UHmnuRibzDctekY4DpX5T8BQr", consumerSecret:"htuScUEmyqrkNSzFQkADlobmcmSvfGbgFjjfsJc7ywixtxhyxv")
+        
         return true
     }
 
