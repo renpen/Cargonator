@@ -16,6 +16,7 @@
 		8311BA3A20401E7A00E34FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3920401E7A00E34FDE /* Assets.xcassets */; };
 		8311BA3D20401E7A00E34FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */; };
 		8311BA4820401E7A00E34FDE /* CargonatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA4720401E7A00E34FDE /* CargonatorTests.swift */; };
+		8338D0B2205FFA2000018FD1 /* SocialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */; };
 		83503EC22052901B002F896A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83503EC12052901B002F896A /* Package.swift */; };
 		8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378AA00205959E5008A6EDC /* MenuScene.swift */; };
 		8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA02205959F0008A6EDC /* MenuScene.sks */; };
@@ -76,6 +77,7 @@
 		8311BA4320401E7A00E34FDE /* CargonatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CargonatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8311BA4720401E7A00E34FDE /* CargonatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CargonatorTests.swift; sourceTree = "<group>"; };
 		8311BA4920401E7A00E34FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDelegate.swift; sourceTree = "<group>"; };
 		83503EC12052901B002F896A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		8378AA00205959E5008A6EDC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				83503EC12052901B002F896A /* Package.swift */,
 				83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */,
 				83CEB54A205FE9AA008A9266 /* SpawnDelegate.swift */,
+				8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */,
 			);
 			path = Cargonator;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */,
 				83CEB551205FF3CF008A9266 /* SettingService.swift in Sources */,
 				83A74466205FBD5D00F7436F /* EndScoreScene.swift in Sources */,
+				8338D0B2205FFA2000018FD1 /* SocialDelegate.swift in Sources */,
 				83503EC22052901B002F896A /* Package.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
 				83CEB54B205FE9AA008A9266 /* SpawnDelegate.swift in Sources */,

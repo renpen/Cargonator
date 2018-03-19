@@ -10,8 +10,10 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController, NavigationDelegate {
-
+class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
+    
+    // - MARK: Navigation Delegate
+    
     func gameOver() {
         initEndScore()
     }
@@ -28,6 +30,12 @@ class GameViewController: UIViewController, NavigationDelegate {
     
     func startGame() {
         initPlayScene()
+    }
+    
+    // - MARK: Social Delegate
+    
+    func tweetScore() {
+        print("Tweet")
     }
     
     override var prefersStatusBarHidden : Bool {
@@ -61,6 +69,7 @@ class GameViewController: UIViewController, NavigationDelegate {
         let scene = EndScoreScene(fileNamed: "EndScoreScene")
         scene?.scaleMode = .aspectFill
         scene?.gameViewControllerDelegate = self
+        scene?.socialDelegate = self
         
         if let view = self.view as! SKView? {
             let transition = SKTransition.fade(withDuration: 1)

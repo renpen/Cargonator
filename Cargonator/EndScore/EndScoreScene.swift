@@ -12,6 +12,7 @@ import SpriteKit
 class EndScoreScene: SKScene {
     
     var gameViewControllerDelegate: NavigationDelegate?
+    var socialDelegate: SocialDelegate?
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
@@ -19,6 +20,8 @@ class EndScoreScene: SKScene {
             let touchedNode = self.atPoint(positionInScene)
             if touchedNode.name == "MenuButton" || touchedNode.name == "MenuLabel"{
                 self.gameViewControllerDelegate?.gameEnded()
+            } else if touchedNode.name == "TweetButton" {
+                self.socialDelegate?.tweetScore()
             }
         }
     }

@@ -31,7 +31,7 @@ class GameState {
         self.score = 0
         self.coins = 0
         self.timeInGame = 0
-        packageSpawnTime = 4
+        calcInitialPackageSpawnTime()
         setSpawnTimer()
     }
     
@@ -51,7 +51,7 @@ class GameState {
     func calcInitialPackageSpawnTime() {
         switch SettingService.shared.difficulty {
         case .easy:
-            packageSpawnTime = 4
+            packageSpawnTime = 10
         default:
             packageSpawnTime = 4
         }
