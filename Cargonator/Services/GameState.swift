@@ -51,7 +51,6 @@ class GameState {
         if packageSpawnTime > 1 {
             packageSpawnTime -= 0.1
         }
-        print(packageSpawnTime)
     }
     
     func calcInitialPackageSpawnTime() {
@@ -75,6 +74,7 @@ class GameState {
     
     @objc func spawnPackage() {
         playSceneDelegate?.spawnPackage()
+        self.activePackages += 1
         calcPackageSpawnTime()
         setSpawnTimer()
     }
@@ -99,11 +99,7 @@ class GameState {
     }
     
     // - MARK: Active Package Calculation
-    
-    func packageSpawned() {
-        self.activePackages += 1
-    }
-    
+
     func packageDelivered(package: Package) {
         self.activePackages -= 1
         

@@ -189,7 +189,6 @@ class PlayScene: SKScene, SpawnDelegate {
     
     func addPackageToPlayArea (package: Package) {
         self.addChild(package)
-        GameState.sharedInstance.packageSpawned()
     }
     
     func spawnPackages(number: Int) {
