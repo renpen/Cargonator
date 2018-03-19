@@ -38,8 +38,6 @@ class SettingsViewController: UIViewController {
         
         placeTwitterLogoutButton()
         setLogoutButtonConstraints()
-        print(logoutButton.frame.size)
-        print(logInButton.frame.size)
     }
     
     func placeTwitterLoginButton () {
@@ -53,8 +51,10 @@ class SettingsViewController: UIViewController {
         if (TWTRTwitter.sharedInstance().sessionStore.session() != nil) {
             self.printTwitterActivated(session: TWTRTwitter.sharedInstance().sessionStore.session() as! TWTRSession)
             self.logInButton.isEnabled = false
+            self.logoutButton.isEnabled = true
         } else {
-            print("session not active")
+            self.logInButton.isEnabled = true
+            self.logoutButton.isEnabled = false
         }
         
         self.view.addSubview(logInButton)
@@ -72,9 +72,15 @@ class SettingsViewController: UIViewController {
     }
     
     func placeTwitterLogoutButton () {
-        logoutButton = UIButton(frame: logInButton.frame)
+        logoutButton = UIButton()
         logoutButton.titleLabel?.text = "Disconnect Twitter"
         logoutButton.titleLabel?.font = logInButton.titleLabel?.font
+        logoutButton.titleLabel?.textColor = UIColor.black
+        logoutButton.backgroundColor = logInButton.backgroundColor
+        logoutButton.titleLabel?.isHidden = false
+        print(logoutButton.titleLabel)
+        logoutButton.frame = logInButton.frame
+        logoutButton.layer.cornerRadius = logInButton.layer.cornerRadius
         
         logoutButton.addTarget(self, action: #selector(self.twitterLogoutPress), for: .touchUpInside)
         
@@ -83,9 +89,12 @@ class SettingsViewController: UIViewController {
     
     
     @objc func twitterLogoutPress(sender: UIButton!) {
-        TWTRTwitter.sharedInstance().sessionStore.logOutUserID((TWTRTwitter.sharedInstance().sessionStore.session()?.userID)!)
-        self.twitterStatusLabel.text = "Not logged in"
-        self.logoutButton.isEnabled = false
+        if (TWTRTwitter.sharedInstance().sessionStore.session() != nil) {
+            TWTRTwitter.sharedInstance().sessionStore.logOutUserID((TWTRTwitter.sharedInstance().sessionStore.session()?.userID)!)
+            self.twitterStatusLabel.text = "Not logged in"
+            self.logoutButton.isEnabled = false
+            self.logoutButton.isEnabled = true
+        }
     }
     
     func setLogoutButtonConstraints() {
