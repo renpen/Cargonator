@@ -14,6 +14,7 @@ class PackageFactory {
     func getRandomPackage() -> Package {
         let figure = Figure.randomFigure()
         let package = getSpecificPackage(fig: figure)
+        package.type = figure
         return package
     }
     func getSpecificPackage(fig : Figure) -> Package {

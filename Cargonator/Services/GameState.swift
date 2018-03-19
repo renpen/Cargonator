@@ -35,6 +35,12 @@ class GameState {
         setSpawnTimer()
     }
     
+    // - MARK: Getter and Setter
+    
+    func getScore () -> Int{
+        return self.score
+    }
+    
     // - MARK: Package Spawn Time
     
     @objc func increaseTimeInGame() {
@@ -73,14 +79,36 @@ class GameState {
         setSpawnTimer()
     }
     
+    // - MARK: Score Calculation
+    
+    func calcScore(package: Package) {
+        switch package.type {
+        case .circle:
+            score += 30
+            break
+        case .square:
+            score += 10
+            break
+        case .trapeze:
+            score += 20
+            break
+        case .triangle:
+            score += 20
+            break
+        }
+    }
+    
     // - MARK: Active Package Calculation
     
     func packageSpawned() {
-        self.activePackages = self.activePackages + 1
+        self.activePackages += 1
     }
     
-    func packageDelivered() {
-        self.activePackages = self.activePackages - 1
+    func packageDelivered(package: Package) {
+        self.activePackages -= 1
+        
+        calcScore(package: package)
+        
         if !(activePackages > 0) {
             gameViewController?.gameOver()
         }

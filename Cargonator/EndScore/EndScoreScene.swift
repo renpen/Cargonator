@@ -25,4 +25,10 @@ class EndScoreScene: SKScene {
             }
         }
     }
+    
+    override func didMove(to view: SKView) {
+        let panel = self.childNode(withName: "Panel")
+        let scoreValueLabel = panel?.childNode(withName: "ScoreValueLabel") as! SKLabelNode
+        scoreValueLabel.text = String(GameState.sharedInstance.getScore())
+    }
 }

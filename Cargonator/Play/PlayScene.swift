@@ -165,7 +165,7 @@ class PlayScene: SKScene, SpawnDelegate {
                         // package is loaded into truck
                         movableNode?.removeFromParent()
                         print("package ", movableNode!, " delivered")
-                        GameState.sharedInstance.packageDelivered()
+                        GameState.sharedInstance.packageDelivered(package: movableNode as! Package)
                     } else {
                         // game lost
                     }
@@ -227,7 +227,6 @@ class PlayScene: SKScene, SpawnDelegate {
             {
                 randomPositionY *= -1
             }
-            print("Position: ", randomPositionX)
             let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
             package.position = randomPos
             self.addPackageToPlayArea(package: package)
