@@ -17,6 +17,7 @@
 		8311BA3D20401E7A00E34FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */; };
 		8311BA4820401E7A00E34FDE /* CargonatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA4720401E7A00E34FDE /* CargonatorTests.swift */; };
 		8338D0B2205FFA2000018FD1 /* SocialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */; };
+		8338D0CA2060003100018FD1 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8338D0C92060003100018FD1 /* SafariServices.framework */; };
 		83503EC22052901B002F896A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83503EC12052901B002F896A /* Package.swift */; };
 		8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378AA00205959E5008A6EDC /* MenuScene.swift */; };
 		8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA02205959F0008A6EDC /* MenuScene.sks */; };
@@ -78,6 +79,7 @@
 		8311BA4720401E7A00E34FDE /* CargonatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CargonatorTests.swift; sourceTree = "<group>"; };
 		8311BA4920401E7A00E34FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDelegate.swift; sourceTree = "<group>"; };
+		8338D0C92060003100018FD1 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		83503EC12052901B002F896A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		8378AA00205959E5008A6EDC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8338D0CA2060003100018FD1 /* SafariServices.framework in Frameworks */,
 				837F127D205FCE010003608D /* TwitterKit.framework in Frameworks */,
 				837F127E205FCE010003608D /* TwitterCore.framework in Frameworks */,
 				837F1284205FCF250003608D /* TwitterKit.framework in Frameworks */,
@@ -137,6 +140,7 @@
 				8311BA2B20401E7A00E34FDE /* Cargonator */,
 				8311BA4620401E7A00E34FDE /* CargonatorTests */,
 				8311BA2A20401E7A00E34FDE /* Products */,
+				8338D0C82060003100018FD1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +186,14 @@
 				8311BA4920401E7A00E34FDE /* Info.plist */,
 			);
 			path = CargonatorTests;
+			sourceTree = "<group>";
+		};
+		8338D0C82060003100018FD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8338D0C92060003100018FD1 /* SafariServices.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8378A9FF20595975008A6EDC /* Menu */ = {
