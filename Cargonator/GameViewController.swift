@@ -13,7 +13,7 @@ import GameplayKit
 class GameViewController: UIViewController, NavigationDelegate {
 
     func gameOver() {
-        initMenuScene()
+        initEndScore()
     }
     
     func gameEnded() {
@@ -37,6 +37,23 @@ class GameViewController: UIViewController, NavigationDelegate {
         let scene = PlayScene(fileNamed: "PlayScene")
         scene?.scaleMode = .aspectFill
         scene?.playSceneDelegate = self
+        
+        if let view = self.view as! SKView? {
+            let transition = SKTransition.fade(withDuration: 1)
+            transition.pausesOutgoingScene = false
+            
+            view.presentScene(scene!, transition: transition)
+            view.ignoresSiblingOrder = true
+            
+            /*view.showsFPS = true
+             view.showsNodeCount = true */
+        }
+    }
+    
+    func initEndScore () {
+        let scene = EndScoreScene(fileNamed: "EndScoreScene")
+        scene?.scaleMode = .aspectFill
+        scene?.gameViewControllerDelegate = self
         
         if let view = self.view as! SKView? {
             let transition = SKTransition.fade(withDuration: 1)

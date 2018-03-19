@@ -158,6 +158,7 @@ class PlayScene: SKScene {
                         // package is loaded into truck
                         movableNode?.removeFromParent()
                         print("package ", movableNode!, " delivered")
+                        playSceneDelegate?.gameOver()
                     } else {
                         // game lost
                     }

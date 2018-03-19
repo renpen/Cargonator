@@ -20,6 +20,8 @@
 		8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA02205959F0008A6EDC /* MenuScene.sks */; };
 		83A7445B205FBB0500F7436F /* PlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A74459205FBB0500F7436F /* PlayScene.swift */; };
 		83A7445C205FBB0500F7436F /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 83A7445A205FBB0500F7436F /* PlayScene.sks */; };
+		83A74465205FBD5D00F7436F /* EndScoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 83A74463205FBD5D00F7436F /* EndScoreScene.sks */; };
+		83A74466205FBD5D00F7436F /* EndScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A74464205FBD5D00F7436F /* EndScoreScene.swift */; };
 		83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */; };
 		83F66593204FD28A00B90BAF /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F66592204FD28A00B90BAF /* Truck.swift */; };
 		A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726F06C204EF55A00ACEF76 /* Figure.swift */; };
@@ -53,6 +55,8 @@
 		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		83A74459205FBB0500F7436F /* PlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayScene.swift; sourceTree = "<group>"; };
 		83A7445A205FBB0500F7436F /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
+		83A74463205FBD5D00F7436F /* EndScoreScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScoreScene.sks; sourceTree = "<group>"; };
+		83A74464205FBD5D00F7436F /* EndScoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndScoreScene.swift; sourceTree = "<group>"; };
 		83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		83F66592204FD28A00B90BAF /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
 		A726F06C204EF55A00ACEF76 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
+				83A74467205FBD9B00F7436F /* EndScore */,
 				83A7445D205FBB1B00F7436F /* Play */,
 				8378A9FF20595975008A6EDC /* Menu */,
 				8311BA2C20401E7A00E34FDE /* AppDelegate.swift */,
@@ -140,6 +145,15 @@
 				83A74459205FBB0500F7436F /* PlayScene.swift */,
 			);
 			path = Play;
+			sourceTree = "<group>";
+		};
+		83A74467205FBD9B00F7436F /* EndScore */ = {
+			isa = PBXGroup;
+			children = (
+				83A74463205FBD5D00F7436F /* EndScoreScene.sks */,
+				83A74464205FBD5D00F7436F /* EndScoreScene.swift */,
+			);
+			path = EndScore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +241,7 @@
 			files = (
 				83A7445C205FBB0500F7436F /* PlayScene.sks in Resources */,
 				8311BA3820401E7A00E34FDE /* Main.storyboard in Resources */,
+				83A74465205FBD5D00F7436F /* EndScoreScene.sks in Resources */,
 				8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */,
 				8311BA3A20401E7A00E34FDE /* Assets.xcassets in Resources */,
 				8311BA3D20401E7A00E34FDE /* LaunchScreen.storyboard in Resources */,
@@ -251,6 +266,7 @@
 				1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */,
 				83A7445B205FBB0500F7436F /* PlayScene.swift in Sources */,
 				8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */,
+				83A74466205FBD5D00F7436F /* EndScoreScene.swift in Sources */,
 				83503EC22052901B002F896A /* Package.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
 				83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */,
