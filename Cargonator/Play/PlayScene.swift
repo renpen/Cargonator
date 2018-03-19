@@ -9,7 +9,12 @@
 import SpriteKit
 import GameplayKit
 
-class PlayScene: SKScene {
+class PlayScene: SKScene, SpawnDelegate {
+    
+    func spawnPackage() {
+        spawnPackages(number: 1)
+    }
+    
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     var movableNode : SKNode?
@@ -25,8 +30,9 @@ class PlayScene: SKScene {
 
     
     override func sceneDidLoad() {
+        GameState.sharedInstance.playSceneDelegate = self
         GameState.sharedInstance.reset()
-        initPlayArea(number: 10, withForce: false)
+        spawnPackages(number: 10)
         initArena()
         initTrucks()
     }
@@ -186,12 +192,12 @@ class PlayScene: SKScene {
         GameState.sharedInstance.packageSpawned()
     }
     
-    func initPlayArea(number: Int, withForce: Bool) {
+    func spawnPackages(number: Int) {
         let packageArea = self.childNode(withName: "PackageArea")
         let scaleFactor = CGFloat(1.5)
         let packageAreaH = (packageArea?.frame.height)!
         let packageAreaW = (packageArea?.frame.width)!
-        for _ in 1...number {
+        for i in 1...number {
             let package = PackageFactory.sharedInstance.getRandomPackage()
             package.yScale = (packageAreaW / packageAreaH ) * scaleFactor
             package.xScale = scaleFactor
@@ -222,7 +228,7 @@ class PlayScene: SKScene {
             package.position = randomPos
             self.addPackageToPlayArea(package: package)
             
-            if (withForce) {
+            if i == number {
                 package.physicsBody?.applyImpulse(CGVector(dx: 20.0, dy: 50.0))
             }
         }
