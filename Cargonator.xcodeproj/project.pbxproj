@@ -31,6 +31,8 @@
 		83A74465205FBD5D00F7436F /* EndScoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 83A74463205FBD5D00F7436F /* EndScoreScene.sks */; };
 		83A74466205FBD5D00F7436F /* EndScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A74464205FBD5D00F7436F /* EndScoreScene.swift */; };
 		83CEB54B205FE9AA008A9266 /* SpawnDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CEB54A205FE9AA008A9266 /* SpawnDelegate.swift */; };
+		83CEB54E205FF162008A9266 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CEB54D205FF162008A9266 /* Difficulty.swift */; };
+		83CEB551205FF3CF008A9266 /* SettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CEB550205FF3CF008A9266 /* SettingService.swift */; };
 		83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */; };
 		83F66593204FD28A00B90BAF /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F66592204FD28A00B90BAF /* Truck.swift */; };
 		A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726F06C204EF55A00ACEF76 /* Figure.swift */; };
@@ -87,6 +89,8 @@
 		83A74463205FBD5D00F7436F /* EndScoreScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScoreScene.sks; sourceTree = "<group>"; };
 		83A74464205FBD5D00F7436F /* EndScoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndScoreScene.swift; sourceTree = "<group>"; };
 		83CEB54A205FE9AA008A9266 /* SpawnDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnDelegate.swift; sourceTree = "<group>"; };
+		83CEB54D205FF162008A9266 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		83CEB550205FF3CF008A9266 /* SettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingService.swift; sourceTree = "<group>"; };
 		83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		83F66592204FD28A00B90BAF /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
 		A726F06C204EF55A00ACEF76 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
+				83CEB54F205FF3B4008A9266 /* Services */,
+				83CEB54C205FF148008A9266 /* Enums */,
 				83006024205FE2B000DC722A /* Settings */,
 				83A74467205FBD9B00F7436F /* EndScore */,
 				83A7445D205FBB1B00F7436F /* Play */,
@@ -157,13 +163,11 @@
 				8311BA3920401E7A00E34FDE /* Assets.xcassets */,
 				8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */,
 				8311BA3E20401E7A00E34FDE /* Info.plist */,
-				A726F06C204EF55A00ACEF76 /* Figure.swift */,
 				83F66592204FD28A00B90BAF /* Truck.swift */,
 				1271420A20506D40000FA8DA /* PackageFactory.swift */,
 				83503EC12052901B002F896A /* Package.swift */,
 				83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */,
 				83CEB54A205FE9AA008A9266 /* SpawnDelegate.swift */,
-				837F1277205FC5A10003608D /* GameState.swift */,
 			);
 			path = Cargonator;
 			sourceTree = "<group>";
@@ -202,6 +206,24 @@
 				83A74464205FBD5D00F7436F /* EndScoreScene.swift */,
 			);
 			path = EndScore;
+			sourceTree = "<group>";
+		};
+		83CEB54C205FF148008A9266 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A726F06C204EF55A00ACEF76 /* Figure.swift */,
+				83CEB54D205FF162008A9266 /* Difficulty.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		83CEB54F205FF3B4008A9266 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				837F1277205FC5A10003608D /* GameState.swift */,
+				83CEB550205FF3CF008A9266 /* SettingService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,11 +339,13 @@
 				1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */,
 				83A7445B205FBB0500F7436F /* PlayScene.swift in Sources */,
 				8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */,
+				83CEB551205FF3CF008A9266 /* SettingService.swift in Sources */,
 				83A74466205FBD5D00F7436F /* EndScoreScene.swift in Sources */,
 				83503EC22052901B002F896A /* Package.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
 				83CEB54B205FE9AA008A9266 /* SpawnDelegate.swift in Sources */,
 				83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */,
+				83CEB54E205FF162008A9266 /* Difficulty.swift in Sources */,
 				8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */,
 				A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */,
 				8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */,

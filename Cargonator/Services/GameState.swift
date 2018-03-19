@@ -28,11 +28,22 @@ class GameState {
         timeInGame += 1
     }
     
+    // - MARK: Package Spawn Time
+    
     func calcPackageSpawnTime () {
         if packageSpawnTime > 1 {
             packageSpawnTime -= 0.1
         }
         print(packageSpawnTime)
+    }
+    
+    func calcInitialPackageSpawnTime() {
+        switch SettingService.shared.difficulty {
+        case .easy:
+            packageSpawnTime = 4
+        default:
+            packageSpawnTime = 4
+        }
     }
     
     func setSpawnTimer() {
