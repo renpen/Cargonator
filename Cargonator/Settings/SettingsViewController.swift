@@ -14,20 +14,37 @@ class SettingsViewController: UIViewController {
     var navigationDelegate: GameViewController?
     
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    var logInButton:TWTRLogInButton = TWTRLogInButton()
+    @IBOutlet weak var twitterStatusLabel: UILabel!
+    
     override var prefersStatusBarHidden : Bool {
         return true
     }
     
+    func printTwitterActivated(session: TWTRSession) {
+        self.twitterStatusLabel.text = "Logged in as " + session.userName
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-        let logInButton = TWTRLogInButton(logInCompletion: { session, error in
+        logInButton = TWTRLogInButton(logInCompletion: { session, error in
             if (session != nil) {
-                print("signed in as \(session?.userName)");
+                self.printTwitterActivated(session: session!)
+                self.logInButton.isEnabled = false
             } else {
-                print("error: \(error?.localizedDescription)");
+                print(error?.localizedDescription)
             }
         })
+        
+        if (TWTRTwitter.sharedInstance().sessionStore.session() != nil) {
+            self.printTwitterActivated(session: TWTRTwitter.sharedInstance().sessionStore.session() as! TWTRSession)
+            self.logInButton.isEnabled = false
+        } else {
+            print("session not active")
+        }
         
         self.view.addSubview(logInButton)
         
@@ -35,7 +52,7 @@ class SettingsViewController: UIViewController {
         let widthConstraint = NSLayoutConstraint(item: logInButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: logInButton.frame.size.width)
         let heightConstraint = NSLayoutConstraint(item: logInButton, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: logInButton.frame.size.height)
         let pinTop = NSLayoutConstraint(item: logInButton, attribute: .top, relatedBy: .equal,
-                                        toItem: navigationBar, attribute: .bottom, multiplier: 1.0, constant: 30)
+                                        toItem: twitterStatusLabel, attribute: .bottom, multiplier: 1.0, constant: 20)
         
         NSLayoutConstraint.activate([horizontalConstraint, widthConstraint, heightConstraint, pinTop])
         logInButton.translatesAutoresizingMaskIntoConstraints = false;

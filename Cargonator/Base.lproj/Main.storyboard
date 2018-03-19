@@ -48,9 +48,20 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not logged in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFV-vg-1jL">
+                                <rect key="frame" x="136" y="65" width="103" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="uIx-4b-J8U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="vFV-vg-1jL" firstAttribute="top" secondItem="9Vw-xr-eKo" secondAttribute="bottom" constant="20" id="5BE-Pa-E1g"/>
+                            <constraint firstItem="vFV-vg-1jL" firstAttribute="centerX" secondItem="0uH-qu-Euw" secondAttribute="centerX" id="NPe-fs-SLD"/>
                             <constraint firstItem="9Vw-xr-eKo" firstAttribute="leading" secondItem="fr5-7h-tnH" secondAttribute="leading" id="as2-yu-1kE"/>
                             <constraint firstItem="9Vw-xr-eKo" firstAttribute="top" secondItem="0uH-qu-Euw" secondAttribute="top" id="dfO-uE-ezh"/>
                             <constraint firstItem="9Vw-xr-eKo" firstAttribute="trailing" secondItem="fr5-7h-tnH" secondAttribute="trailing" id="e9p-gi-0r1"/>
@@ -59,6 +70,7 @@
                     </view>
                     <connections>
                         <outlet property="navigationBar" destination="9Vw-xr-eKo" id="Tj8-fZ-ecZ"/>
+                        <outlet property="twitterStatusLabel" destination="vFV-vg-1jL" id="opM-2O-ABx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNF-N3-T3F" userLabel="First Responder" sceneMemberID="firstResponder"/>

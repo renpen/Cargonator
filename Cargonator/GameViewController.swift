@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import TwitterKit
 
 class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
     
@@ -35,7 +36,22 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
     // - MARK: Social Delegate
     
     func tweetScore() {
-        print("Tweet")
+        if (TWTRTwitter.sharedInstance().sessionStore.hasLoggedInUsers()) {
+            // App must have at least one logged-in user to compose a Tweet
+            let composer = TWTRComposerViewController.emptyComposer()
+            present(composer, animated: true, completion: nil)
+        } else {
+            // Log in, and then check again
+            TWTRTwitter.sharedInstance().logIn { session, error in
+                if session != nil { // Log in succeeded
+                    let composer = TWTRComposerViewController.emptyComposer()
+                    self.present(composer, animated: true, completion: nil)
+                } else {
+                    let alert = UIAlertController(title: "No Twitter Accounts Available", message: "You must log in before presenting a composer.", preferredStyle: .alert)
+                    self.present(alert, animated: false, completion: nil)
+                }
+            }
+        }
     }
     
     override var prefersStatusBarHidden : Bool {
