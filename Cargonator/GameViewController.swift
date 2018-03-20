@@ -36,13 +36,17 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
     // - MARK: Social Delegate
     
     func tweetScore() {
-        let composer = TWTRComposer()
-        
-        let text = "I just scored " + String(GameState.sharedInstance.getScore()) + " points in Cargonator. Join me at cargonator.wordpress.com"
-        
-        composer.setText(text)
-        
-        composer.show(from: self, completion: nil)
+        if (TWTRTwitter.sharedInstance().sessionStore.session() != nil) {
+            let composer = TWTRComposer()
+            
+            let text = "I just scored " + String(GameState.sharedInstance.getScore()) + " points in Cargonator. Join me at cargonator.wordpress.com"
+            
+            composer.setText(text)
+            
+            composer.show(from: self, completion: nil)
+        } else {
+            print("Not logged in")
+        }
     }
     
     override var prefersStatusBarHidden : Bool {

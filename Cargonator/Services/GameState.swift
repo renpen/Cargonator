@@ -74,7 +74,6 @@ class GameState {
     
     @objc func spawnPackage() {
         playSceneDelegate?.spawnPackage()
-        self.activePackages += 1
         calcPackageSpawnTime()
         setSpawnTimer()
     }
@@ -99,13 +98,18 @@ class GameState {
     }
     
     // - MARK: Active Package Calculation
+    
+    func packageSpawned() {
+        self.activePackages += 1
+    }
 
     func packageDelivered(package: Package) {
+        print("Entered packageDelivered with: " + String(self.activePackages))
         self.activePackages -= 1
         
         calcScore(package: package)
         
-        if !(activePackages > 0) {
+        if activePackages == 0 {
             gameViewController?.gameOver()
         }
     }
