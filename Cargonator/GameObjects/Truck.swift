@@ -72,16 +72,6 @@ class Truck: SKSpriteNode {
                 }
                 
             }
-            /*else if fabs(moveAmtY) > minimum_detect_distance {
-                
-                //must be moving up and down
-                if moveAmtY < 0 {
-                    swipeDirection = "up"
-                }
-                else {
-                    swipeDirection = "down"
-                }
-            }*/
             
             if (swipeDirection == driveDirection) {
                 moveOut()

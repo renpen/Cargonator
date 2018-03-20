@@ -50,18 +50,13 @@ class GameState {
     }
     
     func calcPackageSpawnTime () {
-        if packageSpawnTime > 1 {
-            packageSpawnTime -= 0.1
+        if self.packageSpawnTime > SettingService.shared.difficulty.getLeastSpawnTime() {
+            packageSpawnTime -= SettingService.shared.difficulty.getSpawnReduction()
         }
     }
     
     func calcInitialPackageSpawnTime() {
-        switch SettingService.shared.difficulty {
-        case .easy:
-            packageSpawnTime = 10
-        default:
-            packageSpawnTime = 4
-        }
+        packageSpawnTime = SettingService.shared.difficulty.getInitialSpawnTime()
     }
     
     // - MARK: Package Spawn

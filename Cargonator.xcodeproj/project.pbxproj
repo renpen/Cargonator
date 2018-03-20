@@ -158,6 +158,8 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
+				834C48F82060FD2100386973 /* Delegates */,
+				834C48F72060FD1000386973 /* GameObjects */,
 				83CEB54F205FF3B4008A9266 /* Services */,
 				83CEB54C205FF148008A9266 /* Enums */,
 				83006024205FE2B000DC722A /* Settings */,
@@ -171,12 +173,7 @@
 				8311BA3920401E7A00E34FDE /* Assets.xcassets */,
 				8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */,
 				8311BA3E20401E7A00E34FDE /* Info.plist */,
-				83F66592204FD28A00B90BAF /* Truck.swift */,
 				1271420A20506D40000FA8DA /* PackageFactory.swift */,
-				83503EC12052901B002F896A /* Package.swift */,
-				83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */,
-				83CEB54A205FE9AA008A9266 /* SpawnDelegate.swift */,
-				8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */,
 			);
 			path = Cargonator;
 			sourceTree = "<group>";
@@ -196,6 +193,26 @@
 				8338D0C92060003100018FD1 /* SafariServices.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		834C48F72060FD1000386973 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				83F66592204FD28A00B90BAF /* Truck.swift */,
+				8395B2002060F5AD0058B416 /* Score.swift */,
+				83503EC12052901B002F896A /* Package.swift */,
+			);
+			path = GameObjects;
+			sourceTree = "<group>";
+		};
+		834C48F82060FD2100386973 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */,
+				83CEB54A205FE9AA008A9266 /* SpawnDelegate.swift */,
+				8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		8378A9FF20595975008A6EDC /* Menu */ = {
@@ -239,7 +256,6 @@
 			children = (
 				837F1277205FC5A10003608D /* GameState.swift */,
 				83CEB550205FF3CF008A9266 /* SettingService.swift */,
-				8395B2002060F5AD0058B416 /* Score.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

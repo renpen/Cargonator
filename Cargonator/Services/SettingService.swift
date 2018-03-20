@@ -12,10 +12,6 @@ class SettingService {
     static let shared = SettingService()
     var difficulty:Difficulty = .easy
     
-    func loadUserSettings() {
-        
-    }
-    
     func setDifficulty(difficulty: Difficulty) {
         self.difficulty = difficulty
     }
