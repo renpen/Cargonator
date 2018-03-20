@@ -20,6 +20,8 @@ class GameState {
     private var packageSpawnTime:TimeInterval = 4
     private var timeInGame = 0
     
+    var streak = 1
+    
     // - MARK: Init
     
     init() {
