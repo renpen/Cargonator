@@ -38,4 +38,8 @@ class Score {
         
         self.value = oldScore.value + (GameState.sharedInstance.streak * addedValue)
     }
+    
+    init() {
+        self.value = 0
+    }
 }

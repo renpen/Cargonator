@@ -15,7 +15,7 @@ class GameState {
     var playSceneDelegate: SpawnDelegate?
     
     private var activePackages = 0
-    private var score = 0
+    private var score: Score = Score()
     private var coins = 0
     private var packageSpawnTime:TimeInterval = 4
     private var timeInGame = 0
@@ -30,7 +30,7 @@ class GameState {
     
     func reset () {
         self.activePackages = 0
-        self.score = 0
+        self.score = Score()
         self.coins = 0
         self.timeInGame = 0
         calcInitialPackageSpawnTime()
@@ -40,7 +40,7 @@ class GameState {
     // - MARK: Getter and Setter
     
     func getScore () -> Int{
-        return self.score
+        return self.score.value
     }
     
     // - MARK: Package Spawn Time
@@ -83,20 +83,7 @@ class GameState {
     // - MARK: Score Calculation
     
     func calcScore(package: Package) {
-        switch package.type {
-        case .circle:
-            score += 30
-            break
-        case .square:
-            score += 10
-            break
-        case .trapeze:
-            score += 20
-            break
-        case .triangle:
-            score += 20
-            break
-        }
+        self.score = Score(oldScore: self.score, deliveredPackage: package)
     }
     
     // - MARK: Active Package Calculation
