@@ -31,10 +31,11 @@ class PlayScene: SKScene, SpawnDelegate {
     
     override func sceneDidLoad() {
         GameState.sharedInstance.playSceneDelegate = self
-        GameState.sharedInstance.reset()
-        spawnPackages(number: 10)
+        GameState.sharedInstance.startGame()
         initArena()
         initTrucks()
+        
+        spawnPackages(number: 10)
     }
     
     func initArena () {
@@ -129,6 +130,7 @@ class PlayScene: SKScene, SpawnDelegate {
             let touchedNode = self.atPoint(location)
             
             if touchedNode.name == "MenuLabel" {
+                GameState.sharedInstance.endGame()
                 playSceneDelegate?.gameEnded()
             } else {
                 for package in packages {

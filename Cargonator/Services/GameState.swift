@@ -19,6 +19,7 @@ class GameState {
     private var coins = 0
     private var packageSpawnTime:TimeInterval = 4
     private var timeInGame = 0
+    private var gameActive = false
     
     var streak = 1
     
@@ -28,13 +29,18 @@ class GameState {
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimeInGame), userInfo: nil, repeats: true)
     }
     
-    func reset () {
+    func startGame () {
         self.activePackages = 0
         self.score = Score()
         self.coins = 0
         self.timeInGame = 0
+        self.gameActive = true
         calcInitialPackageSpawnTime()
         setSpawnTimer()
+    }
+    
+    func endGame () {
+        self.gameActive = false
     }
     
     // - MARK: Getter and Setter
@@ -62,14 +68,17 @@ class GameState {
     // - MARK: Package Spawn
     
     func setSpawnTimer() {
-        Timer.scheduledTimer(timeInterval: packageSpawnTime,
-                             target: self,
-                             selector: #selector(self.spawnPackage),
-                             userInfo: nil,
-                             repeats: false)
+        if (self.gameActive) {
+            Timer.scheduledTimer(timeInterval: packageSpawnTime,
+                                 target: self,
+                                 selector: #selector(self.spawnPackage),
+                                 userInfo: nil,
+                                 repeats: false)
+        }
     }
     
     @objc func spawnPackage() {
+        print("Package spawned")
         playSceneDelegate?.spawnPackage()
         calcPackageSpawnTime()
         setSpawnTimer()
