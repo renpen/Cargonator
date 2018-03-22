@@ -1,0 +1,9 @@
+{
+  "commitish" : "4.0.2",
+  "iOS" : [
+    {
+      "name" : "PaperOnboarding",
+      "hash" : "5fc556938e4719d109d2afab8c9a9817c72a6314b61cc31c2ca8847e2d4c9a54"
+    }
+  ]
+}
