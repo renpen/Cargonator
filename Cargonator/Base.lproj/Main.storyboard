@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -23,6 +28,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="530" y="25"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="wN3-ef-Qot">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="rDR-m9-07y" customClass="OnboardingViewController" customModule="Cargonator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q9O-Wu-I6v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTo-gm-mO0">
+                                <rect key="frame" x="290" y="33" width="72" height="40"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Lets try!">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="eMs-Nh-4nl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aTo-gm-mO0" firstAttribute="top" secondItem="HPE-RE-iNk" secondAttribute="top" constant="13" id="HhT-gh-SZ3"/>
+                            <constraint firstItem="HPE-RE-iNk" firstAttribute="trailing" secondItem="aTo-gm-mO0" secondAttribute="trailing" constant="13" id="gy4-Hz-LoB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HPE-RE-iNk"/>
+                    </view>
+                    <connections>
+                        <outlet property="letsTryButton" destination="aTo-gm-mO0" id="gtG-eR-iwL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFK-JG-2fi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="809"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="z5p-Sz-1Ov">

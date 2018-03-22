@@ -21,6 +21,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.isStatusBarHidden = true
         TWTRTwitter.sharedInstance().start(withConsumerKey:"UHmnuRibzDctekY4DpX5T8BQr", consumerSecret:"htuScUEmyqrkNSzFQkADlobmcmSvfGbgFjjfsJc7ywixtxhyxv")
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var vc: UIViewController
+        
+        if (UserDefaults.standard.value(forKey: "onboardingFinished") != nil) {
+            vc = storyboard.instantiateInitialViewController()!
+        } else {
+            vc = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController")
+        }
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
     
