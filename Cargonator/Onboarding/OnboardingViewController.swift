@@ -11,19 +11,22 @@ import PaperOnboarding
 
 class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
     
-    func onboardingItemsCount() -> Int {
-        return 3
-    }
+    @IBOutlet weak var letsStartButton: UIButton!
     
-    @IBOutlet weak var letsTryButton: UIButton!
+    @IBAction func letsStartButtonPressed(_ sender: Any) {
+        
+        UserDefaults.standard.set(true, forKey: "onboardingFinished")
+        
+        self.performSegue(withIdentifier: "showGameViewController", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        letsTryButton.isHidden = true
+        letsStartButton.isHidden = true
         
         setupPaperOnboardingView()
         
-        view.bringSubview(toFront: letsTryButton)
+        view.bringSubview(toFront: letsStartButton)
     }
     
     private func setupPaperOnboardingView() {
@@ -79,12 +82,16 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
                                descriptionFont: UIFont.boldSystemFont(ofSize: 15))
             ][index]
     }
+    
+    func onboardingItemsCount() -> Int {
+        return 3
+    }
 }
 
 extension OnboardingViewController: PaperOnboardingDelegate {
     
     func onboardingWillTransitonToIndex(_ index: Int) {
-        letsTryButton.isHidden = index == 2 ? false : true
+        letsStartButton.isHidden = index == 2 ? false : true
     }
     
     func onboardingDidTransitonToIndex(_: Int) {
