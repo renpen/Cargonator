@@ -52,11 +52,11 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
         
         return [
-            OnboardingItemInfo(informationImage: UIImage(named:"TruckRightPNG")!,
+            OnboardingItemInfo(informationImage: UIImage(named:"Onboarding_Package")!,
                                title: "title",
                                description: "description",
-                               pageIcon: UIImage(),
-                               color: UIColor.blue,
+                               pageIcon: UIImage(named:"Onboarding_Package_Icon")!,
+                               color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.boldSystemFont(ofSize: 15),
@@ -65,17 +65,8 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
             OnboardingItemInfo(informationImage: UIImage(named:"TruckRightPNG")!,
                                title: "title",
                                description: "description",
-                               pageIcon: UIImage(),
-                               color: UIColor.blue,
-                               titleColor: UIColor.white,
-                               descriptionColor: UIColor.white,
-                               titleFont: UIFont.boldSystemFont(ofSize: 15),
-                               descriptionFont: UIFont.boldSystemFont(ofSize: 15)),
-            OnboardingItemInfo(informationImage: UIImage(named:"TruckRightPNG")!,
-                               title: "title",
-                               description: "description",
-                               pageIcon: UIImage(),
-                               color: UIColor.blue,
+                               pageIcon: UIImage(named:"Onboarding_Truck_Icon")!,
+                               color: UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.boldSystemFont(ofSize: 15),
@@ -84,14 +75,14 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
     }
     
     func onboardingItemsCount() -> Int {
-        return 3
+        return 2
     }
 }
 
 extension OnboardingViewController: PaperOnboardingDelegate {
     
     func onboardingWillTransitonToIndex(_ index: Int) {
-        letsStartButton.isHidden = index == 2 ? false : true
+        letsStartButton.isHidden = index == 1 ? false : true
     }
     
     func onboardingDidTransitonToIndex(_: Int) {
