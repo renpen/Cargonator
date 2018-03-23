@@ -10,6 +10,5 @@ import UIKit
 import SpriteKit
 
 class Package: SKShapeNode {
-    
     var type = Figure.randomFigure()
 }
