@@ -90,7 +90,7 @@
 		8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDelegate.swift; sourceTree = "<group>"; };
 		8338D0C92060003100018FD1 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		83503EC12052901B002F896A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		835DD2B12064F69A00B3D22F /* Delivery.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Delivery.gif; path = ../../../Downloads/Delivery.gif; sourceTree = "<group>"; };
+		835DD2B12064F69A00B3D22F /* Delivery.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Delivery.gif; path = Cargonator/Delivery.gif; sourceTree = SOURCE_ROOT; };
 		8378AA00205959E5008A6EDC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		837F1277205FC5A10003608D /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
