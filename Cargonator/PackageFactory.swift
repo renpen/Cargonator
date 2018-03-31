@@ -11,7 +11,7 @@ import SpriteKit
 
 class PackageFactory {
     static let sharedInstance = PackageFactory()
-    let changePackageColors = SettingService.shared.diversePackageGeneration
+    var changePackageColors = SettingService.shared.diversePackageGeneration
     func getRandomPackage() -> Package {
         let figure = Figure.randomFigure()
         let color = Color.randomColor()
@@ -21,6 +21,8 @@ class PackageFactory {
         return package
     }
     func getSpecificPackage(fig : Figure, color: Color) -> Package {
+        //update in case the difficulty changed
+        self.changePackageColors = SettingService.shared.diversePackageGeneration
         switch fig {
         case Figure.circle:
             return generateCircle(color: color)
