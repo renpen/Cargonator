@@ -84,9 +84,13 @@ class PlayScene: SKScene, SpawnDelegate {
         self.trucks = [Truck]()
         
         let truckRightTop = self.childNode(withName: "TruckRightTop") as! Truck
+        truckRightTop.truckIdent = TruckIdent.RightTop
         let truckRightBottom = self.childNode(withName: "TruckRightBottom") as! Truck
+        truckRightBottom.truckIdent = TruckIdent.RightBottom
         let truckLeftTop = self.childNode(withName: "TruckLeftTop") as! Truck
+        truckLeftTop.truckIdent = TruckIdent.LeftTop
         let truckLeftBottom = self.childNode(withName: "TruckLeftBottom") as! Truck
+        truckLeftBottom.truckIdent = TruckIdent.LeftBottom
         
         /*var texture = PackageFactory.sharedInstance.getSpecificPackage(fig: Figure.circle)
         texture.setScale(300)
@@ -98,16 +102,18 @@ class PlayScene: SKScene, SpawnDelegate {
         truckRightTop.addChild(texture1)
         texture1.position = CGPoint(x: -20000, y: 1000)*/
         
-        truckRightTop.driveDirection = "right"
+        //@Bene, das ist nun automatisch in Truck gesetzt ;)
+        
+        //truckRightTop.driveDirection = "right"
         trucks.append(truckRightTop)
         
-        truckRightBottom.driveDirection = "right"
+        //truckRightBottom.driveDirection = "right"
         trucks.append(truckRightBottom)
         
-        truckLeftTop.driveDirection = "left"
+        //truckLeftTop.driveDirection = "left"
         trucks.append(truckLeftTop)
         
-        truckLeftBottom.driveDirection = "left"
+        //truckLeftBottom.driveDirection = "left"
         trucks.append(truckLeftBottom)
         
         for truck in trucks {
@@ -116,6 +122,7 @@ class PlayScene: SKScene, SpawnDelegate {
             truck.physicsBody?.categoryBitMask = truckBitMask
             truck.physicsBody?.isDynamic = false
             truck.physicsBody?.affectedByGravity = false
+            truck.initalizeStandard()
         }
     }
     

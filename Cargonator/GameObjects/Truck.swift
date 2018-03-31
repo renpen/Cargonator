@@ -11,7 +11,20 @@ import SpriteKit
 
 class Truck: SKSpriteNode {
     var origin_position = CGPoint()
-    
+    var truckIdent: TruckIdent? {
+        didSet {
+            switch truckIdent! {
+            case .LeftBottom:
+                driveDirection = "left";
+            case .LeftTop:
+                driveDirection = "left";
+            case .RightBottom:
+                driveDirection = "right";
+            case .RightTop:
+                driveDirection = "right";
+            }
+        }
+    }
     var driveDirection: String?
     
     // variables for detecting swipe
@@ -131,7 +144,28 @@ class Truck: SKSpriteNode {
             truckColor = Color.randomColor()
             truckFigure = Figure.randomFigure()
         }
+        else
+        {
+            initalizeStandard()
+        }
         
     }
+    func initalizeStandard()
+    {
+        switch truckIdent! {
+        case .LeftBottom:
+            self.truckColor = Color.Paper_brown
+            self.truckFigure = Figure.square
+        case .LeftTop:
+            self.truckColor = Color.Paper_white
+            self.truckFigure = Figure.circle
+        case .RightBottom:
+            self.truckColor = Color.Paper_yellow
+            self.truckFigure = Figure.trapeze
+        case .RightTop:
+            self.truckColor = Color.Paper_green
+            self.truckFigure = Figure.triangle 
+        }
+}
     
 }

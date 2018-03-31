@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271420A20506D40000FA8DA /* PackageFactory.swift */; };
 		128BFC8B206F641600D9DCA5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BFC8A206F641600D9DCA5 /* Color.swift */; };
+		128BFC8D206F7A9A00D9DCA5 /* TruckIdent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BFC8C206F7A9A00D9DCA5 /* TruckIdent.swift */; };
 		83006026205FE2C400DC722A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83006025205FE2C400DC722A /* SettingsViewController.swift */; };
 		8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA2C20401E7A00E34FDE /* AppDelegate.swift */; };
 		8311BA3120401E7A00E34FDE /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3020401E7A00E34FDE /* Actions.sks */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		1271420A20506D40000FA8DA /* PackageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageFactory.swift; sourceTree = "<group>"; };
 		128BFC8A206F641600D9DCA5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		128BFC8C206F7A9A00D9DCA5 /* TruckIdent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckIdent.swift; sourceTree = "<group>"; };
 		83006025205FE2C400DC722A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8311BA2920401E7A00E34FDE /* Cargonator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cargonator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8311BA2C20401E7A00E34FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				A726F06C204EF55A00ACEF76 /* Figure.swift */,
+				128BFC8C206F7A9A00D9DCA5 /* TruckIdent.swift */,
 				83CEB54D205FF162008A9266 /* Difficulty.swift */,
 				128BFC8A206F641600D9DCA5 /* Color.swift */,
 			);
@@ -405,6 +408,7 @@
 				8395B2012060F5AD0058B416 /* Score.swift in Sources */,
 				831CE61220645A5600B303BA /* OnboardingViewController.swift in Sources */,
 				83503EC22052901B002F896A /* Package.swift in Sources */,
+				128BFC8D206F7A9A00D9DCA5 /* TruckIdent.swift in Sources */,
 				128BFC8B206F641600D9DCA5 /* Color.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
 				83CEB54B205FE9AA008A9266 /* SpawnDelegate.swift in Sources */,
