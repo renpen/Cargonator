@@ -11,7 +11,7 @@ import SpriteKit
 
 class PackageFactory {
     static let sharedInstance = PackageFactory()
-    let changePackageColors = true
+    let changePackageColors = SettingService.shared.diversePackageGeneration
     func getRandomPackage() -> Package {
         let figure = Figure.randomFigure()
         let color = Color.randomColor()

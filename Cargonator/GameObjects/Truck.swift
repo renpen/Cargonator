@@ -20,8 +20,8 @@ class Truck: SKSpriteNode {
     private var moveAmtY: CGFloat = 0
     private var initialTouch: CGPoint = CGPoint.zero
     private var initialPosition: CGPoint = CGPoint.zero
-    
-    var acceptance = ""
+    private var truckColor = Color.randomColor()
+    private var truckFigure = Figure.randomFigure()
     
     func checkAcceptance () -> Bool {
         return true
@@ -119,6 +119,15 @@ class Truck: SKSpriteNode {
         self.isUserInteractionEnabled = true
         
         // update truck acceptance here
+    }
+    func changeAcceptanceState()
+    {
+        if(SettingService.shared.rotateTrucks)
+        {
+            truckColor = Color.randomColor()
+            truckFigure = Figure.randomFigure()
+        }
+        
     }
     
 }
