@@ -11,4 +11,5 @@ import SpriteKit
 
 class Package: SKShapeNode {
     var type = Figure.randomFigure()
+    var color = Color.randomColor();
 }
