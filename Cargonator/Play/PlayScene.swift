@@ -157,19 +157,20 @@ class PlayScene: SKScene, SpawnDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, movableNode != nil {
-            
+            let package = movableNode! as! Package
 
             for truck in self.trucks { // for every truck ...
-                if (truck.contains((self.movableNode?.position)!)) { // check if touched package is "above" the truck
+                if (truck.contains((package.position))) { // check if touched package is "above" the truck
                     print("package placed on ", truck.name!)
                     
-                    if (truck.checkAcceptance()) { // handover package information from movableNode
+                    if (truck.checkAcceptance(package: package)) { // handover package information from movableNode
                         // package is loaded into truck
-                        movableNode?.removeFromParent()
-                        print("package ", movableNode!, " delivered")
-                        GameState.sharedInstance.packageDelivered(package: movableNode as! Package)
+                        package.removeFromParent()
+                        print("package ", package, " delivered")
+                        GameState.sharedInstance.packageDelivered(package: package)
                     } else {
-                        // game lost
+                        GameState.sharedInstance.endGame()
+                        print("GAMEOVER")
                     }
                     // for prototype
                     //initPlayArea(number: 1, withForce: true)

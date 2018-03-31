@@ -17,7 +17,6 @@ class PackageFactory {
         let color = Color.randomColor()
         let package = getSpecificPackage(fig: figure, color: color)
         package.type = figure
-        package.color = color
         return package
     }
     func getSpecificPackage(fig : Figure, color: Color) -> Package {
@@ -39,10 +38,12 @@ class PackageFactory {
         circle.lineWidth = 1
         circle.fillColor = SKColor.white
         if changePackageColors {
+            circle.color = color
             circle.fillTexture = SKTexture(imageNamed: color.rawValue)
         }
         else
         {
+            circle.color = Color.Paper_white
             circle.fillTexture = SKTexture(imageNamed:"Paper_white")
         }
         circle.zPosition = 2
@@ -64,10 +65,12 @@ class PackageFactory {
         square.lineWidth = 1
         square.fillColor = UIColor.white
         if changePackageColors {
+            square.color = color
             square.fillTexture = SKTexture(imageNamed: color.rawValue)
         }
         else
         {
+            square.color = Color.Paper_brown
             square.fillTexture = SKTexture(imageNamed: "Paper_brown")
         }
         square.zPosition = 2
@@ -90,10 +93,12 @@ class PackageFactory {
         triangle.lineWidth = 1
         triangle.fillColor = UIColor.white
         if changePackageColors {
+            triangle.color = color
             triangle.fillTexture = SKTexture(imageNamed: color.rawValue)
         }
         else
         {
+            triangle.color = Color.Paper_green
             triangle.fillTexture = SKTexture(imageNamed: "Paper_green")
         }
         triangle.zPosition = 2
@@ -115,10 +120,12 @@ class PackageFactory {
         trapeze.lineWidth = 1
         trapeze.fillColor = UIColor.white
         if changePackageColors {
+            trapeze.color = color
             trapeze.fillTexture = SKTexture(imageNamed: color.rawValue)
         }
         else
         {
+            trapeze.color = Color.Paper_yellow
             trapeze.fillTexture = SKTexture(imageNamed: "Paper_yellow")
         }
         trapeze.zPosition = 2

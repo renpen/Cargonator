@@ -23,8 +23,13 @@ class Truck: SKSpriteNode {
     private var truckColor = Color.randomColor()
     private var truckFigure = Figure.randomFigure()
     
-    func checkAcceptance () -> Bool {
-        return true
+    func checkAcceptance (package: Package) -> Bool {
+        if package.color == truckColor && truckFigure == package.type {
+            return true
+        }
+        print("Truck has properties: Figure: " + truckFigure.rawValue + " and " + truckColor.rawValue)
+        print("Placed package has properties: Figure: " + package.type.rawValue + " and " + package.color.rawValue)
+        return false
     }
     
     // - MARK: Swipe Detection

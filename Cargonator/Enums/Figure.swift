@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Figure {
+enum Figure :String {
     case square
     case triangle
     case circle
