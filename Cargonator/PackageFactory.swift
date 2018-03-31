@@ -11,35 +11,44 @@ import SpriteKit
 
 class PackageFactory {
     static let sharedInstance = PackageFactory()
+    let changePackageColors = true
     func getRandomPackage() -> Package {
         let figure = Figure.randomFigure()
-        let package = getSpecificPackage(fig: figure)
+        let color = Color.randomColor()
+        let package = getSpecificPackage(fig: figure, color: color)
         package.type = figure
+        package.color = color
         return package
     }
-    func getSpecificPackage(fig : Figure) -> Package {
+    func getSpecificPackage(fig : Figure, color: Color) -> Package {
         switch fig {
         case Figure.circle:
-            return generateCircle()
+            return generateCircle(color: color)
         case .square:
-            return generateSquare()
+            return generateSquare(color: color)
         case .triangle:
-            return generateTriangle()
+            return generateTriangle(color: color)
         case .trapeze:
-            return generateTrapaze()
+            return generateTrapaze(color: color)
         }
     }
-    private func generateCircle() -> Package {
+    private func generateCircle(color: Color) -> Package {
         let circle = Package(circleOfRadius: 40)
         circle.lineWidth = 1
         circle.fillColor = SKColor.white
-        circle.fillTexture = SKTexture(imageNamed:"Paper_white")
+        if changePackageColors {
+            circle.fillTexture = SKTexture(imageNamed: color.rawValue)
+        }
+        else
+        {
+            circle.fillTexture = SKTexture(imageNamed:"Paper_white")
+        }
         circle.zPosition = 2
         circle.physicsBody = SKPhysicsBody(circleOfRadius: 40)
         
         return circle
     }
-    private func generateSquare() -> Package {
+    private func generateSquare(color: Color) -> Package {
         let path = CGMutablePath()
         
         path.move(to: CGPoint(x: 0.0, y: 0.0))
@@ -52,7 +61,13 @@ class PackageFactory {
         
         square.lineWidth = 1
         square.fillColor = UIColor.white
-        square.fillTexture = SKTexture(imageNamed: "Paper_brown")
+        if changePackageColors {
+            square.fillTexture = SKTexture(imageNamed: color.rawValue)
+        }
+        else
+        {
+            square.fillTexture = SKTexture(imageNamed: "Paper_brown")
+        }
         square.zPosition = 2
         
         square.physicsBody = SKPhysicsBody(polygonFrom: path)
@@ -61,7 +76,7 @@ class PackageFactory {
         
 
     }
-    private func generateTriangle() -> Package {
+    private func generateTriangle(color: Color) -> Package {
         
         let path = CGMutablePath()
         path.move(to: CGPoint(x:0.0,y:0.0))
@@ -72,14 +87,20 @@ class PackageFactory {
         let triangle = Package(path: path)
         triangle.lineWidth = 1
         triangle.fillColor = UIColor.white
-        triangle.fillTexture = SKTexture(imageNamed: "Paper_green")
+        if changePackageColors {
+            triangle.fillTexture = SKTexture(imageNamed: color.rawValue)
+        }
+        else
+        {
+            triangle.fillTexture = SKTexture(imageNamed: "Paper_green")
+        }
         triangle.zPosition = 2
         
         triangle.physicsBody = SKPhysicsBody(polygonFrom: path)
         return triangle
 
     }
-    private func generateTrapaze() -> Package {
+    private func generateTrapaze(color: Color) -> Package {
 
         let path = CGMutablePath()
         path.move(to: CGPoint(x: 0.0, y: 0.0))
@@ -91,7 +112,13 @@ class PackageFactory {
         let trapeze = Package(path: path)
         trapeze.lineWidth = 1
         trapeze.fillColor = UIColor.white
-        trapeze.fillTexture = SKTexture(imageNamed: "Paper_yellow")
+        if changePackageColors {
+            trapeze.fillTexture = SKTexture(imageNamed: color.rawValue)
+        }
+        else
+        {
+            trapeze.fillTexture = SKTexture(imageNamed: "Paper_yellow")
+        }
         trapeze.zPosition = 2
         trapeze.physicsBody = SKPhysicsBody(polygonFrom: path)
         

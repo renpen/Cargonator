@@ -10,6 +10,9 @@ import UIKit
 import SpriteKit
 
 class Package: SKShapeNode {
+    
+    //The initialition is just a placeholder that is set correclty in the PackageFactory
     var type = Figure.randomFigure()
-    var color = Color.randomColor();
+    var color = Color.randomColor()
+    
 }
