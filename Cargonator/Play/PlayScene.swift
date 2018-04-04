@@ -122,7 +122,7 @@ class PlayScene: SKScene, SpawnDelegate {
             truck.physicsBody?.categoryBitMask = truckBitMask
             truck.physicsBody?.isDynamic = false
             truck.physicsBody?.affectedByGravity = false
-            truck.initalizeStandard()
+            truck.changeAcceptanceState()
         }
     }
     
