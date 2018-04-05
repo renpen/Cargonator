@@ -49,6 +49,16 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
             // send resourceEvent
             GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Coins", amount: costs as NSNumber, itemType: "Boost", itemId: "Plane")
             
+            var highScore = 0
+            
+            if (UserDefaults.value(forKey: "highScore") != nil) {
+                highScore = UserDefaults.value(forKey: "highScore") as! Int
+            }
+            
+            let eventString = "Plane-" + String(highScore)
+            
+            GameAnalytics.addDesignEvent(withEventId: eventString)
+            
             UserDefaults.standard.set(coins-costs, forKey: "coins")
             print("New number of coins: ", UserDefaults.standard.value(forKey: "coins") as! Int)
         } else {
