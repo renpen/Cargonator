@@ -26,6 +26,8 @@
 		8338D0CA2060003100018FD1 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8338D0C92060003100018FD1 /* SafariServices.framework */; };
 		83503EC22052901B002F896A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83503EC12052901B002F896A /* Package.swift */; };
 		835DD2B22064F69A00B3D22F /* Delivery.gif in Resources */ = {isa = PBXBuildFile; fileRef = 835DD2B12064F69A00B3D22F /* Delivery.gif */; };
+		83656EAD2075FF6D00BCD7E4 /* libGameAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83656EAC2075FF6D00BCD7E4 /* libGameAnalytics.a */; };
+		83656EAF2075FF8300BCD7E4 /* GameAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83656EAE2075FF8200BCD7E4 /* GameAnalytics.framework */; };
 		8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8378AA00205959E5008A6EDC /* MenuScene.swift */; };
 		8378AA03205959F0008A6EDC /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8378AA02205959F0008A6EDC /* MenuScene.sks */; };
 		837F1278205FC5A10003608D /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837F1277205FC5A10003608D /* GameState.swift */; };
@@ -95,6 +97,10 @@
 		8338D0C92060003100018FD1 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		83503EC12052901B002F896A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		835DD2B12064F69A00B3D22F /* Delivery.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Delivery.gif; path = Cargonator/Delivery.gif; sourceTree = SOURCE_ROOT; };
+		83656EAB2075FF6C00BCD7E4 /* GameAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameAnalytics.h; sourceTree = "<group>"; };
+		83656EAC2075FF6D00BCD7E4 /* libGameAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGameAnalytics.a; sourceTree = "<group>"; };
+		83656EAE2075FF8200BCD7E4 /* GameAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GameAnalytics.framework; sourceTree = "<group>"; };
+		83656EB02076017900BCD7E4 /* Cargonator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cargonator-Bridging-Header.h"; sourceTree = "<group>"; };
 		8378AA00205959E5008A6EDC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		8378AA02205959F0008A6EDC /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		837F1277205FC5A10003608D /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -123,7 +129,9 @@
 				831CE61320645C5900B303BA /* PaperOnboarding.framework in Frameworks */,
 				8338D0CA2060003100018FD1 /* SafariServices.framework in Frameworks */,
 				837F127D205FCE010003608D /* TwitterKit.framework in Frameworks */,
+				83656EAD2075FF6D00BCD7E4 /* libGameAnalytics.a in Frameworks */,
 				837F127E205FCE010003608D /* TwitterCore.framework in Frameworks */,
+				83656EAF2075FF8300BCD7E4 /* GameAnalytics.framework in Frameworks */,
 				831CE60F20645A1600B303BA /* PaperOnboarding.framework in Frameworks */,
 				837F1284205FCF250003608D /* TwitterKit.framework in Frameworks */,
 			);
@@ -150,6 +158,9 @@
 		8311BA2020401E7A00E34FDE = {
 			isa = PBXGroup;
 			children = (
+				83656EB02076017900BCD7E4 /* Cargonator-Bridging-Header.h */,
+				83656EAE2075FF8200BCD7E4 /* GameAnalytics.framework */,
+				83656EAA2075FF5600BCD7E4 /* Analytics */,
 				831CE60E20645A1600B303BA /* PaperOnboarding.framework */,
 				837F127A205FCE010003608D /* TwitterCore.framework */,
 				837F1279205FCE010003608D /* TwitterKit.framework */,
@@ -174,9 +185,9 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
+				8311BA2C20401E7A00E34FDE /* AppDelegate.swift */,
 				835DD2B12064F69A00B3D22F /* Delivery.gif */,
 				831CE61020645A2C00B303BA /* Onboarding */,
-				8311BA2C20401E7A00E34FDE /* AppDelegate.swift */,
 				834C48F82060FD2100386973 /* Delegates */,
 				834C48F72060FD1000386973 /* GameObjects */,
 				83CEB54F205FF3B4008A9266 /* Services */,
@@ -239,6 +250,15 @@
 				8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		83656EAA2075FF5600BCD7E4 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				83656EAB2075FF6C00BCD7E4 /* GameAnalytics.h */,
+				83656EAC2075FF6D00BCD7E4 /* libGameAnalytics.a */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		8378A9FF20595975008A6EDC /* Menu */ = {
@@ -513,6 +533,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Cargonator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -562,6 +583,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Cargonator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -572,7 +594,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TTL5L96WQ5;
+				DEVELOPMENT_TEAM = WSVX5KDTA9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -581,8 +603,13 @@
 				INFOPLIST_FILE = Cargonator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Analytics",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = cargonator.Cargonator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cargonator-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -593,7 +620,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TTL5L96WQ5;
+				DEVELOPMENT_TEAM = WSVX5KDTA9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -602,8 +629,13 @@
 				INFOPLIST_FILE = Cargonator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Analytics",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = cargonator.Cargonator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cargonator-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
