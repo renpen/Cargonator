@@ -22,9 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GameAnalytics.configureAvailableResourceCurrencies(["coins"])
         GameAnalytics.configureAvailableResourceItemTypes(["gadget"])
         
-        GameAnalytics.initialize(withGameKey:"0e0da16cc7ec8f8069085f1402c914df", gameSecret:"364932b2758df5900e0405ed787060cae5e1c4bd")
-        
-        GameAnalytics.setEnabledInfoLog(true)
+        GameAnalytics.initialize(withGameKey:"66373e53bdbe0464d51bc2470e4d3b4a", gameSecret:"57e2efb4e4cc2baa6f24fe302ec183830e6c1685")
         
         UIApplication.shared.isStatusBarHidden = true
         TWTRTwitter.sharedInstance().start(withConsumerKey:"UHmnuRibzDctekY4DpX5T8BQr", consumerSecret:"htuScUEmyqrkNSzFQkADlobmcmSvfGbgFjjfsJc7ywixtxhyxv")

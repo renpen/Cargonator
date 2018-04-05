@@ -90,6 +90,10 @@ class GameState {
         self.score = Score(oldScore: self.score, deliveredPackage: package)
     }
     
+    func getCoins() -> Int {
+        return Int(Double(score.value) * 0.4)
+    }
+    
     // - MARK: Active Package Calculation
     
     func packageSpawned() {
