@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        GameAnalytics.configureBuild("alpha 0.1.0")
+        GameAnalytics.configureAvailableResourceCurrencies(["coins"])
+        GameAnalytics.configureAvailableResourceItemTypes(["gadget"])
+        
+        GameAnalytics.initialize(withGameKey:"0e0da16cc7ec8f8069085f1402c914df", gameSecret:"364932b2758df5900e0405ed787060cae5e1c4bd")
+        
+        GameAnalytics.setEnabledInfoLog(true)
+        
         UIApplication.shared.isStatusBarHidden = true
         TWTRTwitter.sharedInstance().start(withConsumerKey:"UHmnuRibzDctekY4DpX5T8BQr", consumerSecret:"htuScUEmyqrkNSzFQkADlobmcmSvfGbgFjjfsJc7ywixtxhyxv")
         

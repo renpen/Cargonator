@@ -15,6 +15,10 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
     
     @IBAction func letsStartButtonPressed(_ sender: Any) {
         
+        self.showGameViewController()
+    }
+    
+    func showGameViewController() {
         UserDefaults.standard.set(true, forKey: "onboardingFinished")
         
         self.performSegue(withIdentifier: "showGameViewController", sender: self)
@@ -27,6 +31,8 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
         setupPaperOnboardingView()
         
         view.bringSubview(toFront: letsStartButton)
+        
+        GameAnalytics.addDesignEvent(withEventId: "entered-onboarding")
     }
     
     private func setupPaperOnboardingView() {
