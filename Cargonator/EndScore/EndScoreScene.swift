@@ -19,9 +19,20 @@ class EndScoreScene: SKScene {
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(positionInScene)
             if touchedNode.name == "MenuButton" || touchedNode.name == "MenuLabel"{
-                self.gameViewControllerDelegate?.gameEnded()
+                self.gameViewControllerDelegate?.enterMenu()
+                setHighScore(score: GameState.sharedInstance.getScore())
             } else if touchedNode.name == "TweetButton" {
                 self.socialDelegate?.tweetScore()
+            }
+        }
+    }
+    
+    func setHighScore(score: Int) {
+        if (UserDefaults.standard.value(forKey: "highScore") != nil) {
+            UserDefaults.standard.set(score, forKey: "onboardingFinished")
+        } else {
+            if ((UserDefaults.standard.value(forKey: "highScore") as! Int) < score) {
+                UserDefaults.standard.set(score, forKey: "onboardingFinished")
             }
         }
     }

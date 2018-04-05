@@ -20,6 +20,10 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
         initEndScore()
     }
     
+    func enterMenu() {
+        initMenuScene()
+    }
+    
     func gameEnded() {
         GameAnalytics.addProgressionEvent(with: GAProgressionStatusFail, progression01: "openEnd", progression02: "Difficulty " + String(SettingService.shared.difficulty.rawValue), progression03: nil)
         initMenuScene()
