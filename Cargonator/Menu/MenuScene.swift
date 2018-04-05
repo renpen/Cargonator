@@ -22,7 +22,9 @@ class MenuScene: SKScene {
             if touchedNode.name == "StartGameLabel" || touchedNode.name == "StartGameTruck" {
                 startGame()
             } else if touchedNode.name == "HighScoreLabel" || touchedNode.name == "HighScoreTruck" {
-                // showHighScores
+                
+                // showStore
+                
             } else if touchedNode.name == "SettingsLabel" || touchedNode.name == "SettingsTruck"{
                 enterSettings()
             }

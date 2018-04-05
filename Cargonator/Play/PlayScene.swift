@@ -139,6 +139,9 @@ class PlayScene: SKScene, SpawnDelegate {
             if touchedNode.name == "MenuLabel" {
                 GameState.sharedInstance.endGame()
                 playSceneDelegate?.gameEnded()
+            } else if touchedNode.name == "Plane" {
+                GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Plane", amount: 1, itemType: "Gameplay", itemId: "Consumed")
+                // clear 5 packages
             } else {
                 for package in packages {
                     if package.contains(location) {
@@ -152,6 +155,7 @@ class PlayScene: SKScene, SpawnDelegate {
                 }
                 self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask
             }
+            
         }
     }
     

@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         GameAnalytics.configureBuild("alpha 0.1.0")
-        GameAnalytics.configureAvailableResourceCurrencies(["coins"])
-        GameAnalytics.configureAvailableResourceItemTypes(["gadget"])
+        GameAnalytics.configureAvailableResourceCurrencies(["Coins"])
+        GameAnalytics.configureAvailableResourceItemTypes(["Plane"])
         
         GameAnalytics.initialize(withGameKey:"66373e53bdbe0464d51bc2470e4d3b4a", gameSecret:"57e2efb4e4cc2baa6f24fe302ec183830e6c1685")
         

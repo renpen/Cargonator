@@ -28,6 +28,7 @@ class EndScoreScene: SKScene {
     }
     
     func addCoins(newCoins: Int) {
+        GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSource, currency: "Coins", amount: newCoins as NSNumber, itemType: nil, itemId: "LevelEnd")
         print(newCoins)
         if (UserDefaults.standard.value(forKey: "coins") == nil) {
             UserDefaults.standard.set(newCoins, forKey: "coins")
