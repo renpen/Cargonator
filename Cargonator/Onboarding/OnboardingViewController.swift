@@ -35,7 +35,6 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
         view.bringSubview(toFront: letsStartButton)
         
         GameAnalytics.addDesignEvent(withEventId: "onboarding-entered")
-        
     }
     
     private func setupPaperOnboardingView() {

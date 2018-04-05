@@ -126,6 +126,19 @@ class PlayScene: SKScene, SpawnDelegate {
         }
     }
     
+    func usePlane() {
+        let oldValue = UserDefaults.standard.value(forKey: "planes") as! Int
+        print("Old number of planes: ", oldValue)
+        if (oldValue > 0) {
+            UserDefaults.standard.set(oldValue - 1, forKey: "planes")
+            GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Plane", amount: 1, itemType: "Gameplay", itemId: "Consumed")
+            print("Plane used")
+        } else {
+            print("No planes")
+        }
+        print("New number of planes: ", UserDefaults.standard.value(forKey: "planes") as! Int)
+    }
+    
     // MARK: - Drag and Drop
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -140,8 +153,7 @@ class PlayScene: SKScene, SpawnDelegate {
                 GameState.sharedInstance.endGame()
                 playSceneDelegate?.gameEnded()
             } else if touchedNode.name == "Plane" {
-                GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Plane", amount: 1, itemType: "Gameplay", itemId: "Consumed")
-                // clear 5 packages
+                usePlane()
             } else {
                 for package in packages {
                     if package.contains(location) {

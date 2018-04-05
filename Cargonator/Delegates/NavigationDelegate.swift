@@ -14,4 +14,5 @@ protocol NavigationDelegate {
     func startGame()
     func enterSettings()
     func enterMenu()
+    func enterStore()
 }

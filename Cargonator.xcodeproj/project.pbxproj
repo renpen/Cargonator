@@ -197,6 +197,7 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
+				8322ECE42076980B00239042 /* Store */,
 				8311BA2C20401E7A00E34FDE /* AppDelegate.swift */,
 				835DD2B12064F69A00B3D22F /* Delivery.gif */,
 				831CE61020645A2C00B303BA /* Onboarding */,
@@ -234,6 +235,13 @@
 				831CE61120645A5600B303BA /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		8322ECE42076980B00239042 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		8338D0C82060003100018FD1 /* Frameworks */ = {
