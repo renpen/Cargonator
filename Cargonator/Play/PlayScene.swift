@@ -177,10 +177,8 @@ class PlayScene: SKScene, SpawnDelegate {
                         GameState.sharedInstance.packageDelivered(package: package)
                     } else {
                         GameState.sharedInstance.endGame()
-                        print("GAMEOVER")
+                        self.playSceneDelegate?.gameOver()
                     }
-                    // for prototype
-                    //initPlayArea(number: 1, withForce: true)
                 }
             }
             
