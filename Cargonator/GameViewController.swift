@@ -43,7 +43,9 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
             
             composer.setText(text)
             
-            composer.show(from: self, completion: nil)
+            composer.show(from: self, completion: { (result) in
+                GameAnalytics.addDesignEvent(withEventId: "result-tweet", value: NSNumber(integerLiteral: GameState.sharedInstance.getScore()))
+            })
         } else {
             print("Not logged in")
         }
