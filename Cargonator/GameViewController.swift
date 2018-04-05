@@ -16,7 +16,6 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
     // - MARK: Navigation Delegate
     
     func gameOver() {
-        GameAnalytics.addProgressionEvent(with: GAProgressionStatusComplete, progression01: "openEnd", progression02: "Difficulty " + String(SettingService.shared.difficulty.rawValue), progression03: nil)
         initEndScore()
     }
     
@@ -25,7 +24,6 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
     }
     
     func gameEnded() {
-        GameAnalytics.addProgressionEvent(with: GAProgressionStatusFail, progression01: "openEnd", progression02: "Difficulty " + String(SettingService.shared.difficulty.rawValue), progression03: nil)
         initMenuScene()
     }
     
@@ -36,7 +34,6 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
     }
     
     func startGame() {
-        GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "openEnd", progression02: "Difficulty " + String(SettingService.shared.difficulty.rawValue), progression03: nil)
         initPlayScene()
     }
     
