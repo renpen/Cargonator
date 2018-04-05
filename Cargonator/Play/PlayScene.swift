@@ -11,6 +11,11 @@ import GameplayKit
 
 class PlayScene: SKScene, SpawnDelegate {
     
+    func updateScore(score: Score) {
+        let label = self.childNode(withName: "ScoreLabel") as! SKLabelNode
+        label.text = String(score.value)
+    }
+    
     func spawnPackage() {
         spawnPackages(number: 1)
     }

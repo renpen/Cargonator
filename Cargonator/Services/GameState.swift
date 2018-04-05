@@ -15,7 +15,11 @@ class GameState {
     var playSceneDelegate: SpawnDelegate?
     
     private var activePackages = 0
-    private var score: Score = Score()
+    private var score: Score = Score() {
+        didSet {
+            playSceneDelegate?.updateScore(score: score)
+        }
+    }
     private var coins = 0
     private var packageSpawnTime:TimeInterval = 4
     private var timeInGame = 0

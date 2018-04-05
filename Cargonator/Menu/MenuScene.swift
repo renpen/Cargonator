@@ -15,6 +15,17 @@ class MenuScene: SKScene {
     
     let driveOutAnimationDuration: TimeInterval = 2
     
+    override func didMove(to view: SKView) {
+        updateCoins()
+    }
+    
+    func updateCoins() {
+        if (UserDefaults.standard.value(forKey: "coins") != nil) {
+            let label = self.childNode(withName: "CoinLabel") as! SKLabelNode
+            label.text = String(UserDefaults.standard.value(forKey: "coins") as! Int)
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let positionInScene = touch.location(in: self)
@@ -23,6 +34,7 @@ class MenuScene: SKScene {
                 startGame()
             } else if touchedNode.name == "HighScoreLabel" || touchedNode.name == "HighScoreTruck" {
                 menuSceneDelegate?.enterStore()
+                updateCoins()
             } else if touchedNode.name == "SettingsLabel" || touchedNode.name == "SettingsTruck"{
                 enterSettings()
             }

@@ -47,12 +47,17 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
             }
             print("New number of planes: ", UserDefaults.standard.value(forKey: "planes") as! Int)
             // send resourceEvent
-            GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Coins", amount: costs as NSNumber, itemType: "Boost", itemId: "Plane")
+            
+            GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink,
+               currency: "Coins",
+               amount: costs as NSNumber,
+               itemType: "Boost",
+               itemId: "Plane")
             
             var highScore = 0
             
-            if (UserDefaults.value(forKey: "highScore") != nil) {
-                highScore = UserDefaults.value(forKey: "highScore") as! Int
+            if (UserDefaults.standard.value(forKey: "highScore") != nil) {
+                highScore = UserDefaults.standard.value(forKey: "highScore") as! Int
             }
             
             let eventString = "Plane-" + String(highScore)
