@@ -31,4 +31,18 @@ class SettingService {
             return 45
         }
     }
+    func getTimeIncrease() -> Int {
+        switch difficulty {
+        case .easy:
+            return 5
+        case .medium:
+            return 4
+        case .hard:
+            return 3
+        case .veryhard:
+            return 2
+        case .extreme:
+            return 1
+        }
+    }
 }

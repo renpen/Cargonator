@@ -23,7 +23,13 @@ class GameState {
     private var coins = 0
     private var packageSpawnTime:TimeInterval = 4
     private var timeInGame = 0
-    private var gameActive = false
+    private var gameActive = true {
+        didSet{
+            if gameActive == false {
+                gameViewController?.gameOver()
+            }
+        }
+    }
     private var countdown = Timer()
     private var seconds = SettingService.shared.getCountdownStarttime(){
         didSet {
@@ -39,7 +45,6 @@ class GameState {
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimeInGame), userInfo: nil, repeats: true)
         countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateCountdown)), userInfo: nil, repeats: true)
     }
-
     
     @objc func updateCountdown() {
         if seconds > 1 {
@@ -127,9 +132,12 @@ class GameState {
         self.activePackages -= 1
         
         calcScore(package: package)
-        
+        increaseTime()
         if activePackages == 0 {
             gameViewController?.gameOver()
         }
+    }
+    func increaseTime() {
+        seconds += SettingService.shared.getTimeIncrease()
     }
 }
