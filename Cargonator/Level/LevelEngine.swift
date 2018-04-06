@@ -16,5 +16,6 @@ class LevelEngine {
     func nextLevel()
     {
         level = level.getNextLevel()
+        print("YESS, NEXT LEVEL")
     }
 }

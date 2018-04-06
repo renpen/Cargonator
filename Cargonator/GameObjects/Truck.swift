@@ -140,7 +140,9 @@ class Truck: SKSpriteNode {
     func changeAcceptanceState()
     {
         self.removeAllChildren()
-        let package = PackageFactory.sharedInstance.getSpecificPackage(fig: self.truckFigure, color: self.truckColor)
+        let package = PackageFactory.sharedInstance.getRandomPackage()
+        self.truckColor = package.color
+        self.truckFigure = package.type
         var xScaler =  1 / self.xScale
         var yScaler = 1 / self.yScale
         package.xScale = xScaler

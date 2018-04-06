@@ -15,6 +15,7 @@ class GameState {
     var playSceneDelegate: SpawnDelegate?
     
     private var activePackages = 0
+    private var packageCount = 1
     private var score: Score = Score() {
         didSet {
             playSceneDelegate?.updateScore(score: score)
@@ -126,9 +127,14 @@ class GameState {
     func packageDelivered(package: Package) {
         print("Entered packageDelivered with: " + String(self.activePackages))
         self.activePackages -= 1
-        
+        packageCount += 1;
         calcScore(package: package)
         increaseTime()
+        if(packageCount % 6 == 0)
+        {
+            packageCount = 1
+            LevelEngine.sharedInstance.nextLevel()
+        }
         if activePackages == 0 {
             gameViewController?.gameOver()
         }
