@@ -48,6 +48,7 @@ class GameState {
         {
             endGame()
             gameViewController?.gameOver()
+            countdown.invalidate()
         }
         
     }
