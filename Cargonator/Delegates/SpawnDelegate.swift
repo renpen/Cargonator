@@ -11,4 +11,6 @@ import UIKit
 protocol SpawnDelegate {
     func spawnPackage()
     func updateScore(score: Score)
+    func updateCountdown(countdown: Int)
+    
 }

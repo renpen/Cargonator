@@ -15,4 +15,20 @@ class SettingService {
     func setDifficulty(difficulty: Difficulty) {
         self.difficulty = difficulty
     }
+    
+    func getCountdownStarttime() -> Int
+    {
+        switch difficulty {
+        case .easy:
+            return 80
+        case .medium:
+            return 70
+        case .hard:
+            return 60
+        case .veryhard:
+            return 50
+        case .extreme:
+            return 45
+        }
+    }
 }

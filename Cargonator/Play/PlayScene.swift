@@ -16,6 +16,11 @@ class PlayScene: SKScene, SpawnDelegate {
         label.text = String(score.value)
     }
     
+    func updateCountdown(countdown: Int)
+    {
+        let label = self.childNode(withName: "CountdownLabel") as! SKLabelNode
+        label.text = String(countdown)
+    }
     func spawnPackage() {
         spawnPackages(number: 1)
     }

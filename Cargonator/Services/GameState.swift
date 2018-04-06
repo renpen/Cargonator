@@ -24,6 +24,12 @@ class GameState {
     private var packageSpawnTime:TimeInterval = 4
     private var timeInGame = 0
     private var gameActive = false
+    private var countdown = Timer()
+    private var seconds = SettingService.shared.getCountdownStarttime(){
+        didSet {
+            playSceneDelegate?.updateCountdown(countdown: seconds)
+        }
+    }
     
     var streak = 1
     
@@ -31,8 +37,20 @@ class GameState {
     
     init() {
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimeInGame), userInfo: nil, repeats: true)
+        countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateCountdown)), userInfo: nil, repeats: true)
     }
+
     
+    @objc func updateCountdown() {
+        if seconds > 1 {
+            seconds -= 1
+        }
+        else
+        {
+            endGame()
+        }
+        
+    }
     func startGame () {
         self.activePackages = 0
         self.score = Score()

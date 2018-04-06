@@ -13,5 +13,8 @@ class LevelEngine {
     var level = Level()
     
     
-    
+    func nextLevel()
+    {
+        level = level.getNextLevel()
+    }
 }
