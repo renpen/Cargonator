@@ -11,6 +11,94 @@ import GameplayKit
 
 class PlayScene: SKScene, SpawnDelegate {
     
+    // MARK: - Drag and Drop
+    
+    var slideStartPoint: CGPoint = CGPoint()
+    var slideEndPoint: CGPoint = CGPoint()
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            
+            let location = touch.location(in: self)
+            print(location)
+            
+            let touchedNode = self.atPoint(location)
+            
+            if touchedNode.name == "MenuLabel" {
+                GameState.sharedInstance.endGame()
+                playSceneDelegate?.gameEnded()
+            } else if touchedNode.name == "Plane" {
+                usePlane()
+            } else {
+                for package in packages {
+                    if package.contains(location) {
+                        self.movableNode = package
+                        if let node = self.movableNode {
+                            self.touchPosDifferenceX = location.x - node.position.x
+                            self.touchPosDifferenceY = location.y - node.position.y
+                        }
+                        self.slideStartPoint = location
+                    }
+                }
+                self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask
+                self.movableNode?.physicsBody?.isDynamic = false
+            }
+            
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, movableNode != nil {
+            let touchLocation = touch.location(in: self)
+            movableNode!.position = CGPoint(x: (touchLocation.x - touchPosDifferenceX!), y: (touchLocation.y - touchPosDifferenceY!))
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, movableNode != nil {
+            let package = movableNode! as! Package
+            var placed = false
+            self.movableNode?.physicsBody?.isDynamic = true
+            
+            for truck in self.trucks { // for every truck ...
+                if (truck.contains((package.position))) { // check if touched package is "above" the truck
+                    print("package placed on ", truck.name!)
+                    
+                    if (truck.checkAcceptance(package: package)) { // handover package information from movableNode
+                        // package is loaded into truck
+                        package.removeFromParent()
+                        print("package ", package, " delivered")
+                        GameState.sharedInstance.packageDelivered(package: package)
+                    } else {
+                        GameState.sharedInstance.endGame()
+                        self.playSceneDelegate?.gameOver()
+                    }
+                    
+                    placed = true
+                    
+                }
+                if placed == false {
+                    self.slideEndPoint = touch.location(in: self)
+                    let vector = CGVector(dx: (self.slideEndPoint.x - self.slideStartPoint.x), dy: (self.slideEndPoint.y - self.slideStartPoint.y))
+                    print("StartPoint:", self.slideStartPoint)
+                    print("EndPoint:", self.slideEndPoint)
+                    print("Vector:", vector)
+                    self.movableNode?.physicsBody?.applyForce(vector)
+                }
+            }
+            
+        }
+        // not released on truck
+        self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask | truckBitMask
+        self.movableNode = nil
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            movableNode = nil
+        }
+    }
+    
     func updateScore(score: Score) {
         let label = self.childNode(withName: "ScoreLabel") as! SKLabelNode
         label.text = String(score.value)
@@ -38,7 +126,6 @@ class PlayScene: SKScene, SpawnDelegate {
     
     var playSceneDelegate: NavigationDelegate?
 
-    
     override func sceneDidLoad() {
         GameState.sharedInstance.playSceneDelegate = self
         GameState.sharedInstance.startGame()
@@ -147,78 +234,6 @@ class PlayScene: SKScene, SpawnDelegate {
             print("No planes")
         }
         print("New number of planes: ", UserDefaults.standard.value(forKey: "planes") as! Int)
-    }
-    
-    // MARK: - Drag and Drop
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            
-            let location = touch.location(in: self)
-            print(location)
-            
-            let touchedNode = self.atPoint(location)
-            
-            if touchedNode.name == "MenuLabel" {
-                GameState.sharedInstance.endGame()
-                playSceneDelegate?.gameEnded()
-            } else if touchedNode.name == "Plane" {
-                usePlane()
-            } else {
-                for package in packages {
-                    if package.contains(location) {
-                        self.movableNode = package
-                        if let node = self.movableNode {
-                            self.touchPosDifferenceX = location.x - node.position.x
-                            self.touchPosDifferenceY = location.y - node.position.y
-                        }
-                        //movableNode!.position = location
-                    }
-                }
-                self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask
-            }
-            
-        }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first, movableNode != nil {
-            let touchLocation = touch.location(in: self)
-            movableNode!.position = CGPoint(x: (touchLocation.x - touchPosDifferenceX!), y: (touchLocation.y - touchPosDifferenceY!))
-        }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first, movableNode != nil {
-            let package = movableNode! as! Package
-
-            for truck in self.trucks { // for every truck ...
-                if (truck.contains((package.position))) { // check if touched package is "above" the truck
-                    print("package placed on ", truck.name!)
-                    
-                    if (truck.checkAcceptance(package: package)) { // handover package information from movableNode
-                        // package is loaded into truck
-                        package.removeFromParent()
-                        print("package ", package, " delivered")
-                        GameState.sharedInstance.packageDelivered(package: package)
-                    } else {
-                        GameState.sharedInstance.endGame()
-                        self.playSceneDelegate?.gameOver()
-                    }
-                }
-            }
-            
-
-        }
-        // not released on truck
-        self.movableNode?.physicsBody?.collisionBitMask = packageBitMask | worldBitMask | truckBitMask
-        movableNode = nil
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if touches.first != nil {
-            movableNode = nil
-        }
     }
     
     func addPackageToPlayArea (package: Package) {
