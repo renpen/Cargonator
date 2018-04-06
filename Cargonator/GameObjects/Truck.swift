@@ -33,8 +33,8 @@ class Truck: SKSpriteNode {
     private var moveAmtY: CGFloat = 0
     private var initialTouch: CGPoint = CGPoint.zero
     private var initialPosition: CGPoint = CGPoint.zero
-    private var truckColor = Color.randomColor()
-    private var truckFigure = Figure.randomFigure()
+    private var truckColor = LevelEngine.sharedInstance.level.randomColor()
+    private var truckFigure = LevelEngine.sharedInstance.level.randomFigure()
     
     func checkAcceptance (package: Package) -> Bool {
         if package.color == truckColor && truckFigure == package.type {
@@ -139,15 +139,6 @@ class Truck: SKSpriteNode {
     }
     func changeAcceptanceState()
     {
-        if(SettingService.shared.rotateTrucks)
-        {
-            truckColor = Color.randomColor()
-            truckFigure = Figure.randomFigure()
-        }
-        else
-        {
-            initalizeStandard()
-        }
         self.removeAllChildren()
         let package = PackageFactory.sharedInstance.getSpecificPackage(fig: self.truckFigure, color: self.truckColor)
         var xScaler =  1 / self.xScale
@@ -172,22 +163,5 @@ class Truck: SKSpriteNode {
         self.addChild(package)
         
     }
-    func initalizeStandard()
-    {
-        switch truckIdent! {
-        case .LeftBottom:
-            self.truckColor = Color.Paper_brown
-            self.truckFigure = Figure.square
-        case .LeftTop:
-            self.truckColor = Color.Paper_white
-            self.truckFigure = Figure.circle
-        case .RightBottom:
-            self.truckColor = Color.Paper_yellow
-            self.truckFigure = Figure.trapeze
-        case .RightTop:
-            self.truckColor = Color.Paper_green
-            self.truckFigure = Figure.triangle 
-        }
-}
     
 }

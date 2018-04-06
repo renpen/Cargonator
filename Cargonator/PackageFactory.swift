@@ -11,17 +11,15 @@ import SpriteKit
 
 class PackageFactory {
     static let sharedInstance = PackageFactory()
-    var changePackageColors = SettingService.shared.diversePackageGeneration
     func getRandomPackage() -> Package {
-        let figure = Figure.randomFigure()
-        let color = Color.randomColor()
+        let level = LevelEngine.sharedInstance.level
+        let figure = level.randomFigure()
+        let color = level.randomColor()
         let package = getSpecificPackage(fig: figure, color: color)
         package.type = figure
         return package
     }
     func getSpecificPackage(fig : Figure, color: Color) -> Package {
-        //update in case the difficulty changed
-        self.changePackageColors = SettingService.shared.diversePackageGeneration
         switch fig {
         case Figure.circle:
             return generateCircle(color: color)
@@ -37,15 +35,8 @@ class PackageFactory {
         let circle = Package(circleOfRadius: 40)
         circle.lineWidth = 1
         circle.fillColor = SKColor.white
-        if changePackageColors {
-            circle.color = color
-            circle.fillTexture = SKTexture(imageNamed: color.rawValue)
-        }
-        else
-        {
-            circle.color = Color.Paper_white
-            circle.fillTexture = SKTexture(imageNamed:"Paper_white")
-        }
+        circle.color = color
+        circle.fillTexture = SKTexture(imageNamed: color.rawValue)
         circle.zPosition = 2
         circle.physicsBody = SKPhysicsBody(circleOfRadius: 40)
         
@@ -64,15 +55,8 @@ class PackageFactory {
         
         square.lineWidth = 1
         square.fillColor = UIColor.white
-        if changePackageColors {
-            square.color = color
-            square.fillTexture = SKTexture(imageNamed: color.rawValue)
-        }
-        else
-        {
-            square.color = Color.Paper_brown
-            square.fillTexture = SKTexture(imageNamed: "Paper_brown")
-        }
+        square.color = color
+        square.fillTexture = SKTexture(imageNamed: color.rawValue)
         square.zPosition = 2
         
         square.physicsBody = SKPhysicsBody(polygonFrom: path)
@@ -92,16 +76,10 @@ class PackageFactory {
         let triangle = Package(path: path)
         triangle.lineWidth = 1
         triangle.fillColor = UIColor.white
-        if changePackageColors {
+       
             triangle.color = color
             triangle.fillTexture = SKTexture(imageNamed: color.rawValue)
-        }
-        else
-        {
-            triangle.color = Color.Paper_green
-            triangle.fillTexture = SKTexture(imageNamed: "Paper_green")
-        }
-        triangle.zPosition = 2
+               triangle.zPosition = 2
         
         triangle.physicsBody = SKPhysicsBody(polygonFrom: path)
         return triangle
@@ -119,15 +97,10 @@ class PackageFactory {
         let trapeze = Package(path: path)
         trapeze.lineWidth = 1
         trapeze.fillColor = UIColor.white
-        if changePackageColors {
+       
             trapeze.color = color
             trapeze.fillTexture = SKTexture(imageNamed: color.rawValue)
-        }
-        else
-        {
-            trapeze.color = Color.Paper_yellow
-            trapeze.fillTexture = SKTexture(imageNamed: "Paper_yellow")
-        }
+       
         trapeze.zPosition = 2
         trapeze.physicsBody = SKPhysicsBody(polygonFrom: path)
         

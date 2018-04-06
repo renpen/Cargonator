@@ -14,10 +14,5 @@ enum Color : String {
     case Paper_green
     case Paper_brown
     
-    static func randomColor() -> Color
-    {
-        var colors = [Color.Paper_brown,Color.Paper_green,Color.Paper_white,Color.Paper_yellow];
-        let index = Int(arc4random_uniform(UInt32(colors.count)))
-        return colors[index]
-    }
+    
 }

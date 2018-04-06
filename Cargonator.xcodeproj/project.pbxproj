@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1244B4922077ED54009675C8 /* LevelEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B4912077ED54009675C8 /* LevelEngine.swift */; };
+		1244B4942077EDA4009675C8 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B4932077EDA4009675C8 /* Level.swift */; };
+		1244B4982077F2D7009675C8 /* Level_two.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B4972077F2D7009675C8 /* Level_two.swift */; };
+		1244B49A2077F39C009675C8 /* Level_three.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B4992077F39C009675C8 /* Level_three.swift */; };
+		1244B49C2077F55F009675C8 /* Level_four.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B49B2077F55F009675C8 /* Level_four.swift */; };
+		1244B49E2077F5FD009675C8 /* Level_five.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B49D2077F5FD009675C8 /* Level_five.swift */; };
+		1244B4A42077FAA3009675C8 /* Level_six.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B4A32077FAA3009675C8 /* Level_six.swift */; };
 		1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271420A20506D40000FA8DA /* PackageFactory.swift */; };
 		128BFC8B206F641600D9DCA5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BFC8A206F641600D9DCA5 /* Color.swift */; };
 		128BFC8D206F7A9A00D9DCA5 /* TruckIdent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BFC8C206F7A9A00D9DCA5 /* TruckIdent.swift */; };
@@ -80,6 +87,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1244B4912077ED54009675C8 /* LevelEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelEngine.swift; sourceTree = "<group>"; };
+		1244B4932077EDA4009675C8 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		1244B4972077F2D7009675C8 /* Level_two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level_two.swift; sourceTree = "<group>"; };
+		1244B4992077F39C009675C8 /* Level_three.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level_three.swift; sourceTree = "<group>"; };
+		1244B49B2077F55F009675C8 /* Level_four.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level_four.swift; sourceTree = "<group>"; };
+		1244B49D2077F5FD009675C8 /* Level_five.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level_five.swift; sourceTree = "<group>"; };
+		1244B4A32077FAA3009675C8 /* Level_six.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level_six.swift; sourceTree = "<group>"; };
 		1271420A20506D40000FA8DA /* PackageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageFactory.swift; sourceTree = "<group>"; };
 		128BFC8A206F641600D9DCA5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		128BFC8C206F7A9A00D9DCA5 /* TruckIdent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckIdent.swift; sourceTree = "<group>"; };
@@ -159,6 +173,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1244B4A52077FACB009675C8 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				1244B4A32077FAA3009675C8 /* Level_six.swift */,
+				1244B49D2077F5FD009675C8 /* Level_five.swift */,
+				1244B49B2077F55F009675C8 /* Level_four.swift */,
+				1244B4992077F39C009675C8 /* Level_three.swift */,
+				1244B4972077F2D7009675C8 /* Level_two.swift */,
+				1244B4932077EDA4009675C8 /* Level.swift */,
+				1244B4912077ED54009675C8 /* LevelEngine.swift */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
 		83006024205FE2B000DC722A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +225,7 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
+				1244B4A52077FACB009675C8 /* Level */,
 				8322ECE42076980B00239042 /* Store */,
 				8311BA2C20401E7A00E34FDE /* AppDelegate.swift */,
 				835DD2B12064F69A00B3D22F /* Delivery.gif */,
@@ -443,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1244B49C2077F55F009675C8 /* Level_four.swift in Sources */,
 				1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */,
 				83A7445B205FBB0500F7436F /* PlayScene.swift in Sources */,
 				8311BA3520401E7A00E34FDE /* GameViewController.swift in Sources */,
@@ -450,19 +480,25 @@
 				83A74466205FBD5D00F7436F /* EndScoreScene.swift in Sources */,
 				8338D0B2205FFA2000018FD1 /* SocialDelegate.swift in Sources */,
 				8395B2012060F5AD0058B416 /* Score.swift in Sources */,
+				1244B49E2077F5FD009675C8 /* Level_five.swift in Sources */,
 				831CE61220645A5600B303BA /* OnboardingViewController.swift in Sources */,
 				83503EC22052901B002F896A /* Package.swift in Sources */,
 				128BFC8D206F7A9A00D9DCA5 /* TruckIdent.swift in Sources */,
 				128BFC8B206F641600D9DCA5 /* Color.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
+				1244B4942077EDA4009675C8 /* Level.swift in Sources */,
 				83CEB54B205FE9AA008A9266 /* SpawnDelegate.swift in Sources */,
 				83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */,
 				83CEB54E205FF162008A9266 /* Difficulty.swift in Sources */,
 				8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */,
+				1244B4922077ED54009675C8 /* LevelEngine.swift in Sources */,
+				1244B4982077F2D7009675C8 /* Level_two.swift in Sources */,
 				A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */,
 				8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */,
+				1244B4A42077FAA3009675C8 /* Level_six.swift in Sources */,
 				837F1278205FC5A10003608D /* GameState.swift in Sources */,
 				83006026205FE2C400DC722A /* SettingsViewController.swift in Sources */,
+				1244B49A2077F39C009675C8 /* Level_three.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,7 +654,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WSVX5KDTA9;
+				DEVELOPMENT_TEAM = 2Q386FUQ99;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -644,7 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WSVX5KDTA9;
+				DEVELOPMENT_TEAM = 2Q386FUQ99;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
