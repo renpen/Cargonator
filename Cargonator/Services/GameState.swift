@@ -23,13 +23,7 @@ class GameState {
     private var coins = 0
     private var packageSpawnTime:TimeInterval = 4
     private var timeInGame = 0
-    private var gameActive = true {
-        didSet{
-            if gameActive == false {
-                gameViewController?.gameOver()
-            }
-        }
-    }
+    private var gameActive = false
     private var countdown = Timer()
     private var seconds = SettingService.shared.getCountdownStarttime(){
         didSet {
@@ -53,6 +47,7 @@ class GameState {
         else
         {
             endGame()
+            gameViewController?.gameOver()
         }
         
     }
