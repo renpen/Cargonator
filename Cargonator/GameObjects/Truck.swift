@@ -143,26 +143,61 @@ class Truck: SKSpriteNode {
         let package = PackageFactory.sharedInstance.getRandomPackage()
         self.truckColor = package.color
         self.truckFigure = package.type
+        // Every different figure has a different starting anchorpoint --> need relocation
+//        switch self.truckFigure {
+//        case .circle:
+//            package.position = CGPoint(x: 50 * xScaler, y: 25 * yScaler)
+//            package.xScale = package.xScale * 0.8
+//            package.yScale = package.yScale * 0.8
+//        case .square:
+//            package.position = CGPoint(x: 25 * xScaler, y: 1 * yScaler)
+//        case .trapeze:
+//            package.position = CGPoint(x: -90 * xScaler, y: 1 * yScaler)
+//        case .triangle:
+//            package.position = CGPoint(x: -90 * xScaler, y: 1 * yScaler)
+//        }
+        doFormReposition(package: package)
+        package.physicsBody = nil
+        self.addChild(package)
+        
+    }
+    
+    // ToDo: Refactoring neccesarry. very high coupling here
+    func doFormReposition(package : Package) {
         var xScaler =  1 / self.xScale
         var yScaler = 1 / self.yScale
         package.xScale = xScaler
         package.yScale = yScaler
-        // Every different figure has a different starting anchorpoint --> need relocation
-        switch self.truckFigure {
-        case .circle:
-            package.position = CGPoint(x: 50 * xScaler, y: 25 * yScaler)
-            package.xScale = package.xScale * 0.8
-            package.yScale = package.yScale * 0.8
-        case .square:
-            package.position = CGPoint(x: 25 * xScaler, y: 1 * yScaler)
-        case .trapeze:
-            package.position = CGPoint(x: -90 * xScaler, y: 1 * yScaler)
-        case .triangle:
-            package.position = CGPoint(x: -90 * xScaler, y: 1 * yScaler)
+        switch truckIdent! {
+        case .LeftBottom:
+            switch self.truckFigure {
+            case .trapeze:
+                package.position =  CGPoint(x: -1 * xScaler, y: 1 * yScaler)
+            case .triangle:
+                package.position =  CGPoint(x: -1 * xScaler, y: 1 * yScaler)
+            case .circle:
+                package.position = CGPoint(x: 40 * xScaler, y: 25 * yScaler)
+                package.xScale = package.xScale * 0.8
+                package.yScale = package.yScale * 0.8
+            case .square:
+                package.position = CGPoint(x: 25 * xScaler, y: 1 * yScaler)
+            }
+        case .LeftTop:
+            switch self.truckFigure {
+            case .trapeze:
+                package.position =  CGPoint(x: -1 * xScaler, y: 1 * yScaler)
+            case .triangle:
+                package.position =  CGPoint(x: -1 * xScaler, y: 1 * yScaler)
+            case .circle:
+                package.position = CGPoint(x: 40 * xScaler, y: 25 * yScaler)
+                package.xScale = package.xScale * 0.8
+                package.yScale = package.yScale * 0.8
+            case .square:
+                package.position = CGPoint(x: 25 * xScaler, y: 1 * yScaler)
+            }
+        default:
+            print("Default")
         }
-    
-        package.physicsBody = nil
-        self.addChild(package)
         
     }
     
