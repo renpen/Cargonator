@@ -195,8 +195,32 @@ class Truck: SKSpriteNode {
             case .square:
                 package.position = CGPoint(x: 25 * xScaler, y: 1 * yScaler)
             }
-        default:
-            print("Default")
+        case .RightTop:
+            switch self.truckFigure {
+            case .trapeze:
+                package.position =  CGPoint(x: -90 * xScaler, y: -1 * yScaler)
+            case .triangle:
+                package.position =  CGPoint(x: -90 * xScaler, y: -1 * yScaler)
+            case .circle:
+                package.position = CGPoint(x: -40 * xScaler, y: +25 * yScaler)
+                package.xScale = package.xScale * 0.8
+                package.yScale = package.yScale * 0.8
+            case .square:
+                package.position = CGPoint(x: -65 * xScaler, y: -1 * yScaler)
+            }
+        case .RightBottom:
+            switch self.truckFigure {
+            case .trapeze:
+                package.position =  CGPoint(x: -90 * xScaler, y: -1 * yScaler)
+            case .triangle:
+                package.position =  CGPoint(x: -90 * xScaler, y: -1 * yScaler)
+            case .circle:
+                package.position = CGPoint(x: -40 * xScaler, y: +25 * yScaler)
+                package.xScale = package.xScale * 0.8
+                package.yScale = package.yScale * 0.8
+            case .square:
+                package.position = CGPoint(x: -65 * xScaler, y: -1 * yScaler)
+            }
         }
         
     }

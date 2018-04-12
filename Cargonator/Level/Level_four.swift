@@ -14,7 +14,7 @@ class Level_four: Level_three {
         super.init()
         allowedColors = [Color.Paper_green,Color.Paper_brown]
         var requiredPackages = 25;
-        packageSpawnSeconds = 5.0
+        packageSpawnSeconds = 3.0
     }
     
     override func getNextLevel() -> Level {
