@@ -36,7 +36,7 @@ class Score {
             break
         }
         
-        self.value = (oldScore.value + (GameState.sharedInstance.streak * (addedValue * SettingService.shared.difficulty.rawValue)))
+        self.value = (oldScore.value + GameState.sharedInstance.streak * addedValue)
     }
     
     init() {

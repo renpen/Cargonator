@@ -31,8 +31,6 @@ class SettingsViewController: UIViewController {
         
         // Do any additional setup after loading the view
         
-        initDifficulty()
-        
         placeTwitterLoginButton()
         setLoginButtonConstraints()
         
@@ -58,59 +56,7 @@ class SettingsViewController: UIViewController {
     @IBAction func difficultySliderChanged(_ sender: Any) {
         let fixed = roundf((sender as AnyObject).value / 2.5) * 2.5;
         (sender as AnyObject).setValue(fixed, animated: true)
-        
-        setNewDifficulty()
     }
-    
-    func setNewDifficulty() {
-        let value = difficultySlider.value
-        
-        switch value {
-        case 0:
-            SettingService.shared.setDifficulty(difficulty: Difficulty.easy)
-            difficultyLabel.text = "Easy"
-            break
-        case 2.5:
-            SettingService.shared.setDifficulty(difficulty: Difficulty.medium)
-            difficultyLabel.text = "Medium"
-            break
-        case 5:
-            SettingService.shared.setDifficulty(difficulty: Difficulty.hard)
-            difficultyLabel.text = "Hard"
-            break
-        case 7.5:
-            SettingService.shared.setDifficulty(difficulty: Difficulty.veryhard)
-            difficultyLabel.text = "Very Hard"
-            break
-        case 10:
-            SettingService.shared.setDifficulty(difficulty: Difficulty.extreme)
-            difficultyLabel.text = "Extreme"
-            break
-        default:
-            print("Something went from in the slider")
-        }
-    }
-    
-    func initDifficulty() {
-        switch SettingService.shared.difficulty {
-        case .easy:
-            difficultyLabel.text = "Easy"
-            difficultySlider.value = 0
-        case .medium:
-            difficultyLabel.text = "Medium"
-            difficultySlider.value = 2.5
-        case .hard:
-            difficultyLabel.text = "Hard"
-            difficultySlider.value = 5
-        case .veryhard:
-            difficultyLabel.text = "Very Hard"
-            difficultySlider.value = 7.5
-        case .extreme:
-            difficultyLabel.text = "Extreme"
-            difficultySlider.value = 10
-        }
-    }
-    
     // - MARK: Twitter Settings
     
     func printTwitterActivated(session: TWTRSession) {

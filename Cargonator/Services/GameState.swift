@@ -22,28 +22,30 @@ class GameState {
         }
     }
     private var coins = 0
+    private var startTime: Double = 0
+    private var time: Double = 0
     private var packageSpawnTime:TimeInterval = 4
     private var timeInGame = 0
     private var gameActive = false
     private var countdown = Timer()
-    private var seconds = SettingService.shared.getCountdownStarttime(){
+    private var countdownTime = 20 {
         didSet {
-            playSceneDelegate?.updateCountdown(countdown: seconds)
+            playSceneDelegate?.updateCountdown(countdown: countdownTime)
         }
     }
-    
     var streak = 1
     
     // - MARK: Init
     
     init() {
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.increaseTimeInGame), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.advanceTimer), userInfo: nil, repeats: true)
         countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateCountdown)), userInfo: nil, repeats: true)
+        startTime = Date().timeIntervalSinceReferenceDate
     }
     
     @objc func updateCountdown() {
-        if seconds > 1 {
-            seconds -= 1
+        if countdownTime > 1 {
+            countdownTime -= 1
         }
         else
         {
@@ -59,8 +61,6 @@ class GameState {
         self.coins = 0
         self.timeInGame = 0
         self.gameActive = true
-        calcInitialPackageSpawnTime()
-        setSpawnTimer()
     }
     
     func endGame () {
@@ -75,37 +75,17 @@ class GameState {
     
     // - MARK: Package Spawn Time
     
-    @objc func increaseTimeInGame() {
-        timeInGame += 1
-    }
-    
-    func calcPackageSpawnTime () {
-        if self.packageSpawnTime > SettingService.shared.difficulty.getLeastSpawnTime() {
-            packageSpawnTime -= SettingService.shared.difficulty.getSpawnReduction()
-        }
-    }
-    
-    func calcInitialPackageSpawnTime() {
-        packageSpawnTime = SettingService.shared.difficulty.getInitialSpawnTime()
-    }
-    
-    // - MARK: Package Spawn
-    
-    func setSpawnTimer() {
-        if (self.gameActive) {
-            Timer.scheduledTimer(timeInterval: packageSpawnTime,
-                                 target: self,
-                                 selector: #selector(self.spawnPackage),
-                                 userInfo: nil,
-                                 repeats: false)
+    @objc func advanceTimer() {
+        time = Date().timeIntervalSinceReferenceDate - startTime
+        if time > LevelEngine.sharedInstance.level.packageSpawnSeconds {
+            spawnPackage()
+            startTime = Date().timeIntervalSinceReferenceDate
         }
     }
     
     @objc func spawnPackage() {
         print("Package spawned")
         playSceneDelegate?.spawnPackage()
-        calcPackageSpawnTime()
-        setSpawnTimer()
     }
     
     // - MARK: Score Calculation
@@ -140,6 +120,6 @@ class GameState {
         }
     }
     func increaseTime() {
-        seconds += SettingService.shared.getTimeIncrease()
+        countdownTime += LevelEngine.sharedInstance.level.packageDeliveryAddingTime
     }
 }
