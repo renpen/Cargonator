@@ -57,6 +57,7 @@
 		83CEB54B205FE9AA008A9266 /* SpawnDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CEB54A205FE9AA008A9266 /* SpawnDelegate.swift */; };
 		83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */; };
 		83F66593204FD28A00B90BAF /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F66592204FD28A00B90BAF /* Truck.swift */; };
+		83FDE187207FDE5A009FC3EC /* AnimationPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FDE186207FDE5A009FC3EC /* AnimationPlane.swift */; };
 		A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726F06C204EF55A00ACEF76 /* Figure.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		83CEB54A205FE9AA008A9266 /* SpawnDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpawnDelegate.swift; sourceTree = "<group>"; };
 		83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
 		83F66592204FD28A00B90BAF /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
+		83FDE186207FDE5A009FC3EC /* AnimationPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationPlane.swift; sourceTree = "<group>"; };
 		A726F06C204EF55A00ACEF76 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,6 +292,7 @@
 				83F66592204FD28A00B90BAF /* Truck.swift */,
 				8395B2002060F5AD0058B416 /* Score.swift */,
 				83503EC12052901B002F896A /* Package.swift */,
+				83FDE186207FDE5A009FC3EC /* AnimationPlane.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				8378AA01205959E5008A6EDC /* MenuScene.swift in Sources */,
 				1244B4922077ED54009675C8 /* LevelEngine.swift in Sources */,
 				1244B4982077F2D7009675C8 /* Level_two.swift in Sources */,
+				83FDE187207FDE5A009FC3EC /* AnimationPlane.swift in Sources */,
 				A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */,
 				8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */,
 				1244B4A42077FAA3009675C8 /* Level_six.swift in Sources */,

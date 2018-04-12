@@ -203,6 +203,9 @@ class PlayScene: SKScene, SpawnDelegate {
         
         let planeLabel = self.childNode(withName: "PlaneLabel") as! SKLabelNode
         planeLabel.text = String(UserDefaults.standard.value(forKey: "planes") as! Int)
+        
+        let animationPlane = self.childNode(withName: "AnimationPlane") as! AnimationPlane
+        animationPlane.initialize(flyDuration: 3)
     }
     
     // MARK: - Trucks
@@ -262,6 +265,8 @@ class PlayScene: SKScene, SpawnDelegate {
             UserDefaults.standard.set(oldValue - 1, forKey: "planes")
             planeLabel.text = String(oldValue - 1)
             GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Plane", amount: 1, itemType: "Gameplay", itemId: "Consumed")
+            let animationPlane = self.childNode(withName: "AnimationPlane") as! AnimationPlane
+            animationPlane.fly()
             dropAllActivePackageAndRespawnSameNumber()
         } else {
             print("No planes")
