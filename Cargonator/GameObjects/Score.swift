@@ -42,4 +42,8 @@ class Score {
     init() {
         self.value = 0
     }
+    
+    init(score : Int) {
+        self.value = score
+    }
 }

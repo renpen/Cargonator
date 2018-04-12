@@ -35,9 +35,12 @@ class Truck: SKSpriteNode {
     private var initialPosition: CGPoint = CGPoint.zero
     private var truckColor = LevelEngine.sharedInstance.level.randomColor()
     private var truckFigure = LevelEngine.sharedInstance.level.randomFigure()
+    private var progressBuffer = ProgressBuffer()
     
     func checkAcceptance (package: Package) -> Bool {
         if package.color == truckColor && truckFigure == package.type {
+            progressBuffer.addTime()
+            progressBuffer.calcScore(package: package)
             return true
         }
         print("Truck has properties: Figure: " + truckFigure.rawValue + " and " + truckColor.rawValue)
@@ -130,6 +133,7 @@ class Truck: SKSpriteNode {
     }
     
     func moveBack () {
+        progressBuffer = progressBuffer.submit()
         let moveInAction = SKAction.move(to: CGPoint(x: (self.origin_position.x),y: (self.origin_position.y)), duration: TimeInterval(self.driveInSpeed))
         
         self.run(moveInAction)

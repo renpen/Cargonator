@@ -14,6 +14,7 @@
 		1244B49C2077F55F009675C8 /* Level_four.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B49B2077F55F009675C8 /* Level_four.swift */; };
 		1244B49E2077F5FD009675C8 /* Level_five.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B49D2077F5FD009675C8 /* Level_five.swift */; };
 		1244B4A42077FAA3009675C8 /* Level_six.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1244B4A32077FAA3009675C8 /* Level_six.swift */; };
+		124F4076207FC37C0096DBE6 /* ProgressBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124F4075207FC37C0096DBE6 /* ProgressBuffer.swift */; };
 		1271420B20506D40000FA8DA /* PackageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1271420A20506D40000FA8DA /* PackageFactory.swift */; };
 		128BFC8B206F641600D9DCA5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BFC8A206F641600D9DCA5 /* Color.swift */; };
 		128BFC8D206F7A9A00D9DCA5 /* TruckIdent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128BFC8C206F7A9A00D9DCA5 /* TruckIdent.swift */; };
@@ -92,6 +93,7 @@
 		1244B49B2077F55F009675C8 /* Level_four.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level_four.swift; sourceTree = "<group>"; };
 		1244B49D2077F5FD009675C8 /* Level_five.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level_five.swift; sourceTree = "<group>"; };
 		1244B4A32077FAA3009675C8 /* Level_six.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level_six.swift; sourceTree = "<group>"; };
+		124F4075207FC37C0096DBE6 /* ProgressBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBuffer.swift; sourceTree = "<group>"; };
 		1271420A20506D40000FA8DA /* PackageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageFactory.swift; sourceTree = "<group>"; };
 		128BFC8A206F641600D9DCA5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		128BFC8C206F7A9A00D9DCA5 /* TruckIdent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckIdent.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */,
 				8311BA3E20401E7A00E34FDE /* Info.plist */,
 				1271420A20506D40000FA8DA /* PackageFactory.swift */,
+				124F4075207FC37C0096DBE6 /* ProgressBuffer.swift */,
 			);
 			path = Cargonator;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */,
 				8311BA2D20401E7A00E34FDE /* AppDelegate.swift in Sources */,
 				1244B4A42077FAA3009675C8 /* Level_six.swift in Sources */,
+				124F4076207FC37C0096DBE6 /* ProgressBuffer.swift in Sources */,
 				837F1278205FC5A10003608D /* GameState.swift in Sources */,
 				83006026205FE2C400DC722A /* SettingsViewController.swift in Sources */,
 				1244B49A2077F39C009675C8 /* Level_three.swift in Sources */,

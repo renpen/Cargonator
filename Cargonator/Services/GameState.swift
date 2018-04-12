@@ -90,10 +90,6 @@ class GameState {
     
     // - MARK: Score Calculation
     
-    func calcScore(package: Package) {
-        self.score = Score(oldScore: self.score, deliveredPackage: package)
-    }
-    
     func getCoins() -> Int {
         return Int(Double(score.value) * 0.4)
     }
@@ -108,8 +104,6 @@ class GameState {
         print("Entered packageDelivered with: " + String(self.activePackages))
         self.activePackages -= 1
         packageCount += 1;
-        calcScore(package: package)
-        increaseTime()
         if(packageCount % LevelEngine.sharedInstance.level.requiredPackages == 0)
         {
             packageCount = 1
@@ -119,7 +113,12 @@ class GameState {
             gameViewController?.gameOver()
         }
     }
-    func increaseTime() {
-        countdownTime += LevelEngine.sharedInstance.level.packageDeliveryAddingTime
+    func addTime(seconds : Int)
+    {
+        countdownTime += seconds
+    }
+    func addScore(score : Score)
+    {
+        self.score = Score(score: self.score.value + score.value)
     }
 }
