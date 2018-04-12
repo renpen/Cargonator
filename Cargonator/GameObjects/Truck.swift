@@ -163,7 +163,6 @@ class Truck: SKSpriteNode {
         doFormReposition(package: package)
         package.physicsBody = nil
         self.addChild(package)
-        
     }
     
     // ToDo: Refactoring neccesarry. very high coupling here

@@ -138,6 +138,10 @@ class PlayScene: SKScene, SpawnDelegate {
         spawnPackages(number: 1)
     }
     
+    func startPlaneAnimation() {
+        
+    }
+    
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     var movableNode : SKNode?
@@ -156,7 +160,6 @@ class PlayScene: SKScene, SpawnDelegate {
         GameState.sharedInstance.startGame()
         initArena()
         initTrucks()
-        
         spawnPackages(number: 10)
     }
     
@@ -197,6 +200,9 @@ class PlayScene: SKScene, SpawnDelegate {
         leftBorder.physicsBody?.categoryBitMask = worldBitMask
         leftBorder.physicsBody?.affectedByGravity = false
         leftBorder.physicsBody?.isDynamic = false
+        
+        let planeLabel = self.childNode(withName: "PlaneLabel") as! SKLabelNode
+        planeLabel.text = String(UserDefaults.standard.value(forKey: "planes") as! Int)
     }
     
     // MARK: - Trucks
@@ -250,10 +256,11 @@ class PlayScene: SKScene, SpawnDelegate {
     
     func usePlane() {
         let oldValue = UserDefaults.standard.value(forKey: "planes") as! Int
+        let planeLabel = self.childNode(withName: "PlaneLabel") as! SKLabelNode
         print("Old number of planes: ", oldValue)
         if (oldValue > 0) {
             UserDefaults.standard.set(oldValue - 1, forKey: "planes")
-            // update plane label
+            planeLabel.text = String(oldValue - 1)
             GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Plane", amount: 1, itemType: "Gameplay", itemId: "Consumed")
             dropAllActivePackageAndRespawnSameNumber()
         } else {
