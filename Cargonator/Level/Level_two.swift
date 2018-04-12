@@ -13,6 +13,7 @@ class Level_two: Level {
    override init() {
     super.init()
         allowedFigures = [Figure.circle,Figure.square]
+        var requiredPackages = 7;
     }
     
     override func getNextLevel() -> Level {

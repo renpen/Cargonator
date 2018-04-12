@@ -130,7 +130,7 @@ class GameState {
         packageCount += 1;
         calcScore(package: package)
         increaseTime()
-        if(packageCount % 6 == 0)
+        if(packageCount % LevelEngine.sharedInstance.level.requiredPackages == 0)
         {
             packageCount = 1
             LevelEngine.sharedInstance.nextLevel()

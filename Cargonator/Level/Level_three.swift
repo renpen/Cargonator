@@ -12,6 +12,7 @@ class Level_three: Level_two {
     override init() {
         super.init()
         allowedFigures = [Figure.circle,Figure.square,Figure.trapeze,Figure.triangle]
+        var requiredPackages = 15;
     }
     
     override func getNextLevel() -> Level {

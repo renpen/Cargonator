@@ -13,6 +13,7 @@ class Level_five : Level_four
     override init() {
         super.init()
         allowedColors = [Color.Paper_brown,Color.Paper_green,Color.Paper_white,Color.Paper_yellow]
+        var requiredPackages = 35;
     }
     
     override func getNextLevel() -> Level {

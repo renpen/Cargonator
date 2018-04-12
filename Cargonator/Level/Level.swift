@@ -12,6 +12,7 @@ class Level {
     
     internal var allowedFigures = [Figure.square]
     internal var allowedColors = [Color.Paper_brown]
+    var requiredPackages = 5;
     var fastDelivery = false
     
     func getNextLevel() -> Level
