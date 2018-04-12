@@ -13,8 +13,15 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
     
     @IBOutlet weak var letsStartButton: UIButton!
     
-    @IBAction func letsStartButtonPressed(_ sender: Any) {
+    @IBOutlet weak var skipButton: UIButton!
+    
+    @IBAction func skipButtonPressed(_ sender: Any) {
+        self.showGameViewController()
         
+        GameAnalytics.addDesignEvent(withEventId: "onboarding-skip")
+    }
+    
+    @IBAction func letsStartButtonPressed(_ sender: Any) {
         self.showGameViewController()
         
         GameAnalytics.addDesignEvent(withEventId: "onboarding-completed")
@@ -33,6 +40,7 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
         setupPaperOnboardingView()
         
         view.bringSubview(toFront: letsStartButton)
+        view.bringSubview(toFront: skipButton)
         
         GameAnalytics.addDesignEvent(withEventId: "onboarding-entered")
     }
@@ -86,12 +94,30 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
                                titleColor: UIColor.lightGray,
                                descriptionColor: UIColor.lightGray,
                                titleFont: UIFont.boldSystemFont(ofSize: 25),
+                               descriptionFont: UIFont.boldSystemFont(ofSize: 20)),
+            OnboardingItemInfo(informationImage: UIImage(named:"BlackMail")!,
+                               title: "Blackmails",
+                               description: "CARE! You are not allowed to ship Blackmails! Just ignore them - they get sorted out after 4 seconds",
+                               pageIcon: UIImage(),
+                               color: UIColor(red: 0.40, green: 0.82, blue: 0.71, alpha: 1.00),
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.boldSystemFont(ofSize: 25),
+                               descriptionFont: UIFont.boldSystemFont(ofSize: 20)),
+            OnboardingItemInfo(informationImage: UIImage(named:"Plane")!,
+                               title: "Gadgets",
+                               description: "You can use gadgets like the plane to support you! Buy them in them in the store",
+                               pageIcon: UIImage(),
+                               color: UIColor(red: 0.40, green: 0.95, blue: 0.71, alpha: 1.00),
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.boldSystemFont(ofSize: 25),
                                descriptionFont: UIFont.boldSystemFont(ofSize: 20))
             ][index]
     }
     
     func onboardingItemsCount() -> Int {
-        return 3
+        return 5
     }
 }
 
@@ -258,7 +284,8 @@ extension UIImage {
 extension OnboardingViewController: PaperOnboardingDelegate {
     
     func onboardingWillTransitonToIndex(_ index: Int) {
-        letsStartButton.isHidden = index == 2 ? false : true
+        letsStartButton.isHidden = index == 4 ? false : true
+        skipButton.isHidden = index == 4 ? true : false
     }
     
     func onboardingDidTransitonToIndex(_: Int) {

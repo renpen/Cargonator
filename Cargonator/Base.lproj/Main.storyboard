@@ -47,22 +47,35 @@
                                     <action selector="letsStartButtonPressed:" destination="rDR-m9-07y" eventType="touchUpInside" id="2XK-4i-26m"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Spk-QX-xQU">
+                                <rect key="frame" x="312" y="33" width="50" height="47"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipButtonPressed:" destination="rDR-m9-07y" eventType="touchUpInside" id="6t6-lf-1pV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Spk-QX-xQU" firstAttribute="top" secondItem="HPE-RE-iNk" secondAttribute="top" constant="13" id="GRe-s3-bbq"/>
                             <constraint firstItem="aTo-gm-mO0" firstAttribute="top" secondItem="HPE-RE-iNk" secondAttribute="top" constant="13" id="HhT-gh-SZ3"/>
+                            <constraint firstItem="HPE-RE-iNk" firstAttribute="trailing" secondItem="Spk-QX-xQU" secondAttribute="trailing" constant="13" id="Pyz-8w-EoS"/>
                             <constraint firstItem="HPE-RE-iNk" firstAttribute="trailing" secondItem="aTo-gm-mO0" secondAttribute="trailing" constant="13" id="gy4-Hz-LoB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HPE-RE-iNk"/>
                     </view>
                     <connections>
                         <outlet property="letsStartButton" destination="aTo-gm-mO0" id="9aN-SX-83v"/>
+                        <outlet property="skipButton" destination="Spk-QX-xQU" id="b0l-QW-Dpo"/>
                         <segue destination="BV1-FR-VrT" kind="show" identifier="showGameViewController" id="vtC-eD-fgr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFK-JG-2fi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="809"/>
+            <point key="canvasLocation" x="525.60000000000002" y="808.24587706146929"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="z5p-Sz-1Ov">

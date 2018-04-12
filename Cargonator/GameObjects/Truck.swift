@@ -38,7 +38,7 @@ class Truck: SKSpriteNode {
     private var progressBuffer = ProgressBuffer()
     
     func checkAcceptance (package: Package) -> Bool {
-        if package.color == truckColor && truckFigure == package.type {
+        if package.color == truckColor && truckFigure == package.type && !package.isBlackMail {
             progressBuffer.addTime()
             progressBuffer.calcScore(package: package)
             return true

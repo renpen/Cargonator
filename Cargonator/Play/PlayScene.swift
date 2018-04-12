@@ -280,7 +280,7 @@ class PlayScene: SKScene, SpawnDelegate {
             GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Plane", amount: 1, itemType: "Gameplay", itemId: "Consumed")
             let animationPlane = self.childNode(withName: "AnimationPlane") as! AnimationPlane
             animationPlane.fly()
-            DispatchQueue.main.asyncAfter(deadline: .now() + (animationPlane.getFlyDuration() / 2)) { // change 2 to desired number of seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + (animationPlane.getFlyDuration() / 2)) {
                 self.dropAllActivePackageAndRespawnSameNumber()
             }
         } else {
@@ -330,6 +330,10 @@ class PlayScene: SKScene, SpawnDelegate {
             }
             let randomPos = CGPoint(x: Int(randomPositionX), y: Int(randomPositionY))
             package.position = randomPos
+            
+            // explosive
+            package.isBlackMail = (arc4random_uniform(2) == 0)
+            
             self.addPackageToPlayArea(package: package)
             
             if i == number {

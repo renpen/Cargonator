@@ -13,6 +13,4 @@ enum Color : String {
     case Paper_white
     case Paper_green
     case Paper_brown
-    
-    
 }

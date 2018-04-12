@@ -77,9 +77,9 @@ class PackageFactory {
         triangle.lineWidth = 1
         triangle.fillColor = UIColor.white
        
-            triangle.color = color
-            triangle.fillTexture = SKTexture(imageNamed: color.rawValue)
-               triangle.zPosition = 2
+        triangle.color = color
+        triangle.fillTexture = SKTexture(imageNamed: color.rawValue)
+        triangle.zPosition = 2
         
         triangle.physicsBody = SKPhysicsBody(polygonFrom: path)
         return triangle
@@ -98,8 +98,8 @@ class PackageFactory {
         trapeze.lineWidth = 1
         trapeze.fillColor = UIColor.white
        
-            trapeze.color = color
-            trapeze.fillTexture = SKTexture(imageNamed: color.rawValue)
+        trapeze.color = color
+        trapeze.fillTexture = SKTexture(imageNamed: color.rawValue)
        
         trapeze.zPosition = 2
         trapeze.physicsBody = SKPhysicsBody(polygonFrom: path)
