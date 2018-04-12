@@ -11,6 +11,30 @@ import GameplayKit
 
 class PlayScene: SKScene, SpawnDelegate {
     
+    func getAllActivePackages() -> [Package]{
+        let sceneChildren = self.children
+        var packages:[Package] = []
+        for sc in sceneChildren {
+            if let package = sc as? Package {
+                packages.append(package)
+            }
+        }
+        return packages
+    }
+    
+    func dropAllActivePackageAndRespawnSameNumber() {
+        let activePackages = self.getAllActivePackages()
+        let buffer = ProgressBuffer()
+        for ap in activePackages {
+            ap.removeFromParent()
+            self.spawnPackage()
+            buffer.calcScore(package: ap)
+            // we can add this line or not depending on what behavior we want
+            buffer.addTime()
+        }
+        buffer.submit()
+    }
+    
     // MARK: - Drag and Drop
     
     var slideStartPoint: CGPoint = CGPoint()
@@ -109,6 +133,7 @@ class PlayScene: SKScene, SpawnDelegate {
         let label = self.childNode(withName: "CountdownLabel") as! SKLabelNode
         label.text = String(countdown)
     }
+    
     func spawnPackage() {
         spawnPackages(number: 1)
     }
@@ -228,12 +253,12 @@ class PlayScene: SKScene, SpawnDelegate {
         print("Old number of planes: ", oldValue)
         if (oldValue > 0) {
             UserDefaults.standard.set(oldValue - 1, forKey: "planes")
+            // update plane label
             GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Plane", amount: 1, itemType: "Gameplay", itemId: "Consumed")
-            print("Plane used")
+            dropAllActivePackageAndRespawnSameNumber()
         } else {
             print("No planes")
         }
-        print("New number of planes: ", UserDefaults.standard.value(forKey: "planes") as! Int)
     }
     
     func addPackageToPlayArea (package: Package) {
@@ -241,7 +266,7 @@ class PlayScene: SKScene, SpawnDelegate {
         GameState.sharedInstance.packageSpawned()
     }
     
-    func spawnPackages(number: Int) {
+    private func spawnPackages(number: Int) {
         let packageArea = self.childNode(withName: "PackageArea")
         let scaleFactor = CGFloat(1.5)
         let packageAreaH = (packageArea?.frame.height)!
