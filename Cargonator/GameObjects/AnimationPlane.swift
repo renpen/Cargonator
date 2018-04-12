@@ -11,9 +11,9 @@ import SpriteKit
 
 class AnimationPlane: SKSpriteNode {
     
-    var originPosition: CGPoint = CGPoint()
-    var flyDestination: CGPoint = CGPoint()
-    var flyDuration: TimeInterval = 3
+    private var originPosition: CGPoint = CGPoint()
+    private var flyDestination: CGPoint = CGPoint()
+    private var flyDuration: TimeInterval = 3
     
     func initialize(flyDuration: TimeInterval) {
         self.originPosition = self.position
@@ -21,6 +21,10 @@ class AnimationPlane: SKSpriteNode {
         self.flyDuration = flyDuration
         self.isUserInteractionEnabled = false
         print("AnimationPlane init ", self.originPosition, self.flyDestination)
+    }
+    
+    func getFlyDuration() -> TimeInterval{
+        return self.flyDuration
     }
     
     func fly() {

@@ -25,6 +25,19 @@ class PlayScene: SKScene, SpawnDelegate {
     func dropAllActivePackageAndRespawnSameNumber() {
         let activePackages = self.getAllActivePackages()
         let buffer = ProgressBuffer()
+        self.spawnPackages(number: activePackages.count)
+        for ap in activePackages {
+            ap.removeFromParent()
+            buffer.calcScore(package: ap)
+            // we can add this line or not depending on what behavior we want
+            buffer.addTime()
+        }
+        buffer.submit()
+    }
+    
+    /*func dropAllActivePackageAndRespawnSameNumber() {
+        let activePackages = self.getAllActivePackages()
+        let buffer = ProgressBuffer()
         for ap in activePackages {
             ap.removeFromParent()
             self.spawnPackage()
@@ -33,7 +46,7 @@ class PlayScene: SKScene, SpawnDelegate {
             buffer.addTime()
         }
         buffer.submit()
-    }
+    }*/
     
     // MARK: - Drag and Drop
     
@@ -267,7 +280,9 @@ class PlayScene: SKScene, SpawnDelegate {
             GameAnalytics.addResourceEvent(with: GAResourceFlowTypeSink, currency: "Plane", amount: 1, itemType: "Gameplay", itemId: "Consumed")
             let animationPlane = self.childNode(withName: "AnimationPlane") as! AnimationPlane
             animationPlane.fly()
-            dropAllActivePackageAndRespawnSameNumber()
+            DispatchQueue.main.asyncAfter(deadline: .now() + (animationPlane.getFlyDuration() / 2)) { // change 2 to desired number of seconds
+                self.dropAllActivePackageAndRespawnSameNumber()
+            }
         } else {
             print("No planes")
         }
