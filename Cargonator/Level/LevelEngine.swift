@@ -12,7 +12,6 @@ class LevelEngine {
     static let sharedInstance = LevelEngine()
     var level = Level()
     
-    
     func nextLevel()
     {
         level = level.getNextLevel()

@@ -30,6 +30,7 @@
 		831CE61220645A5600B303BA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831CE61120645A5600B303BA /* OnboardingViewController.swift */; };
 		831CE61320645C5900B303BA /* PaperOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831CE60E20645A1600B303BA /* PaperOnboarding.framework */; };
 		831CE61420645C5900B303BA /* PaperOnboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 831CE60E20645A1600B303BA /* PaperOnboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8329DE75208085BA0055CEE6 /* GAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329DE74208085BA0055CEE6 /* GAHelper.swift */; };
 		8338D0B2205FFA2000018FD1 /* SocialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */; };
 		8338D0CA2060003100018FD1 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8338D0C92060003100018FD1 /* SafariServices.framework */; };
 		83503EC22052901B002F896A /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83503EC12052901B002F896A /* Package.swift */; };
@@ -112,6 +113,7 @@
 		8311BA4920401E7A00E34FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		831CE60E20645A1600B303BA /* PaperOnboarding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PaperOnboarding.framework; path = Carthage/Build/iOS/PaperOnboarding.framework; sourceTree = "<group>"; };
 		831CE61120645A5600B303BA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		8329DE74208085BA0055CEE6 /* GAHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAHelper.swift; sourceTree = "<group>"; };
 		8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDelegate.swift; sourceTree = "<group>"; };
 		8338D0C92060003100018FD1 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		83503EC12052901B002F896A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
+				8329DE73208085A60055CEE6 /* GameAnalytics */,
 				1244B4A52077FACB009675C8 /* Level */,
 				8322ECE42076980B00239042 /* Store */,
 				8311BA2C20401E7A00E34FDE /* AppDelegate.swift */,
@@ -272,6 +275,13 @@
 			children = (
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		8329DE73208085A60055CEE6 /* GameAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GameAnalytics;
 			sourceTree = "<group>";
 		};
 		8338D0C82060003100018FD1 /* Frameworks */ = {
@@ -356,6 +366,7 @@
 		83CEB54F205FF3B4008A9266 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8329DE74208085BA0055CEE6 /* GAHelper.swift */,
 				837F1277205FC5A10003608D /* GameState.swift */,
 			);
 			path = Services;
@@ -485,6 +496,7 @@
 				128BFC8D206F7A9A00D9DCA5 /* TruckIdent.swift in Sources */,
 				128BFC8B206F641600D9DCA5 /* Color.swift in Sources */,
 				83F66593204FD28A00B90BAF /* Truck.swift in Sources */,
+				8329DE75208085BA0055CEE6 /* GAHelper.swift in Sources */,
 				1244B4942077EDA4009675C8 /* Level.swift in Sources */,
 				83CEB54B205FE9AA008A9266 /* SpawnDelegate.swift in Sources */,
 				83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */,

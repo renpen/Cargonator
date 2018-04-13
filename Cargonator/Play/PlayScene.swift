@@ -293,6 +293,8 @@ class PlayScene: SKScene, SpawnDelegate {
         GameState.sharedInstance.packageSpawned()
     }
     
+    var useBlackMails = false
+    
     private func spawnPackages(number: Int) {
         let packageArea = self.childNode(withName: "PackageArea")
         let scaleFactor = CGFloat(1.5)
@@ -332,7 +334,11 @@ class PlayScene: SKScene, SpawnDelegate {
             package.position = randomPos
             
             // explosive
-            package.isBlackMail = (arc4random_uniform(2) == 0)
+            if (self.useBlackMails) {
+                package.isBlackMail = (arc4random_uniform(2) == 0)
+            } else {
+                package.isBlackMail = false
+            }
             
             self.addPackageToPlayArea(package: package)
             

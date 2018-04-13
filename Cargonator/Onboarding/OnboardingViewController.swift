@@ -18,13 +18,13 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
     @IBAction func skipButtonPressed(_ sender: Any) {
         self.showGameViewController()
         
-        GameAnalytics.addDesignEvent(withEventId: "onboarding-skip")
+        GameAnalytics.addDesignEvent(withEventId: "Onboarding:Skip")
     }
     
     @IBAction func letsStartButtonPressed(_ sender: Any) {
         self.showGameViewController()
         
-        GameAnalytics.addDesignEvent(withEventId: "onboarding-completed")
+        GameAnalytics.addDesignEvent(withEventId: "Onboarding:Completed")
     }
     
     func showGameViewController() {
@@ -42,7 +42,7 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
         view.bringSubview(toFront: letsStartButton)
         view.bringSubview(toFront: skipButton)
         
-        GameAnalytics.addDesignEvent(withEventId: "onboarding-entered")
+        GameAnalytics.addDesignEvent(withEventId: "Onboarding:Entered")
     }
     
     private func setupPaperOnboardingView() {
@@ -97,7 +97,7 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
                                descriptionFont: UIFont.boldSystemFont(ofSize: 20)),
             OnboardingItemInfo(informationImage: UIImage(named:"BlackMail")!,
                                title: "Blackmails",
-                               description: "CARE! You are not allowed to ship Blackmails! Just ignore them - they get sorted out after 4 seconds",
+                               description: "CARE! You are not allowed to ship Blackmails! Just ignore them - they get sorted out automatically",
                                pageIcon: UIImage(),
                                color: UIColor(red: 0.40, green: 0.82, blue: 0.71, alpha: 1.00),
                                titleColor: UIColor.white,

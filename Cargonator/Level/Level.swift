@@ -16,6 +16,8 @@ class Level {
     var packageSpawnSeconds = 5.0
     var packageDeliveryAddingTime = 2
     
+    var name = "Level1"
+    
     var fastDelivery = false
     
     func getNextLevel() -> Level

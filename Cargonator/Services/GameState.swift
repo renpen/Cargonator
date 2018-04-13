@@ -28,6 +28,7 @@ class GameState {
     private var timeInGame = 0
     private var gameActive = false
     private var countdown = Timer()
+    private var advance = Timer()
     private var countdownTime = 20 {
         didSet {
             playSceneDelegate?.updateCountdown(countdown: countdownTime)
@@ -38,9 +39,9 @@ class GameState {
     // - MARK: Init
     
     init() {
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.advanceTimer), userInfo: nil, repeats: true)
+        /*Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.advanceTimer), userInfo: nil, repeats: true)
         countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateCountdown)), userInfo: nil, repeats: true)
-        startTime = Date().timeIntervalSinceReferenceDate
+        startTime = Date().timeIntervalSinceReferenceDate*/
     }
     
     @objc func updateCountdown() {
@@ -50,8 +51,8 @@ class GameState {
         else
         {
             endGame()
+            GAHelper.shared.postGameOver(reason: GameOverReason.TimeOver)
             gameViewController?.gameOver()
-            countdown.invalidate()
         }
         
     }
@@ -61,10 +62,21 @@ class GameState {
         self.coins = 0
         self.timeInGame = 0
         self.gameActive = true
+        
+        LevelEngine.sharedInstance.level = Level()
+        GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "Game", progression02: LevelEngine.sharedInstance.level.name, progression03: nil)
+        
+        advance = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.advanceTimer), userInfo: nil, repeats: true)
+        countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateCountdown)), userInfo: nil, repeats: true)
+        startTime = Date().timeIntervalSinceReferenceDate
+        
+        countdownTime = 20
     }
     
     func endGame () {
         self.gameActive = false
+        advance.invalidate()
+        countdown.invalidate()
     }
     
     // - MARK: Getter and Setter
@@ -107,10 +119,9 @@ class GameState {
         if(packageCount % LevelEngine.sharedInstance.level.requiredPackages == 0)
         {
             packageCount = 1
+            GameAnalytics.addProgressionEvent(with: GAProgressionStatusComplete, progression01: "Game", progression02: LevelEngine.sharedInstance.level.name, progression03: nil)
             LevelEngine.sharedInstance.nextLevel()
-        }
-        if activePackages == 0 {
-            gameViewController?.gameOver()
+            GameAnalytics.addProgressionEvent(with: GAProgressionStatusStart, progression01: "Game", progression02: LevelEngine.sharedInstance.level.name, progression03: nil)
         }
     }
     func addTime(seconds : Int)

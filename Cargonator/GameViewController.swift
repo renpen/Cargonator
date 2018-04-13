@@ -60,7 +60,7 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
                 highScore = UserDefaults.standard.value(forKey: "highScore") as! Int
             }
             
-            let eventString = "Plane-" + String(highScore)
+            let eventString = "HighScoreGadgets:Plane:" + String(highScore)
             
             GameAnalytics.addDesignEvent(withEventId: eventString)
             
@@ -93,7 +93,7 @@ class GameViewController: UIViewController, NavigationDelegate, SocialDelegate {
             composer.setText(text)
             
             composer.show(from: self, completion: { (result) in
-                GameAnalytics.addDesignEvent(withEventId: "result-tweet", value: NSNumber(integerLiteral: GameState.sharedInstance.getScore()))
+                GameAnalytics.addDesignEvent(withEventId: "Twitter:TweetResult:", value: NSNumber(integerLiteral: GameState.sharedInstance.getScore()))
             })
         } else {
             print("Not logged in")

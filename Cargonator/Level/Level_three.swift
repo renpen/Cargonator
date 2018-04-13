@@ -12,6 +12,7 @@ class Level_three: Level_two {
     override init() {
         super.init()
         allowedFigures = [Figure.circle,Figure.square,Figure.trapeze,Figure.triangle]
+        name = "Level3"
         var requiredPackages = 15;
         packageSpawnSeconds = 2.0
     }

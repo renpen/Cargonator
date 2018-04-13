@@ -13,6 +13,7 @@ class Level_two: Level {
    override init() {
     super.init()
         allowedFigures = [Figure.circle,Figure.square]
+        name = "Level2"
         requiredPackages = 7;
         packageSpawnSeconds = 3.0
     }

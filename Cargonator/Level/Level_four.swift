@@ -13,6 +13,7 @@ class Level_four: Level_three {
     override init() {
         super.init()
         allowedColors = [Color.Paper_green,Color.Paper_brown]
+        name = "Level4"
         var requiredPackages = 25;
         packageSpawnSeconds = 3.0
     }

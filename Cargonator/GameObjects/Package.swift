@@ -19,7 +19,7 @@ class Package: SKShapeNode {
             if self.isBlackMail {
                 self.fillTexture = nil
                 self.fillColor = UIColor.black
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(arc4random_uniform(5))) {
                     self.removeFromParent()
                 }
             }
