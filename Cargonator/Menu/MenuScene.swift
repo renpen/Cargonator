@@ -17,6 +17,16 @@ class MenuScene: SKScene {
     
     override func didMove(to view: SKView) {
         updateCoins()
+        updateHighScore()
+    }
+    
+    func updateHighScore() {
+        let label = self.childNode(withName: "HighScoreLabel") as! SKLabelNode
+        if (UserDefaults.standard.value(forKey: "highScore") != nil) {
+            label.text = String(UserDefaults.standard.value(forKey: "highScore") as! Int)
+        } else {
+            label.text = String(0)
+        }
     }
     
     func updateCoins() {
