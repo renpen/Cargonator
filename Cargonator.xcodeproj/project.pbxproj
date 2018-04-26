@@ -26,10 +26,7 @@
 		8311BA3A20401E7A00E34FDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3920401E7A00E34FDE /* Assets.xcassets */; };
 		8311BA3D20401E7A00E34FDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8311BA3B20401E7A00E34FDE /* LaunchScreen.storyboard */; };
 		8311BA4820401E7A00E34FDE /* CargonatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8311BA4720401E7A00E34FDE /* CargonatorTests.swift */; };
-		831CE60F20645A1600B303BA /* PaperOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831CE60E20645A1600B303BA /* PaperOnboarding.framework */; };
 		831CE61220645A5600B303BA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831CE61120645A5600B303BA /* OnboardingViewController.swift */; };
-		831CE61320645C5900B303BA /* PaperOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831CE60E20645A1600B303BA /* PaperOnboarding.framework */; };
-		831CE61420645C5900B303BA /* PaperOnboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 831CE60E20645A1600B303BA /* PaperOnboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8329DE75208085BA0055CEE6 /* GAHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329DE74208085BA0055CEE6 /* GAHelper.swift */; };
 		8338D0B2205FFA2000018FD1 /* SocialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */; };
 		8338D0CA2060003100018FD1 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8338D0C92060003100018FD1 /* SafariServices.framework */; };
@@ -59,6 +56,7 @@
 		83F18AD120596EAB00A0A508 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F18AD020596EAB00A0A508 /* NavigationDelegate.swift */; };
 		83F66593204FD28A00B90BAF /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F66592204FD28A00B90BAF /* Truck.swift */; };
 		83FDE187207FDE5A009FC3EC /* AnimationPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FDE186207FDE5A009FC3EC /* AnimationPlane.swift */; };
+		A219B266120C5CB3E7669381 /* Pods_Cargonator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752B892E73299732FCF63D78 /* Pods_Cargonator.framework */; };
 		A726F06D204EF55A00ACEF76 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A726F06C204EF55A00ACEF76 /* Figure.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +77,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				831CE61420645C5900B303BA /* PaperOnboarding.framework in Embed Frameworks */,
 				837F1285205FCF250003608D /* TwitterKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -99,6 +96,8 @@
 		1271420A20506D40000FA8DA /* PackageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageFactory.swift; sourceTree = "<group>"; };
 		128BFC8A206F641600D9DCA5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		128BFC8C206F7A9A00D9DCA5 /* TruckIdent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckIdent.swift; sourceTree = "<group>"; };
+		6C4682A94265622482890DF1 /* Pods-Cargonator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cargonator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cargonator/Pods-Cargonator.release.xcconfig"; sourceTree = "<group>"; };
+		752B892E73299732FCF63D78 /* Pods_Cargonator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cargonator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83006025205FE2C400DC722A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8311BA2920401E7A00E34FDE /* Cargonator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cargonator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8311BA2C20401E7A00E34FDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 		8311BA4320401E7A00E34FDE /* CargonatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CargonatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8311BA4720401E7A00E34FDE /* CargonatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CargonatorTests.swift; sourceTree = "<group>"; };
 		8311BA4920401E7A00E34FDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		831CE60E20645A1600B303BA /* PaperOnboarding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PaperOnboarding.framework; path = Carthage/Build/iOS/PaperOnboarding.framework; sourceTree = "<group>"; };
 		831CE61120645A5600B303BA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8329DE74208085BA0055CEE6 /* GAHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GAHelper.swift; sourceTree = "<group>"; };
 		8338D0B1205FFA2000018FD1 /* SocialDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +141,7 @@
 		83F66592204FD28A00B90BAF /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
 		83FDE186207FDE5A009FC3EC /* AnimationPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationPlane.swift; sourceTree = "<group>"; };
 		A726F06C204EF55A00ACEF76 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
+		BE4E4322DB766E993D49AED7 /* Pods-Cargonator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cargonator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cargonator/Pods-Cargonator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,14 +153,13 @@
 				83656EB62076063B00BCD7E4 /* libz.tbd in Frameworks */,
 				83656EB42076062F00BCD7E4 /* SystemConfiguration.framework in Frameworks */,
 				83656EB22076062900BCD7E4 /* AdSupport.framework in Frameworks */,
-				831CE61320645C5900B303BA /* PaperOnboarding.framework in Frameworks */,
 				8338D0CA2060003100018FD1 /* SafariServices.framework in Frameworks */,
 				837F127D205FCE010003608D /* TwitterKit.framework in Frameworks */,
 				83656EAD2075FF6D00BCD7E4 /* libGameAnalytics.a in Frameworks */,
 				837F127E205FCE010003608D /* TwitterCore.framework in Frameworks */,
 				83656EAF2075FF8300BCD7E4 /* GameAnalytics.framework in Frameworks */,
-				831CE60F20645A1600B303BA /* PaperOnboarding.framework in Frameworks */,
 				837F1284205FCF250003608D /* TwitterKit.framework in Frameworks */,
+				A219B266120C5CB3E7669381 /* Pods_Cargonator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +187,15 @@
 			path = Level;
 			sourceTree = "<group>";
 		};
+		45011A575BBC02858D619F10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE4E4322DB766E993D49AED7 /* Pods-Cargonator.debug.xcconfig */,
+				6C4682A94265622482890DF1 /* Pods-Cargonator.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		83006024205FE2B000DC722A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +210,6 @@
 				83656EB02076017900BCD7E4 /* Cargonator-Bridging-Header.h */,
 				83656EAE2075FF8200BCD7E4 /* GameAnalytics.framework */,
 				83656EAA2075FF5600BCD7E4 /* Analytics */,
-				831CE60E20645A1600B303BA /* PaperOnboarding.framework */,
 				837F127A205FCE010003608D /* TwitterCore.framework */,
 				837F1279205FCE010003608D /* TwitterKit.framework */,
 				837F127B205FCE010003608D /* TwitterKitResources.bundle */,
@@ -212,6 +218,7 @@
 				8311BA4620401E7A00E34FDE /* CargonatorTests */,
 				8311BA2A20401E7A00E34FDE /* Products */,
 				8338D0C82060003100018FD1 /* Frameworks */,
+				45011A575BBC02858D619F10 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -227,9 +234,7 @@
 		8311BA2B20401E7A00E34FDE /* Cargonator */ = {
 			isa = PBXGroup;
 			children = (
-				8329DE73208085A60055CEE6 /* GameAnalytics */,
 				1244B4A52077FACB009675C8 /* Level */,
-				8322ECE42076980B00239042 /* Store */,
 				8311BA2C20401E7A00E34FDE /* AppDelegate.swift */,
 				835DD2B12064F69A00B3D22F /* Delivery.gif */,
 				831CE61020645A2C00B303BA /* Onboarding */,
@@ -270,20 +275,6 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		8322ECE42076980B00239042 /* Store */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Store;
-			sourceTree = "<group>";
-		};
-		8329DE73208085A60055CEE6 /* GameAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GameAnalytics;
-			sourceTree = "<group>";
-		};
 		8338D0C82060003100018FD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +283,7 @@
 				83656EB32076062F00BCD7E4 /* SystemConfiguration.framework */,
 				83656EB12076062900BCD7E4 /* AdSupport.framework */,
 				8338D0C92060003100018FD1 /* SafariServices.framework */,
+				752B892E73299732FCF63D78 /* Pods_Cargonator.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -379,10 +371,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8311BA4C20401E7A00E34FDE /* Build configuration list for PBXNativeTarget "Cargonator" */;
 			buildPhases = (
+				BB9F022CCDC6961112C61A80 /* [CP] Check Pods Manifest.lock */,
 				8311BA2520401E7A00E34FDE /* Sources */,
 				8311BA2620401E7A00E34FDE /* Frameworks */,
 				8311BA2720401E7A00E34FDE /* Resources */,
 				837F1286205FCF250003608D /* Embed Frameworks */,
+				93864FAD805B73CA17CD6380 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -477,6 +471,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93864FAD805B73CA17CD6380 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Cargonator/Pods-Cargonator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cargonator/Pods-Cargonator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB9F022CCDC6961112C61A80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cargonator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8311BA2520401E7A00E34FDE /* Sources */ = {
@@ -600,7 +633,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -652,7 +685,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Cargonator-Bridging-Header.h";
@@ -663,6 +696,7 @@
 		};
 		8311BA4D20401E7A00E34FDE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE4E4322DB766E993D49AED7 /* Pods-Cargonator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -691,6 +725,7 @@
 		};
 		8311BA4E20401E7A00E34FDE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C4682A94265622482890DF1 /* Pods-Cargonator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PaperOnboarding
+import paper_onboarding
 
 class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
     

@@ -1,0 +1,16 @@
+PODS:
+  - paper-onboarding (4.0.2)
+
+DEPENDENCIES:
+  - paper-onboarding
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - paper-onboarding
+
+SPEC CHECKSUMS:
+  paper-onboarding: e6e2778c4e8de8db1d798bb7e3b4922e91fb7f99
+
+PODFILE CHECKSUM: 7305a1fe68ecc6b8dfe82c316cda3506b9d5aa21
+
+COCOAPODS: 1.5.0
